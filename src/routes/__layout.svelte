@@ -33,5 +33,7 @@
 	<title>{page} | jonathandain.dev</title>
 </svelte:head>
 
-<NavBar />
-<slot />
+<main>
+	<NavBar />
+	<slot />
+</main>
