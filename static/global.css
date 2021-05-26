@@ -3,24 +3,29 @@
 
 :root {
   /* COLORS */
-  --green: #00ebc7;
-  --red: #ff5470;
-  --yellow: #fde24f;
-  --black: #1b2d45;
-  --darkBlue: #00214d;
-  --gray: #bfbfbf;
-  --lightGray: #f2f4f6;
+  /* --green: #00ebc7; */
+  --aqua: #0fc;
+  /* --red: #ff5470; */
+  --red: #ff3232;
+  --hotpink: #ff1a75;
+  /* --yellow: #fde24f; */
+  /* --black: #1b2d45; */
+  --black: #111;
+  /* --darkBlue: #00214d; */
+  /* --gray: #bfbfbf; */
+  /* --lightGray: #f2f4f6; */
   --white: #fff;
-  --darkGray: #222;
+  /* --darkGray: #222; */
+  --darkGray: #191919;
 
   /* COLORS INTENTIONS */
-	--primary: var(--green);
+	--primary: var(--aqua);
 	--danger: var(--red);
-  --background: var(--lightGray);
-  --textColor: var(--black);
-  --lineColor: var(--gray);
-  --cardBG: var(--white);
-  --headerBG: var(--darkBlue);
+  --background: var(--black);
+  --textColor: var(--white);
+  --lineColor: var(--hotpink);
+  --cardBG: var(--darkGray);
+  --headerBG: var(--black);
   --btnTextColor: var(--textColor);
   --footerBG: var(--black);
 
@@ -49,7 +54,7 @@
 
 	/* POSITIONING */
 	--containerPadding: 2.5%;
-	--headerHeight: 3rem;
+	--headerHeight: 4rem;
   --borderRadius: 10px;
 }
 
@@ -95,11 +100,11 @@ header nav a {
 
 /* handles spacing of nav items */
 header nav a + a {
-	margin-left: 10px;
+	margin-left: 20px;
 }
 
 footer {
-	--footerTextColor: var(--lightGray);
+	--footerTextColor: var(--white);
 
 	color: var(--footerTextColor);
 	background: var(--footerBG);
