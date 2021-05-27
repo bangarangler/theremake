@@ -292,6 +292,18 @@ button.small {
   margin-bottom: 0;
 }
 
+.lightTheme {
+	--primary: var(--aqua);
+	--danger: var(--red);
+	--background: var(--white);
+	--textColor: var(--black);
+	--lineColor: var(--hotpink);
+	/* --cardBG: var(--darkGray); */
+	--headerBG: var(--white);
+	/* --btnTextColor: var(--textColor); */
+	--footerBG: var(--black);
+}
+
 .dark {
   --cardBG: var(--darkGray);
   --background: var(--black);

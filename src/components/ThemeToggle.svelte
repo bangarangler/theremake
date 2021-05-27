@@ -1,5 +1,33 @@
+<script lang="ts">
+	import { theme } from '$stores/themeStore';
+	/* import { onMount } from 'svelte'; */
+	let boolean = $theme === 'DARK' ? true : false;
+	/* function toggleLight() { */
+	/* 	console.log('adding light'); */
+	/* 	onMount(() => { */
+	/* 		window?.document?.body?.classList?.add('lightTheme'); */
+	/* 	}); */
+	/* } */
+	/* function toggleDark() { */
+	/* 	console.log('making dark'); */
+	/* 	onMount(() => { */
+	/* 		window?.document?.body?.classList?.remove('lightTheme'); */
+	/* 	}); */
+	/* } */
+	/* $: console.log('theme', $theme); */
+	/* $: { */
+	/* 	boolean ? toggleLight() : toggleDark(); */
+	/* } */
+</script>
+
 <div class="container">
-	<input type="checkbox" id="toggle" class="toggle--checkbox" />
+	<input
+		type="checkbox"
+		id="toggle"
+		class="toggle--checkbox"
+		bind:checked={boolean}
+		on:click={!$theme ? theme.lightMode : theme.darkMode}
+	/>
 	<label for="toggle" class="toggle--label">
 		<span class="toggle--label-background" />
 	</label>

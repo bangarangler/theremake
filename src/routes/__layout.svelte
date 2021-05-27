@@ -1,6 +1,7 @@
 <script lang="ts">
 	/* import '../../static/global.css'; */
 	import NavBar from '$components/NavBar.svelte';
+	/* import { theme } from '$stores/themeStore'; */
 	import { page } from '$app/stores';
 	$: path = $page.path.replace('/', '');
 	$: title = path !== '' ? path : 'home';
@@ -49,9 +50,3 @@ jonathandain.dev"
 	<NavBar />
 	<slot />
 </main>
-
-<style>
-	/*@import '../../static/global.css'; /* main { */
-	/* 	padding: calc(3rem + var(--headerHeight)) var(--containerPadding); */
-	/* } */
-</style>
