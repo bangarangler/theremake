@@ -34,14 +34,10 @@
 		margin-top: 8px;
 	}
 	.toggle--label {
-		/* width: 200px; */
 		width: 100px;
-		/* height: 100px; */
 		height: 50px;
 		background: var(--blue-color);
-		/* border-radius: 100px; */
 		border-radius: 50px;
-		/* border: 5px solid var(--blue-border); */
 		border: 2.5px solid var(--blue-border);
 		display: flex;
 		position: relative;
