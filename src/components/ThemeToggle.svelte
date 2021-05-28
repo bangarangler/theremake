@@ -1,16 +1,13 @@
 <script lang="ts">
+	import { browser } from '$app/env';
 	import { theme } from '$stores/themeStore';
-	$: console.log('theme', $theme);
+	/* $: console.log('theme', $theme); */
 	$: bool = $theme === 'DARK' ? true : false;
-	const isServer = typeof window === undefined ? true : false;
-	/* $: console.log('what', !$theme ? theme.lightMode() : theme.darkMode()); */
-	/* $: console.log('what', theme.lightMode()); */
-	$: console.log('$theme', $theme);
-	$: {
-		if ($theme === 'DARK' && isServer) {
-			console.log('running here where i think');
-			const el = window.document.getElementById('svelte');
-			console.log('el', el);
+	/* $: console.log('$theme', $theme); */
+	$: if ($theme) {
+		if (browser) {
+			const el = window.document.body;
+			$theme === 'DARK' ? el.classList.remove('lightTheme') : el.classList.add('lightTheme');
 		}
 	}
 </script>

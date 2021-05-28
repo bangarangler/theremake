@@ -4,7 +4,7 @@ interface CreateTheme {
 	subscribe: any;
 	lightMode: () => void;
 	darkMode: () => void;
-	toggle: (whatTheme: string) => void;
+	toggle: (whatTheme: string) => any;
 	reset: () => void;
 }
 
