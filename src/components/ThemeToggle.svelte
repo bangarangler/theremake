@@ -1,23 +1,30 @@
 <script lang="ts">
 	import { theme } from '$stores/themeStore';
-	/* import { onMount } from 'svelte'; */
-	let boolean = $theme === 'DARK' ? true : false;
-	/* function toggleLight() { */
-	/* 	console.log('adding light'); */
-	/* 	onMount(() => { */
-	/* 		window?.document?.body?.classList?.add('lightTheme'); */
-	/* 	}); */
-	/* } */
-	/* function toggleDark() { */
-	/* 	console.log('making dark'); */
-	/* 	onMount(() => { */
-	/* 		window?.document?.body?.classList?.remove('lightTheme'); */
-	/* 	}); */
-	/* } */
-	/* $: console.log('theme', $theme); */
-	/* $: { */
-	/* 	boolean ? toggleLight() : toggleDark(); */
-	/* } */
+	$: isServer = typeof window === undefined ? true : false;
+	$: bool = $theme === 'DARK' ? true : false;
+	$: console.log('bool', bool);
+	$: {
+		doThis();
+	}
+	function doThis() {
+		console.log('running do this...');
+		if (isServer) {
+			if (bool) {
+				/* let test = window.document.body; */
+				let test = window.document.getElementsByTagName('HTML');
+				console.log('running if...');
+				console.log('test', test);
+				window.document.body.classList.add('lightTheme');
+				/* test.classList.add('lightTheme'); */
+			} else {
+				let test = window.document.body;
+				console.log('running else...');
+				console.log('test', test);
+				test.classList.remove('lightTheme');
+				/* window.document.body.classList.add('darkTheme'); */
+			}
+		}
+	}
 </script>
 
 <div class="container">
@@ -25,7 +32,7 @@
 		type="checkbox"
 		id="toggle"
 		class="toggle--checkbox"
-		bind:checked={boolean}
+		bind:checked={bool}
 		on:click={!$theme ? theme.lightMode : theme.darkMode}
 	/>
 	<label for="toggle" class="toggle--label">

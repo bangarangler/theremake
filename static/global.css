@@ -291,6 +291,17 @@ button.small {
 .card > *:last-child {
   margin-bottom: 0;
 }
+.darkTheme {
+	--primary: var(--aqua);
+	--danger: var(--red);
+	--background: var(--black);
+	--textColor: var(--white);
+	--lineColor: var(--hotpink);
+	/* --cardBG: var(--darkGray); */
+	--headerBG: var(--black);
+	/* --btnTextColor: var(--textColor); */
+	--footerBG: var(--black);
+}
 
 .lightTheme {
 	--primary: var(--aqua);
