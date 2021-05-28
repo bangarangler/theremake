@@ -1,28 +1,16 @@
 <script lang="ts">
 	import { theme } from '$stores/themeStore';
-	$: isServer = typeof window === undefined ? true : false;
+	$: console.log('theme', $theme);
 	$: bool = $theme === 'DARK' ? true : false;
-	$: console.log('bool', bool);
+	const isServer = typeof window === undefined ? true : false;
+	/* $: console.log('what', !$theme ? theme.lightMode() : theme.darkMode()); */
+	/* $: console.log('what', theme.lightMode()); */
+	$: console.log('$theme', $theme);
 	$: {
-		doThis();
-	}
-	function doThis() {
-		console.log('running do this...');
-		if (isServer) {
-			if (bool) {
-				/* let test = window.document.body; */
-				let test = window.document.getElementsByTagName('HTML');
-				console.log('running if...');
-				console.log('test', test);
-				window.document.body.classList.add('lightTheme');
-				/* test.classList.add('lightTheme'); */
-			} else {
-				let test = window.document.body;
-				console.log('running else...');
-				console.log('test', test);
-				test.classList.remove('lightTheme');
-				/* window.document.body.classList.add('darkTheme'); */
-			}
+		if ($theme === 'DARK' && isServer) {
+			console.log('running here where i think');
+			const el = window.document.getElementById('svelte');
+			console.log('el', el);
 		}
 	}
 </script>
@@ -33,7 +21,7 @@
 		id="toggle"
 		class="toggle--checkbox"
 		bind:checked={bool}
-		on:click={!$theme ? theme.lightMode : theme.darkMode}
+		on:click={theme.toggle($theme)}
 	/>
 	<label for="toggle" class="toggle--label">
 		<span class="toggle--label-background" />
