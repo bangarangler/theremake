@@ -26,6 +26,7 @@
   --lineColor: var(--hotpink);
   --cardBG: var(--darkGray);
   --headerBG: var(--black);
+	--headerLinkText: var(--white);
   --btnTextColor: var(--textColor);
   --footerBG: var(--black);
 
@@ -94,7 +95,8 @@ header {
 }
 
 header nav a {
-	color: white;
+	/* color: white; */
+	color: var(--headerLinkText);
 	text-decoration: none;
 }
 
@@ -291,17 +293,6 @@ button.small {
 .card > *:last-child {
   margin-bottom: 0;
 }
-.darkTheme {
-	--primary: var(--aqua);
-	--danger: var(--red);
-	--background: var(--black);
-	--textColor: var(--white);
-	--lineColor: var(--hotpink);
-	/* --cardBG: var(--darkGray); */
-	--headerBG: var(--black);
-	/* --btnTextColor: var(--textColor); */
-	--footerBG: var(--black);
-}
 
 .lightTheme {
 	--primary: var(--aqua);
@@ -311,25 +302,26 @@ button.small {
 	--lineColor: var(--hotpink);
 	/* --cardBG: var(--darkGray); */
 	--headerBG: var(--white);
+	--headerLinkText: var(--black);
 	/* --btnTextColor: var(--textColor); */
 	--footerBG: var(--black);
 }
 
-.dark {
-  --cardBG: var(--darkGray);
-  --background: var(--black);
-  --textColor: var(--lightGray);
-  --headerBG: var(--darkGray);
-  --btnTextColor: var(--black);
-  --footerBG: var(--darkGray);
-}
-
-.oled {
-  --black: #000;
-  --cardBG: var(--darkGray);
-  --headerBG: var(--darkGray);
-  --footerBG: var(--darkGray);
-}
+/* .dark { */
+/*   --cardBG: var(--darkGray); */
+/*   --background: var(--black); */
+/*   --textColor: var(--lightGray); */
+/*   --headerBG: var(--darkGray); */
+/*   --btnTextColor: var(--black); */
+/*   --footerBG: var(--darkGray); */
+/* } */
+/*  */
+/* .oled { */
+/*   --black: #000; */
+/*   --cardBG: var(--darkGray); */
+/*   --headerBG: var(--darkGray); */
+/*   --footerBG: var(--darkGray); */
+/* } */
 
 /* THEME */
 .theme {
