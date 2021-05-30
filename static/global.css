@@ -304,7 +304,7 @@ button.small {
 	--background: var(--white);
 	--textColor: var(--black);
 	--lineColor: var(--hotpink);
-	/* --cardBG: var(--darkGray); */
+	--cardBG: var(--lightGray);
 	--headerBG: var(--white);
 	--headerLinkText: var(--black);
 	/* --btnTextColor: var(--textColor); */

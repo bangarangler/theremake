@@ -1,12 +1,21 @@
 <script lang="ts">
 	import { TEST } from '$lib/Env';
 	/* <p>Testing... : {TEST}</p> */
+	import { theme } from '$stores/themeStore';
 	import Wave from '$components/Wave/Wave.svelte';
 </script>
 
 <section>
 	<div class="titleWrapper">
 		<h1>Hi. I'm Jon. Fullstack Developer...</h1>
+		<blockquote>
+			<p class="quote">A Foolish Consistency Is the Hobgoblin of Little Minds</p>
+			{#if $theme === 'DARK'}
+				<div class="quoteFooter">- Ralph Waldo Emerson</div>
+			{:else}
+				<div class="quoteFooter light">- Ralph Walso Emerson</div>
+			{/if}
+		</blockquote>
 	</div>
 	<div class="line" />
 	<div class="blobWrapper">
@@ -27,6 +36,7 @@
 		min-width: 100%;
 		min-height: 100%;
 	}
+
 	.remove-margin {
 		margin-bottom: 0;
 	}
@@ -43,26 +53,73 @@
 		justify-self: center;
 		width: 60%;
 	}
+
 	h1 {
 		background: linear-gradient(271deg, var(--hotpink) 50%, var(--aqua) 70%, #a162e8 94%);
 		background-clip: border-box;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		/* width: 90%; */
-		/* border: 1px solid red; */
-		/* grid-area: 'title'; */
 	}
+
+	.quote {
+		quotes: '\201C''\201D''\2018''\2019';
+	}
+
+	.quote:before {
+		content: open-quote;
+		display: inline;
+		height: 0;
+		line-height: 0;
+		left: -10px;
+		position: relative;
+		top: 20px;
+		color: var(--hotpink);
+		font-size: 3em;
+	}
+
+	.quote::after {
+		content: close-quote;
+		display: inline;
+		height: 0;
+		line-height: 0;
+		left: 10px;
+		position: relative;
+		top: 25px;
+		color: var(--aqua);
+		font-size: 3em;
+	}
+
+	.quoteFooter {
+		margin: 0;
+		text-align: right;
+		font-style: italic;
+		font-family: var(--slantText);
+		/* color: var(--footerTextColor); */
+		padding: 0;
+		text-align: center;
+		background: linear-gradient(to bottom left, #7a00cc, #ff1a75);
+		background-clip: border-box;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.light {
+		-webkit-text-fill-color: unset;
+	}
+
 	.line {
 		width: 3px;
 		height: 100%;
 		background: var(--hotpink);
 	}
+
 	h2 {
 		position: absolute;
 		top: 115px;
 		left: -56px;
 		z-index: 1;
 	}
+
 	.blobWrapper {
 		width: 50vmin;
 		height: 50vmin;
@@ -70,6 +127,7 @@
 		position: relative;
 		place-self: end;
 	}
+
 	.blob {
 		position: absolute;
 		top: 0;
