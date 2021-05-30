@@ -13,10 +13,10 @@
   --black: #111;
   /* --darkBlue: #00214d; */
   /* --gray: #bfbfbf; */
-  /* --lightGray: #f2f4f6; */
   --white: #fff;
   /* --darkGray: #222; */
   --darkGray: #191919;
+	--lightGray: rgba(255, 255, 255, 0.5)
 
   /* COLORS INTENTIONS */
 	--primary: var(--aqua);
@@ -29,6 +29,9 @@
 	--headerLinkText: var(--white);
   --btnTextColor: var(--textColor);
   --footerBG: var(--black);
+	--headerLinkOpacity: var(--lightGray);
+	--headerBorder: var(--aqua);
+	--waveBG: var(--darkGray);
 
   /* STYLES */
   --line: 1px solid var(--lineColor);
@@ -92,6 +95,7 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 var(--containerPadding);
+	z-index: 5;
 }
 
 header nav a {
@@ -242,7 +246,7 @@ button.small {
 }
 
 .layout {
-	padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
+	padding: calc(3rem + var(--headerHeight)) 0;
 }
 
 .grid {
@@ -305,6 +309,9 @@ button.small {
 	--headerLinkText: var(--black);
 	/* --btnTextColor: var(--textColor); */
 	--footerBG: var(--black);
+	--headerLinkOpacity: var(--black);
+	--headerBorder: var(--hotpink);
+	--waveBG: var(--hotpink);
 }
 
 /* .dark { */

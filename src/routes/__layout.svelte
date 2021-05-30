@@ -1,7 +1,5 @@
 <script lang="ts">
-	/* import '../../static/global.css'; */
-	import NavBar from '$components/NavBar.svelte';
-	/* import { theme } from '$stores/themeStore'; */
+	import NavBar from '$components/NavBar/NavBar.svelte';
 	import { page } from '$app/stores';
 	$: path = $page.path.replace('/', '');
 	$: title = path !== '' ? path : 'home';

@@ -1,0 +1,82 @@
+<script lang="ts">
+	import { page } from '$app/stores';
+	import logo from '$images/beforeDawnTempLogo.svg';
+	import ToggleSwitch from '$components/ThemeToggle.svelte';
+	import { pages } from '$components/NavBar/NavBarPages';
+
+	$: path = $page.path;
+</script>
+
+<header>
+	<nav>
+		<a href="/">
+			<img src={logo} alt="jonathandain.dev logo" />
+		</a>
+		{#each pages as page}
+			<a href={page.path} class={path === page.path ? 'current' : null} data-hover={page.hover}
+				>{page.text}</a
+			>
+		{/each}
+	</nav>
+	<ToggleSwitch />
+</header>
+
+<style>
+	nav {
+		display: flex;
+		align-items: center;
+		margin-top: 12px;
+		position: relative;
+	}
+	img {
+		max-height: 80px;
+		max-width: 80px;
+	}
+	nav a {
+		position: relative;
+		letter-spacing: 1px;
+		/* color: rgba(255, 255, 255, 0.5); */
+		color: var(--headerLinkOpacity);
+		padding: 0.1em 0;
+		position: relative;
+	}
+	nav a:before,
+	nav a:after {
+		position: absolute;
+		-webkit-transition: all 0.35s ease;
+		transition: all 0.35s ease;
+	}
+	nav a:before {
+		bottom: 0;
+		display: block;
+		height: 3px;
+		width: 0%;
+		content: '';
+		/* background-color: var(--aqua); */
+		background-color: var(--headerBorder);
+	}
+	nav a:after {
+		left: 0;
+		top: 0;
+		padding: 0.1em 0;
+		position: absolute;
+		content: attr(data-hover);
+		color: var(--textColor);
+		white-space: nowrap;
+		max-width: 0%;
+		overflow: hidden;
+	}
+	nav a:hover:before,
+	.current:before {
+		opacity: 1;
+		width: 100%;
+	}
+	nav a:hover:after,
+	.current:after {
+		max-width: 100%;
+	}
+
+	nav a:first-child:before {
+		display: none;
+	}
+</style>
