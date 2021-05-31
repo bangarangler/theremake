@@ -101,6 +101,7 @@
 		background-clip: border-box;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		font-size: 1.3rem;
 	}
 
 	.light {

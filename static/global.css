@@ -16,7 +16,8 @@
   --white: #fff;
   /* --darkGray: #222; */
   --darkGray: #191919;
-	--lightGray: rgba(255, 255, 255, 0.5)
+	--lightGray: rgba(255, 255, 255, 0.5);
+	--gray: #F5F5F5;
 
   /* COLORS INTENTIONS */
 	--primary: var(--aqua);
@@ -111,7 +112,6 @@ header nav a + a {
 
 footer {
 	--footerTextColor: var(--white);
-
 	color: var(--footerTextColor);
 	background: var(--footerBG);
 	padding: 2rem var(--containerPadding);
@@ -304,14 +304,14 @@ button.small {
 	--background: var(--white);
 	--textColor: var(--black);
 	--lineColor: var(--hotpink);
-	--cardBG: var(--lightGray);
+	--cardBG: var(--gray);
 	--headerBG: var(--white);
 	--headerLinkText: var(--black);
 	/* --btnTextColor: var(--textColor); */
-	--footerBG: var(--black);
+	--footerBG: var(--white);
 	--headerLinkOpacity: var(--black);
 	--headerBorder: var(--hotpink);
-	--waveBG: var(--hotpink);
+	--waveBG: var(--gray);
 }
 
 /* .dark { */

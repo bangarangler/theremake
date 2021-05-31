@@ -1,12 +1,13 @@
 <script lang="ts">
-	import NavBar from '$components/NavBar/NavBar.svelte';
 	import { page } from '$app/stores';
+	import NavBar from '$components/NavBar/NavBar.svelte';
+	import Footer from '$components/Footer/Footer.svelte';
 	$: path = $page.path.replace('/', '');
 	$: title = path !== '' ? path : 'home';
 </script>
 
 <svelte:head>
-	<title>{title} | jonathandain.dev</title>
+	<title>{title.charAt(0).toUpperCase() + title.slice(1)} | Jonathan Dain Palacio</title>
 	<meta
 		name="description"
 		content="Hi I'm Jon! I'm a web developer with a extreme interest in marketing and business! I've owned a few business's in my time and I still enjoy the thrill of planning and organizing a business. Regardless if it's day one or you have been in business for generations; I'm confident that I can make it even better!"
@@ -48,3 +49,15 @@ jonathandain.dev"
 	<NavBar />
 	<slot />
 </main>
+
+<div class="fancyDivide" />
+
+<Footer />
+
+<style>
+	.fancyDivide {
+		width: 100%;
+		height: 3px;
+		background: linear-gradient(to left, #7a00cc, var(--aqua));
+	}
+</style>

@@ -30,10 +30,8 @@
 
 <style>
 	.wave {
-		/* color: var(--aqua); */
 		color: var(--waveBG);
 		display: block;
-		/* padding: 0; */
 	}
 
 	.wave-path {
