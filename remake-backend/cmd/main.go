@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/bangarangler/theremake/remake-backend/notionAPI"
 	"github.com/gofiber/fiber"
 	"github.com/gofiber/fiber/middleware"
 )
@@ -11,6 +12,8 @@ import (
 func main() {
 	app := fiber.New()
 	app.Use(middleware.Logger())
+
+	notionAPI.InitNotionRoutes()
 
 	port := 5000
 	err := app.Listen(port)
