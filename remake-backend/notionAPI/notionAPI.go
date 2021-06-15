@@ -2,53 +2,63 @@ package notionAPI
 
 import (
 	"fmt"
+	"io/ioutil"
+	"log"
 	"net/http"
+	"strings"
 
 	"github.com/bangarangler/theremake/remake-backend/dotenvConfig"
 	"github.com/gofiber/fiber/v2"
 )
 
-type Handlers struct {
-}
-
-func NewHandlers() *Handlers {
-	return &Handlers{}
-}
+// type Handlers struct {
+// }
+//
+// func NewHandlers() *Handlers {
+// 	return &Handlers{}
+// }
 
 func InitNotionRoutes(app *fiber.App) {
 	notionRoutes := app.Group("/notion")
-	handlers := NewHandlers()
+	// handlers := NewHandlers()
 
-	notionRoutes.Get("/db", handlers.getDB)
+	notionRoutes.Get("/db", getDB)
+	// notionRoutes.Get("/test", test)
 }
 
-func (h *Handlers) getDB(ctx *fiber.Ctx) {
-	req, err := http.NewRequest("POST", "https://api.notion.com/v1/databases/229f3080be484e9cbd9b649c2c045ec5/query", nil)
-	if err != nil {
-		// handle err
-		fmt.Println("err", err)
-	}
-	// req.Header.Set("Authorization", os.ExpandEnv("Bearer $(cat /Users/jonathanpalacio/Desktop/theremake/remake-backend/curl/token.txt)"))
-	authorization := fmt.Sprintf("Authorization: Bearer {dotenvConfig.NotionAPIKey}")
-	fmt.Println("authorization", authorization)
-	req.Header.Set("Authorization", "Bearer $(dotenvConfig.NotionAPIKey)")
+// func test(ctx *fiber.Ctx) error {
+// 	ctx.SendString("Hello THERE")
+// }
+
+func getDB(ctx *fiber.Ctx) error {
+	authorization := fmt.Sprintf("Bearer %s", dotenvConfig.NotionAPIKey)
+	requestBody := strings.NewReader(`{}`)
+	req, err := http.NewRequest("POST", "https://api.notion.com/v1/databases/229f3080be484e9cbd9b649c2c045ec5/query", requestBody)
+	req.Header.Set("Authorization", authorization)
 	req.Header.Set("Notion-Version", "2021-05-13")
 	req.Header.Set("Content-Type", "application/json")
 
-	resp, err := http.DefaultClient.Do(req)
-	fmt.Println("resp", resp)
-	fmt.Println("NotionAPIKey", dotenvConfig.NotionAPIKey)
+	res, err := http.DefaultClient.Do(req)
+	if err != nil {
+		fmt.Println("err", err)
+		log.Fatal(err)
+	}
+
+	data, _ := ioutil.ReadAll(res.Body)
+	defer req.Body.Close()
+	defer res.Body.Close()
+	fmt.Printf("%s\n", data)
+	fmt.Printf("%s\n", data[0])
 	if err != nil {
 		// handle err
 		fmt.Println("err", err)
 	}
-	// var prettyJSON bytes.Buffer
-	// error := json.Indent(&prettyJSON, resp, "", "\t")
-	// if error != nil {
-	// 	fmt.Println("JSON parse error: ", error)
-	// 	return
-	// }
-	//
-	// fmt.Println("Pretty JSON", string(prettyJSON.Bytes()))
-	defer resp.Body.Close()
+	return ctx.Status(fiber.StatusOK).JSON(res.Body)
+	// return ctx.JSON(fiber.Map{data: data})
 }
+
+// func mapDBRes(dbRes interface{}) interface{} {
+// 	return struct {
+//
+// 	}
+// }

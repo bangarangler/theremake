@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 curl -X POST 'https://api.notion.com/v1/databases/229f3080be484e9cbd9b649c2c045ec5/query' \
-  -H "Authorization: Bearer $(cat /Users/jonathanpalacio/Desktop/theremake/remake-backend/curl/token.txt)" \
+  -H "Authorization: Bearer $(cat /home/jonathan/Desktop/theremake/remake-backend/curl/token.txt)" \
   -H 'Notion-Version: 2021-05-13' \
   -H "Content-Type: application/json" \ -v | jq
   # --data '{
@@ -28,3 +28,4 @@ curl -X POST 'https://api.notion.com/v1/databases/229f3080be484e9cbd9b649c2c045e
   #     }
   #   ]
   # }'
+  # -H "Authorization: Bearer $(cat /Users/jonathanpalacio/Desktop/theremake/remake-backend/curl/token.txt)" \
