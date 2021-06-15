@@ -4,3 +4,5 @@ remake-client/.svelte-kit
 remake-client/build
 remake-client/functions
 .env
+remake-backend/cmd/tmp
+remake-backend/curl/token.txt
