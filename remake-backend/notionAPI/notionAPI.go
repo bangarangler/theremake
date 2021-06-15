@@ -5,16 +5,24 @@ import (
 	"net/http"
 
 	"github.com/bangarangler/theremake/remake-backend/dotenvConfig"
-	"github.com/gofiber/fiber"
+	"github.com/gofiber/fiber/v2"
 )
+
+type Handlers struct {
+}
+
+func NewHandlers() *Handlers {
+	return &Handlers{}
+}
 
 func InitNotionRoutes(app *fiber.App) {
 	notionRoutes := app.Group("/notion")
+	handlers := NewHandlers()
 
-	notionRoutes.Get("/db", getDB)
+	notionRoutes.Get("/db", handlers.getDB)
 }
 
-func getDB(ctx *fiber.Ctx) {
+func (h *Handlers) getDB(ctx *fiber.Ctx) {
 	req, err := http.NewRequest("POST", "https://api.notion.com/v1/databases/229f3080be484e9cbd9b649c2c045ec5/query", nil)
 	if err != nil {
 		// handle err
