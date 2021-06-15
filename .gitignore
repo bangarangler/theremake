@@ -1,6 +1,6 @@
 .DS_Store
-node_modules
-/.svelte-kit
-/build
-/functions
+remake-client/node_modules
+remake-client/.svelte-kit
+remake-client/build
+remake-client/functions
 .env
