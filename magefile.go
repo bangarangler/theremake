@@ -36,12 +36,30 @@ func InstallDeps() error {
 	return err
 }
 
+// Install packages for backend
+func InstallBEDeps() error {
+	fmt.Println("Installing Deps for Backend...")
+	os.Chdir("./remake-backend")
+	defer os.Chdir("..")
+	err := sh.Run("go", "mod", "tidy")
+	return err
+}
+
 // Start Client Dev Server
 func FEDev() error {
 	fmt.Println("Starting up client development server!")
 	os.Chdir("./remake-client")
 	defer os.Chdir("..")
 	err := sh.Run("npm", "run", "dev")
+	return err
+}
+
+// Start Backend Dev Server
+func BEDev() error {
+	fmt.Println("Starting up backend development server!")
+	os.Chdir("./remake-backend/cmd/")
+	defer os.Chdir("..")
+	err := sh.Run("air")
 	return err
 }
 
