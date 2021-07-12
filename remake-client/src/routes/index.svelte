@@ -1,8 +1,27 @@
+<script context="module">
+	export async function load() {
+		const projects = import.meta.globEager('../projects/*.md');
+		const projectList = Object.values(projects);
+		const projectMeta = projectList?.map((p) => {
+			return p?.metadata;
+		});
+		console.log('metadata', projectMeta);
+		return {
+			props: {
+				metaData: projectMeta
+			}
+		};
+	}
+</script>
+
 <script lang="ts">
-	import { TEST } from '$lib/Env';
+	/* import { TEST } from '$lib/Env'; */
 	/* <p>Testing... : {TEST}</p> */
+	/* export let metaData; */
+	export let metaData: any;
 	import { theme } from '$stores/themeStore';
-	import Wave from '$components/Wave/Wave.svelte';
+	/* import Wave from '$components/Wave/Wave.svelte'; */
+	import ProjectCard from '$components/ProjectCard/ProjectCard.svelte';
 </script>
 
 <section>
@@ -24,22 +43,23 @@
 	</div>
 </section>
 
-<Wave>
-	<div class="testing">
+<!--<Wave>-->
+<ProjectCard {metaData} />
+<!--<div class="testing">
 		<p class="remove-margin">show me this thing</p>
-	</div>
-</Wave>
+	</div>-->
 
+<!--</Wave>-->
 <style>
-	.testing {
-		background: var(--waveBG);
-		min-width: 100%;
-		min-height: 100%;
-	}
-
-	.remove-margin {
-		margin-bottom: 0;
-	}
+	/* .testing { */
+	/* 	background: var(--waveBG); */
+	/* 	min-width: 100%; */
+	/* 	min-height: 100%; */
+	/* } */
+	/*  */
+	/* .remove-margin { */
+	/* 	margin-bottom: 0; */
+	/* } */
 	section {
 		padding: var(--containerPadding);
 		display: grid;

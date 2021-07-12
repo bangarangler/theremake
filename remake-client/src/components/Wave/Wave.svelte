@@ -58,5 +58,6 @@
 
 	.wave-inverted {
 		transform: matrix(1, 0, 0, -1, 0, 0);
+		margin-bottom: 150px;
 	}
 </style>
