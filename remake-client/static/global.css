@@ -26,6 +26,7 @@
   --textColor: var(--white);
   --lineColor: var(--hotpink);
   --cardBG: var(--darkGray);
+	--cardBGGradient: linear-gradient(315deg, var(--black), var(--cardBG), var(--black));
   --headerBG: var(--black);
 	--headerLinkText: var(--white);
   --btnTextColor: var(--textColor);
@@ -33,6 +34,7 @@
 	--headerLinkOpacity: var(--lightGray);
 	--headerBorder: var(--aqua);
 	--waveBG: var(--darkGray);
+	--descriptionColor: var(--aqua);
 
   /* STYLES */
   --line: 1px solid var(--lineColor);
@@ -305,6 +307,7 @@ button.small {
 	--textColor: var(--black);
 	--lineColor: var(--hotpink);
 	--cardBG: var(--gray);
+	--cardBGGradient: linear-gradient(315deg, var(--white), var(--cardBG), var(--white));
 	--headerBG: var(--white);
 	--headerLinkText: var(--black);
 	/* --btnTextColor: var(--textColor); */
@@ -312,6 +315,7 @@ button.small {
 	--headerLinkOpacity: var(--black);
 	--headerBorder: var(--hotpink);
 	--waveBG: var(--gray);
+	--descriptionColor: var(--hotpink);
 }
 
 /* .dark { */
