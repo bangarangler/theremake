@@ -63,6 +63,9 @@
 		position: relative;
 		transition: all 350ms ease-in;
 	}
+	.toggle--label:hover {
+		cursor: pointer;
+	}
 	.toggle--label:before {
 		animation-name: reverse;
 		animation-duration: 350ms;

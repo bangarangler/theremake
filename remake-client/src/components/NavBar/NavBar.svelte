@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import logo from '$images/beforeDawnTempLogo.svg';
+	/* import logo from '$images/beforeDawnTempLogo.svg?w=80&h=80&webp'; */
 	import ToggleSwitch from '$components/ThemeToggle.svelte';
 	import { pages } from '$components/NavBar/NavBarPages';
 
@@ -10,7 +11,7 @@
 <header>
 	<nav>
 		<a href="/">
-			<img src={logo} alt="jonathandain.dev logo" />
+			<img src={logo} type="image" alt="jonathandain.dev logo" />
 		</a>
 		{#each pages as page}
 			<a href={page.path} class={path === page.path ? 'current' : null} data-hover={page.hover}

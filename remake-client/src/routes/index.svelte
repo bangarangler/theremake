@@ -20,7 +20,6 @@
 	/* export let metaData; */
 	export let metaData: any;
 	import { theme } from '$stores/themeStore';
-	/* import Wave from '$components/Wave/Wave.svelte'; */
 	import ProjectCard from '$components/ProjectCard/ProjectCard.svelte';
 </script>
 
@@ -43,23 +42,9 @@
 	</div>
 </section>
 
-<!--<Wave>-->
 <ProjectCard {metaData} />
-<!--<div class="testing">
-		<p class="remove-margin">show me this thing</p>
-	</div>-->
 
-<!--</Wave>-->
 <style>
-	/* .testing { */
-	/* 	background: var(--waveBG); */
-	/* 	min-width: 100%; */
-	/* 	min-height: 100%; */
-	/* } */
-	/*  */
-	/* .remove-margin { */
-	/* 	margin-bottom: 0; */
-	/* } */
 	section {
 		padding: var(--containerPadding);
 		display: grid;

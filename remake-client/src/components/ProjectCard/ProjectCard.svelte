@@ -2,8 +2,6 @@
 	export let metaData;
 	import Wave from '$components/Wave/Wave.svelte';
 	import ProjectCardHeading from '$components/ProjectCard/ProjectCardHeading/ProjectCardHeading.svelte';
-	/* const list = metaData && metaData?.map((md) => md?.techUsed); */
-	/* console.log('list', list); */
 </script>
 
 {#each metaData as md}
@@ -28,13 +26,10 @@
 					<p class="projectDescription__text">{techUsed}</p>
 				{/each}
 			</aside>
-			<!--<li>-->
-			<!--<a href={`/projects/${md.slug}`}>{md.projectTitle}</a>-->
-			<!--</li>-->
 			<div class="fancyBoxWrapper cardSection">
 				<div class="fancyBox">
 					<span />
-					<h2>{md?.projectTitle}</h2>
+					<h2><a href={`/projects/${md?.slug}`}>{md?.projectTitle}</a></h2>
 				</div>
 			</div>
 		</div>
@@ -43,7 +38,6 @@
 
 <style>
 	.wrapper {
-		/* border: 1px solid hotpink; */
 		display: grid;
 		grid-row-gap: 65px;
 		grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr);
@@ -78,9 +72,6 @@
 		font-family: var(--slantText);
 		color: var(--descriptionColor);
 	}
-	/* .projectDescription__text { */
-	/* font-size: var(--smallTextSize); */
-	/* } */
 	.fancyBoxWrapper {
 		background: var(--cardBG);
 		display: flex;
@@ -107,7 +98,6 @@
 		left: -4px;
 		right: -4px;
 		bottom: -4px;
-		/* animation: rotateIt 10s linear infinite; */
 		background: linear-gradient(315deg, var(--aqua), var(--cardBG), var(--hotpink));
 		transform: skewX(2deg) skewY(4deg);
 	}
@@ -131,10 +121,13 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		/* background: linear-gradient(315deg, var(--black), var(--cardBG), var(--black)); */
 		background: var(--cardBGGradient);
 		z-index: 2;
 		transform: rotate(180deg);
+	}
+	.fancyBox a {
+		text-decoration: none;
+		color: inherit;
 	}
 
 	.fancyBox h2 {
