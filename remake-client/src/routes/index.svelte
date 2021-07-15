@@ -5,7 +5,6 @@
 		const projectMeta = projectList?.map((p) => {
 			return p?.metadata;
 		});
-		console.log('metadata', projectMeta);
 		return {
 			props: {
 				metaData: projectMeta
@@ -17,10 +16,15 @@
 <script lang="ts">
 	/* import { TEST } from '$lib/Env'; */
 	/* <p>Testing... : {TEST}</p> */
-	/* export let metaData; */
-	export let metaData: any;
+	export let metaData;
 	import { theme } from '$stores/themeStore';
+	import { projectMetaData } from '$stores/projectMetaData';
 	import ProjectCard from '$components/ProjectCard/ProjectCard.svelte';
+
+	if (metaData) {
+		projectMetaData.update(() => metaData);
+	}
+	$: console.log('projectMetaData', $projectMetaData);
 </script>
 
 <section>
@@ -42,7 +46,7 @@
 	</div>
 </section>
 
-<ProjectCard {metaData} />
+<ProjectCard />
 
 <style>
 	section {

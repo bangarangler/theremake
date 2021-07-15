@@ -49,7 +49,7 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 width: 50%;
-margin-left: 25%;
+margin: 0 auto;
 }
 .explanationContainer h2 {
 text-align: left;

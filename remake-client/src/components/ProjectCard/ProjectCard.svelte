@@ -1,10 +1,10 @@
 <script>
-	export let metaData;
+	import { projectMetaData } from '$stores/projectMetaData';
 	import Wave from '$components/Wave/Wave.svelte';
 	import ProjectCardHeading from '$components/ProjectCard/ProjectCardHeading/ProjectCardHeading.svelte';
 </script>
 
-{#each metaData as md}
+{#each $projectMetaData as md}
 	<Wave>
 		<div class="card wrapper">
 			<div class="titleSection">
