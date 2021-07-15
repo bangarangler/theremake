@@ -8,4 +8,4 @@ interface ProjectMetaDataType {
 	techUsed: string[];
 }
 
-export const projectMetaData = writable<ProjectMetaDataType | undefined[]>([]);
+export const projectMetaData = writable<ProjectMetaDataType[]>([]);
