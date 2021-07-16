@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-interface ProjectMetaDataType {
+export interface ProjectMetaDataType {
 	projectTitle: string;
 	slug: string;
 	projectRole: string;
@@ -9,3 +9,5 @@ interface ProjectMetaDataType {
 }
 
 export const projectMetaData = writable<ProjectMetaDataType[]>([]);
+
+export const projectSlugs = writable<string[]>([]);

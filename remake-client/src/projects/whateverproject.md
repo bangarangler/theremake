@@ -9,11 +9,8 @@ techUsed: ["golang", "go-fiber", "svelte", "typescript", "css", "postgres"]
 ---
 
 <script>
-  import PrevNextProject from '$components/PrevNextProject/PrevNextProject.svelte'
 </script>
 
 # {projectTitle}
 
 Coming Soon!
-
-<PrevNextProject />

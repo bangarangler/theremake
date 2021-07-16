@@ -1,30 +1,8 @@
-<script context="module">
-	export async function load() {
-		const projects = import.meta.globEager('../projects/*.md');
-		const projectList = Object.values(projects);
-		const projectMeta = projectList?.map((p) => {
-			return p?.metadata;
-		});
-		return {
-			props: {
-				metaData: projectMeta
-			}
-		};
-	}
-</script>
-
 <script lang="ts">
 	/* import { TEST } from '$lib/Env'; */
 	/* <p>Testing... : {TEST}</p> */
-	export let metaData;
 	import { theme } from '$stores/themeStore';
-	import { projectMetaData } from '$stores/projectMetaData';
 	import ProjectCard from '$components/ProjectCard/ProjectCard.svelte';
-
-	if (metaData) {
-		projectMetaData.update(() => metaData);
-	}
-	$: console.log('projectMetaData', $projectMetaData);
 </script>
 
 <section>

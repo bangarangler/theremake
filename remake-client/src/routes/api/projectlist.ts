@@ -3,8 +3,11 @@ const projectList = Object.values(projects);
 const projectMeta = projectList?.map((p) => {
 	return p?.metadata;
 });
+const slugs = projectMeta.map((s) => {
+	return s?.slug;
+});
+// console.log('slugs', slugs);
 // console.log('projectMeta', projectMeta);
-//https://ar.al/2021/04/03/passing-data-from-layouts-to-pages-in-sveltekit/
 export async function get() {
-	return { body: projectMeta };
+	return { body: slugs };
 }

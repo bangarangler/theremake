@@ -38,6 +38,7 @@
 
 <style>
 	.wrapper {
+		border-radius: 0; /* overwrite card border-radis for use with wave */
 		display: grid;
 		grid-row-gap: 65px;
 		grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr);

@@ -1,29 +1,33 @@
-<!--<script context="module">
-	export async function load({ context }) {
-		const url = '/projects/projectlist';
-		const res = await fetch(url);
-
-		if (res.ok) {
-			const urlData = await res.json();
-			return { context: { urlData } };
-		}
-
+<script context="module">
+	export async function load() {
+		const projects = import.meta.globEager('../projects/*.md');
+		const projectList = Object.values(projects);
+		const projectMeta = projectList?.map((p) => {
+			return p?.metadata;
+		});
 		return {
-			status: res.status,
-			error: new Error(`Could not load ${url}`)
+			props: {
+				metaData: projectMeta
+			}
 		};
 	}
-</script>-->
+</script>
+
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { projectMetaData } from '$stores/projectMetaData';
+	import type { ProjectMetaDataType } from '$stores/projectMetaData';
 	import NavBar from '$components/NavBar/NavBar.svelte';
 	import Footer from '$components/Footer/Footer.svelte';
 	$: path = $page.path.replace('/', '');
 	$: title = path !== '' ? path : 'home';
+
+	export let metaData: ProjectMetaDataType[];
+	if (metaData) {
+		projectMetaData.update(() => metaData);
+	}
+	/* $: console.log('projectMetaData from allergenguardian', $projectMetaData); */
 </script>
-
-<!--TODO: fix the rounded bg on card between WAVE-->
-
 
 <svelte:head>
 	<title>{title.charAt(0).toUpperCase() + title.slice(1)} | Jonathan Dain Palacio</title>

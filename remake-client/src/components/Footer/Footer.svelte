@@ -1,13 +1,11 @@
 <script lang="ts">
 	import { theme } from '$stores/themeStore';
-	import {
-		FaInstagram,
-		FaTwitter,
-		FaFacebook,
-		FaLinkedinIn,
-		FaSlack,
-		FaGithub
-	} from 'svelte-icons/fa';
+	import FaInstagram from 'svelte-icons/fa/FaInstagram.svelte';
+	import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
+	import FaFacebook from 'svelte-icons/fa/FaFacebook.svelte';
+	import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte';
+	import FaSlack from 'svelte-icons/fa/FaSlack.svelte';
+	import FaGithub from 'svelte-icons/fa/FaGithub.svelte';
 
 	interface FooterSocialType {
 		id: number;

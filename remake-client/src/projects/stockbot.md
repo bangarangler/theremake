@@ -9,11 +9,8 @@ techUsed: ["python", "golang", "aws", "docker", "kubernetes"]
 ---
 
 <script>
-  import PrevNextProject from '$components/PrevNextProject/PrevNextProject.svelte'
 </script>
 
 # {projectTitle}
 
 Coming Soon!
-
-<PrevNextProject />

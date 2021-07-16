@@ -1,32 +1,30 @@
-<!-- https://ar.al/2021/04/03/passing-data-from-layouts-to-pages-in-sveltekit/-->
 <script>
 	import { page } from '$app/stores';
-	import { goto } from '$app/navigation';
+	/* import { goto } from '$app/navigation'; */
 	import { projectMetaData } from '$stores/projectMetaData';
 	import IoIosArrowRoundBack from 'svelte-icons/io/IoIosArrowRoundBack.svelte';
 	import IoIosArrowRoundForward from 'svelte-icons/io/IoIosArrowRoundForward.svelte';
 	import joyride from '$images/undraw-joyride.svg';
-	/*$: console.log('page.path', $page.path);*/
-	/* const test = $page.path.indexOf(md?.slug) ? 'activeProj' : null */
-	/* const test = $page.path.includes('test'); */
-	/* console.log('test', test); */
-	/* on:click={() => goto(`/projects/${md?.slug}`)} */
-	/* small store issue, if they try to go straight to a project page or reload
-	 * on one the store is empty because it's set in the indeex page... need to see
-	 * if that data can be set server side as well so that if they go to a page that
-	 * information is availabe */
+	/* let pages = $projectMetaData.map((p) => { */
+	/* 	return p.slug; */
+	/* }); */
+	/* let activePage = pages.filter((p) => $page.path.includes(p)); */
+	/* console.log('pages', pages); */
+	/* console.log('activePage', activePage); */
+	/* function getNext(list, current) { */
+	/* 	console.log('list', list); */
+	/* 	console.log('current', current); */
+	/* 	let currentIdx = list.indexOf(current); */
+	/* 	console.log('currentIdx', currentIdx); */
+	/* 	if (list) */
+	/* } */
+	/* getNext(pages, activePage[0]); */
+	// have array
+	// need lenght of array
+	// click button and change
+	/* [1, 2*, 3] */
+	/* [1, 2, 3*] */
 </script>
-
-<!--<script context="module">
-	let urlData;
-	export async function load({ context }) {
-		urlData = await context.urlData;
-		console.log('urlData here ; )', urlData);
-		return true;
-	}
-</script>-->
-
-
 
 <div class="prevNextContainer">
 	<div class="prev">
@@ -36,17 +34,20 @@
 	<div class="svgContainer">
 		<img class="svg" src={joyride} alt="arrow svg art from undraw" />
 	</div>
-	<div class="next" on:click={() => goto(`/projects/`)}>
+	<div class="next">
 		<span class="arrowIcons"><IoIosArrowRoundForward /></span>
 		<p>next</p>
 	</div>
-	<div class="projectNav">
+	<nav class="projectNav">
 		{#each $projectMetaData as md}
-			<a href={`/projects/${md?.slug}`} class={$page.path.includes(md?.slug) ? 'activeProj' : ''}
-				>{md?.projectTitle}</a
+			<a
+				on:click={(e) => e.stopPropagation()}
+				href={`/projects/${md.slug}/`}
+				rel="noopener"
+				class={$page.path.includes(md.slug) ? 'activeProj' : ''}>{md.projectTitle}</a
 			>
 		{/each}
-	</div>
+	</nav>
 </div>
 
 <style>

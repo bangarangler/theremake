@@ -2,7 +2,7 @@ import { mdsvex } from 'mdsvex';
 import { mdsvexConfig } from './mdsvex.config.js';
 import preprocess from 'svelte-preprocess';
 import { imagetools } from 'vite-imagetools';
-// import node from "@sveltejs/adapter-node";
+// import node from '@sveltejs/adapter-node';
 // import pkg from "./package.json";
 import { resolve } from 'path';
 
@@ -15,6 +15,7 @@ const config = {
 
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
+		// adapter: { adapt: node() },
 		target: '#svelte',
 		vite: {
 			resolve: {
