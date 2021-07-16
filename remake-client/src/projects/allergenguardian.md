@@ -6,6 +6,16 @@ projectDescription: 'Shop | Scan | Safe'
 techUsed: ['next.js', 'node', 'typescript', 'mongodb', 'react', 'graphql', 'redis', 'fastify']
 ---
 
+<!--<script context="module">
+	let urlData;
+	export async function load({ context }) {
+		urlData = await context.urlData;
+		console.log('urlData here ; )', urlData);
+		return true;
+	}
+https://ar.al/2021/04/03/passing-data-from-layouts-to-pages-in-sveltekit/
+</script>-->
+
 <script>
   import test from '$images/beforeDawnTempLogo.svg'
   import PrevNextProject from '$components/PrevNextProject/PrevNextProject.svelte'

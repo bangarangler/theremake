@@ -1,3 +1,4 @@
+<!-- https://ar.al/2021/04/03/passing-data-from-layouts-to-pages-in-sveltekit/-->
 <script>
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
@@ -5,7 +6,7 @@
 	import IoIosArrowRoundBack from 'svelte-icons/io/IoIosArrowRoundBack.svelte';
 	import IoIosArrowRoundForward from 'svelte-icons/io/IoIosArrowRoundForward.svelte';
 	import joyride from '$images/undraw-joyride.svg';
-	$: console.log('page.path', $page.path);
+	/*$: console.log('page.path', $page.path);*/
 	/* const test = $page.path.indexOf(md?.slug) ? 'activeProj' : null */
 	/* const test = $page.path.includes('test'); */
 	/* console.log('test', test); */
@@ -15,6 +16,17 @@
 	 * if that data can be set server side as well so that if they go to a page that
 	 * information is availabe */
 </script>
+
+<!--<script context="module">
+	let urlData;
+	export async function load({ context }) {
+		urlData = await context.urlData;
+		console.log('urlData here ; )', urlData);
+		return true;
+	}
+</script>-->
+
+
 
 <div class="prevNextContainer">
 	<div class="prev">
