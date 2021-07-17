@@ -1,13 +1,13 @@
 <script>
 	import { page } from '$app/stores';
-	import { goto } from '$app/navigation';
+	/* import { goto } from '$app/navigation'; */
 	import { projectMetaData, previousAndNextProject } from '$stores/projectMetaData';
 	import IoIosArrowRoundBack from 'svelte-icons/io/IoIosArrowRoundBack.svelte';
 	import IoIosArrowRoundForward from 'svelte-icons/io/IoIosArrowRoundForward.svelte';
 	import joyride from '$images/undraw-joyride.svg';
-	$: console.log('previousAndNextProject from PrevNextProject', $previousAndNextProject);
+	/* $: console.log('previousAndNextProject from PrevNextProject', $previousAndNextProject); */
 	$: activePage = $projectMetaData.filter((p) => $page.path.includes(p.slug))[0];
-	console.log('activePage HERE', activePage);
+	/* console.log('activePage HERE', activePage); */
 	let nextPage;
 	let prevPage;
 	function getPrevNext(prevNext, slug) {
@@ -29,32 +29,38 @@
 </script>
 
 <div class="prevNextContainer">
-	<button
+	<a
+		on:click={(e) => e.stopPropagation()}
 		class="prev {!prevPage && 'disabled'}"
-		on:click={() => goto(`/projects/${prevPage}`)}
 		disabled={!prevPage}
+		href={`/projects/${prevPage}/`}
+		><span class="arrowIcons"><IoIosArrowRoundBack /></span>
+		<p>prev</p></a
 	>
-		<span class="arrowIcons"><IoIosArrowRoundBack /></span>
-		<p>prev</p>
-	</button>
 	<div class="svgContainer">
 		<img class="svg" src={joyride} alt="arrow svg art from undraw" />
 	</div>
-	<button
+	<a
+		on:click={(e) => e.stopPropagation()}
 		class="next {!nextPage && 'disabled'}"
-		on:click={() => goto(`/projects/${nextPage}`)}
 		disabled={!nextPage}
+		href={`/projects/${nextPage}/`}
+		><span class="arrowIcons"><IoIosArrowRoundForward /></span>
+		<p>next</p></a
 	>
-		<span class="arrowIcons"><IoIosArrowRoundForward /></span>
-		<p>next</p>
-	</button>
 	<nav class="projectNav">
 		{#each $projectMetaData as md}
 			<a
 				on:click={(e) => e.stopPropagation()}
 				href={`/projects/${md.slug}/`}
 				rel="noopener"
-				class={$page.path.includes(md.slug) ? 'activeProj' : ''}>{md.projectTitle}</a
+				class={$page.path.includes(md.slug)
+					? 'activeProj'
+					: md.slug === nextPage
+					? 'nextPage'
+					: md.slug === prevPage
+					? 'prevPage'
+					: ''}>{md.projectTitle}</a
 			>
 		{/each}
 	</nav>
@@ -83,10 +89,8 @@
 		flex-direction: column;
 		align-items: flex-start;
 		cursor: pointer;
-		background: none;
-	}
-	.disabled {
-		cursor: not-allowed;
+		color: inherit;
+		text-decoration: none;
 	}
 	.svgContainer {
 		grid-area: svg;
@@ -102,6 +106,12 @@
 		align-items: flex-end;
 		cursor: pointer;
 		background: none;
+		color: inherit;
+		text-decoration: none;
+	}
+	.disabled {
+		cursor: not-allowed;
+		color: var(--lightGray);
 	}
 	.arrowIcons {
 		display: block;
@@ -127,5 +137,11 @@
 		font-size: var(--h5);
 		letter-spacing: 0.2rem;
 		color: var(--hotpink) !important;
+	}
+	.nextPage {
+		grid-area: nextProj;
+	}
+	.prevPage {
+		grid-area: prevProj;
 	}
 </style>

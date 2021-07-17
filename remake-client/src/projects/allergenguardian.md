@@ -8,7 +8,6 @@ techUsed: ['next.js', 'node', 'typescript', 'mongodb', 'react', 'graphql', 'redi
 
 <script>
   import test from '$images/beforeDawnTempLogo.svg'
-  import PrevNextProject from '$components/PrevNextProject/PrevNextProject.svelte'
 </script>
 
 <style>
