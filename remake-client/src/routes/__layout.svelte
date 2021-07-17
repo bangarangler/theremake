@@ -2,12 +2,27 @@
 	export async function load() {
 		const projects = import.meta.globEager('../projects/*.md');
 		const projectList = Object.values(projects);
+		console.log('projectList', projectList);
+		// get prev and next
+		/* https://www.youtube.com/watch?v=3CfJa4cukt4 */
+		/* const prevNext = projectList.forEach((p, i) => { */
+		/* 	console.log('p', p); */
+		/* 	console.log('projectList[i - 1]', projectList[i - 1]); */
+		/* 	console.log('projectList[i + 1]', projectList[i + 1]); */
+		/* 	const prev = projectList[i - 1] ? projectList[i - 1] : 'no prev projects'; */
+		/* 	const next = projectList[i + 1] ? projectList[i + 1] : 'no next projects'; */
+		/* 	return { prev, next }; */
+		/* }); */
+		/* console.log('prevNext', prevNext); */
+		// get the metaData
 		const projectMeta = projectList?.map((p) => {
 			return p?.metadata;
 		});
 		return {
 			props: {
 				metaData: projectMeta
+				/* previous: prevNext.prev, */
+				/* next: prevNext.next */
 			}
 		};
 	}
@@ -26,6 +41,14 @@
 	if (metaData) {
 		projectMetaData.update(() => metaData);
 	}
+	/* export let previous; */
+	/* export let next; */
+	/* if (next) { */
+	/* 	console.log('next', next); */
+	/* } */
+	/* if (previous) { */
+	/* 	console.log('previous', previous); */
+	/* } */
 	/* $: console.log('projectMetaData from allergenguardian', $projectMetaData); */
 </script>
 
