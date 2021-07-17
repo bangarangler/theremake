@@ -1,43 +1,53 @@
 <script>
 	import { page } from '$app/stores';
-	/* import { goto } from '$app/navigation'; */
-	import { projectMetaData } from '$stores/projectMetaData';
+	import { goto } from '$app/navigation';
+	import { projectMetaData, previousAndNextProject } from '$stores/projectMetaData';
 	import IoIosArrowRoundBack from 'svelte-icons/io/IoIosArrowRoundBack.svelte';
 	import IoIosArrowRoundForward from 'svelte-icons/io/IoIosArrowRoundForward.svelte';
 	import joyride from '$images/undraw-joyride.svg';
-	/* let pages = $projectMetaData.map((p) => { */
-	/* 	return p.slug; */
-	/* }); */
-	/* let activePage = pages.filter((p) => $page.path.includes(p)); */
-	/* console.log('pages', pages); */
-	/* console.log('activePage', activePage); */
-	/* function getNext(list, current) { */
-	/* 	console.log('list', list); */
-	/* 	console.log('current', current); */
-	/* 	let currentIdx = list.indexOf(current); */
-	/* 	console.log('currentIdx', currentIdx); */
-	/* 	if (list) */
-	/* } */
-	/* getNext(pages, activePage[0]); */
-	// have array
-	// need lenght of array
-	// click button and change
-	/* [1, 2*, 3] */
-	/* [1, 2, 3*] */
+	$: console.log('previousAndNextProject from PrevNextProject', $previousAndNextProject);
+	$: activePage = $projectMetaData.filter((p) => $page.path.includes(p.slug))[0];
+	console.log('activePage HERE', activePage);
+	let nextPage;
+	let prevPage;
+	function getPrevNext(prevNext, slug) {
+		/* console.log('prevNexxt', prevNext); */
+		/* console.log('slug from func', slug); */
+		for (let i = 0; i < prevNext.length; i++) {
+			/* console.log('prevNext[i]', prevNext[i]); */
+			/* console.log('slug in for loop', slug); */
+			if (prevNext[i].current === slug) {
+				nextPage = prevNext[i].next;
+				prevPage = prevNext[i].previous;
+				return;
+			}
+		}
+	}
+	$: getPrevNext($previousAndNextProject, activePage.slug);
+	$: console.log('nextPage reactive', nextPage);
+	$: console.log('prevPage reactive', prevPage);
 </script>
 
 <div class="prevNextContainer">
-	<div class="prev">
+	<button
+		class="prev {!prevPage && 'disabled'}"
+		on:click={() => goto(`/projects/${prevPage}`)}
+		disabled={!prevPage}
+	>
 		<span class="arrowIcons"><IoIosArrowRoundBack /></span>
 		<p>prev</p>
-	</div>
+	</button>
 	<div class="svgContainer">
 		<img class="svg" src={joyride} alt="arrow svg art from undraw" />
 	</div>
-	<div class="next">
+	<button
+		class="next {!nextPage && 'disabled'}"
+		on:click={() => goto(`/projects/${nextPage}`)}
+		disabled={!nextPage}
+	>
 		<span class="arrowIcons"><IoIosArrowRoundForward /></span>
 		<p>next</p>
-	</div>
+	</button>
 	<nav class="projectNav">
 		{#each $projectMetaData as md}
 			<a
@@ -73,6 +83,10 @@
 		flex-direction: column;
 		align-items: flex-start;
 		cursor: pointer;
+		background: none;
+	}
+	.disabled {
+		cursor: not-allowed;
 	}
 	.svgContainer {
 		grid-area: svg;
@@ -87,6 +101,7 @@
 		flex-direction: column;
 		align-items: flex-end;
 		cursor: pointer;
+		background: none;
 	}
 	.arrowIcons {
 		display: block;

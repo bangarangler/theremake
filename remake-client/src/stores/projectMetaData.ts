@@ -8,6 +8,11 @@ export interface ProjectMetaDataType {
 	techUsed: string[];
 }
 
+export interface PreviousAndNextProject {
+	previous?: string;
+	next?: string;
+}
+
 export const projectMetaData = writable<ProjectMetaDataType[]>([]);
 
-export const projectSlugs = writable<string[]>([]);
+export const previousAndNextProject = writable<PreviousAndNextProject>({});

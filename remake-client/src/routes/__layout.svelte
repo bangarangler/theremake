@@ -3,26 +3,34 @@
 		const projects = import.meta.globEager('../projects/*.md');
 		const projectList = Object.values(projects);
 		console.log('projectList', projectList);
-		// get prev and next
-		/* https://www.youtube.com/watch?v=3CfJa4cukt4 */
-		/* const prevNext = projectList.forEach((p, i) => { */
-		/* 	console.log('p', p); */
-		/* 	console.log('projectList[i - 1]', projectList[i - 1]); */
-		/* 	console.log('projectList[i + 1]', projectList[i + 1]); */
-		/* 	const prev = projectList[i - 1] ? projectList[i - 1] : 'no prev projects'; */
-		/* 	const next = projectList[i + 1] ? projectList[i + 1] : 'no next projects'; */
-		/* 	return { prev, next }; */
-		/* }); */
-		/* console.log('prevNext', prevNext); */
 		// get the metaData
 		const projectMeta = projectList?.map((p) => {
 			return p?.metadata;
 		});
+		console.log('projectMeta', projectMeta);
+		let prevNext = [];
+		projectMeta.forEach((p, i) => {
+			const current = projectMeta[i];
+			// @ts-ignore
+			const prev = projectMeta[i - 1];
+			/* console.log('prev', prev); */
+			// @ts-ignore
+			const nxt = projectMeta[i + 1];
+			/* console.log('next', nxt); */
+			const nxtNPrev = {
+				current: current ? current?.slug : '',
+				previous: prev ? prev?.slug : '',
+				next: nxt ? nxt?.slug : ''
+			};
+			/* console.log('nxtNPrev', nxtNPrev); */
+			prevNext.push(nxtNPrev);
+		});
+		/* projectMeta.prevNextt = prevNext; */
+		/* console.log('prevNext', prevNext); */
 		return {
 			props: {
-				metaData: projectMeta
-				/* previous: prevNext.prev, */
-				/* next: prevNext.next */
+				metaData: projectMeta,
+				prevNext: prevNext
 			}
 		};
 	}
@@ -30,26 +38,23 @@
 
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { projectMetaData } from '$stores/projectMetaData';
-	import type { ProjectMetaDataType } from '$stores/projectMetaData';
+	import { projectMetaData, previousAndNextProject } from '$stores/projectMetaData';
+	import type { ProjectMetaDataType, PreviousAndNextProject } from '$stores/projectMetaData';
 	import NavBar from '$components/NavBar/NavBar.svelte';
 	import Footer from '$components/Footer/Footer.svelte';
 	$: path = $page.path.replace('/', '');
 	$: title = path !== '' ? path : 'home';
 
 	export let metaData: ProjectMetaDataType[];
+	export let prevNext: any;
+	if (prevNext) {
+		previousAndNextProject.update(() => prevNext);
+	}
 	if (metaData) {
 		projectMetaData.update(() => metaData);
 	}
-	/* export let previous; */
-	/* export let next; */
-	/* if (next) { */
-	/* 	console.log('next', next); */
-	/* } */
-	/* if (previous) { */
-	/* 	console.log('previous', previous); */
-	/* } */
-	/* $: console.log('projectMetaData from allergenguardian', $projectMetaData); */
+	$: console.log('projectMetaData from allergenguardian', $projectMetaData);
+	$: console.log('previousAndNextProject from allergenguardian', $previousAndNextProject);
 </script>
 
 <svelte:head>
