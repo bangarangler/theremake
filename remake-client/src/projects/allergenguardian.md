@@ -25,6 +25,11 @@ techUsed: ['next.js', 'node', 'typescript', 'mongodb', 'react', 'graphql', 'redi
     $: if (scrollY > 1100) {
     responsibilityAnimate = true
     }
+    $: if(scrollY === 0) {
+    exampleAnimate = false
+    deploymentAnimate = false
+    responsibilityAnimate = false
+    }
     onMount(() => {
   ani = true
   })

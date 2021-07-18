@@ -187,12 +187,6 @@ blockquote {
 	background: var(--cardBG);
 	box-shadow: var(--level3);
 }
-@media (min-width: 576px) {
-	blockquote {
-		padding: 1em;
-		border: 1px solid red;
-	}
-}
 
 label {
 	display: block;
