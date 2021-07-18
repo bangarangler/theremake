@@ -22,8 +22,10 @@
 			</aside>
 			<aside class="card techUsedSection">
 				<h5 class="description__text">Tech Used:</h5>
-				{#each md.techUsed as techUsed}
-					<p class="projectDescription__text">{techUsed}</p>
+				{#each md.techUsed as techUsed, idx}
+					<p class="projectDescription__text">
+						{techUsed}
+					</p>
 				{/each}
 			</aside>
 			<div class="fancyBoxWrapper cardSection">
@@ -72,6 +74,8 @@
 	.description__text {
 		font-family: var(--slantText);
 		color: var(--descriptionColor);
+
+		transition: 0.3s ease opacity;
 	}
 	.fancyBoxWrapper {
 		background: var(--cardBG);
@@ -146,5 +150,9 @@
 		100% {
 			transform: rotate(0deg);
 		}
+	}
+	.hidden {
+		opacity: 0;
+		transition: 0.3s ease opacity;
 	}
 </style>

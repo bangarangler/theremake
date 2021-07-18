@@ -1,57 +1,57 @@
 /* FONTS */
-@import url("https://fonts.googleapis.com/css?family=Quattrocento:400|Inconsolata:400|Calligraffitti:400|Exo:400");
+@import url('https://fonts.googleapis.com/css?family=Quattrocento:400|Inconsolata:400|Calligraffitti:400|Exo:400');
 
 :root {
-  /* COLORS */
-  /* --green: #00ebc7; */
-  --aqua: #0fc;
-  /* --red: #ff5470; */
-  --red: #ff3232;
-  --hotpink: #ff1a75;
-  /* --yellow: #fde24f; */
-  /* --black: #1b2d45; */
-  --black: #111;
-  /* --darkBlue: #00214d; */
-  /* --gray: #bfbfbf; */
-  --white: #fff;
-  /* --darkGray: #222; */
-  --darkGray: #191919;
+	/* COLORS */
+	/* --green: #00ebc7; */
+	--aqua: #0fc;
+	/* --red: #ff5470; */
+	--red: #ff3232;
+	--hotpink: #ff1a75;
+	/* --yellow: #fde24f; */
+	/* --black: #1b2d45; */
+	--black: #111;
+	/* --darkBlue: #00214d; */
+	/* --gray: #bfbfbf; */
+	--white: #fff;
+	/* --darkGray: #222; */
+	--darkGray: #191919;
 	--lightGray: rgba(255, 255, 255, 0.5);
-	--gray: #F5F5F5;
+	--gray: #f5f5f5;
 
-  /* COLORS INTENTIONS */
+	/* COLORS INTENTIONS */
 	--primary: var(--aqua);
 	--danger: var(--red);
-  --background: var(--black);
-  --textColor: var(--white);
-  --lineColor: var(--hotpink);
-  --cardBG: var(--darkGray);
+	--background: var(--black);
+	--textColor: var(--white);
+	--lineColor: var(--hotpink);
+	--cardBG: var(--darkGray);
 	--cardBGGradient: linear-gradient(315deg, var(--black), var(--cardBG), var(--black));
-  --headerBG: var(--black);
+	--headerBG: var(--black);
 	--headerLinkText: var(--white);
-  --btnTextColor: var(--textColor);
-  --footerBG: var(--black);
+	--btnTextColor: var(--textColor);
+	--footerBG: var(--black);
 	--headerLinkOpacity: var(--lightGray);
 	--headerBorder: var(--aqua);
 	--waveBG: var(--darkGray);
 	--descriptionColor: var(--aqua);
 
-  /* STYLES */
-  --line: 1px solid var(--lineColor);
+	/* STYLES */
+	--line: 1px solid var(--lineColor);
 
-  /* TYPE */
-  --headingFont: "Quattrocento", serif;
-  --bodyFont: "Inconsolata", monospace;
-  --slantText: "Calligraffitti", cursive;
+	/* TYPE */
+	--headingFont: 'Quattrocento', serif;
+	--bodyFont: 'Inconsolata', monospace;
+	--slantText: 'Calligraffitti', cursive;
 	--baseFontSize: 100%;
 
-  /* SIZING FOR NON DEFAULT STYLING */
-  --h1: 4.209em;
-  --h2: 3.157em;
-  --h3: 2.369em;
-  --h4: 1.777em;
-  --h5: 1.333em;
-  --smallTextSize: 0.75em;
+	/* SIZING FOR NON DEFAULT STYLING */
+	--h1: 4.209em;
+	--h2: 3.157em;
+	--h3: 2.369em;
+	--h4: 1.777em;
+	--h5: 1.333em;
+	--smallTextSize: 0.75em;
 
 	/* ELEVATION LEVELS */
 	--level1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -62,26 +62,26 @@
 	/* POSITIONING */
 	--containerPadding: 2.5%;
 	--headerHeight: 4rem;
-  --borderRadius: 10px;
+	--borderRadius: 10px;
 }
 
 /* FROM TYPE-SCALE */
 html {
-  font-size: var(--baseFontSize);
+	font-size: var(--baseFontSize);
 	box-sizing: border-box;
 } /*18px Desktop*/
 
 *,
 *::before,
-	*::after {
-		box-sizing: inherit;
-	}
+*::after {
+	box-sizing: inherit;
+}
 
 body {
-  font-family: var(--bodyFont);
-  font-weight: 400;
-  line-height: 1.65;
-  background: var(--background);
+	font-family: var(--bodyFont);
+	font-weight: 400;
+	line-height: 1.65;
+	background: var(--background);
 	color: var(--textColor);
 }
 
@@ -121,7 +121,7 @@ footer {
 }
 
 footer a {
-	color: var(--footerTextColor)
+	color: var(--footerTextColor);
 }
 
 footer p {
@@ -130,15 +130,15 @@ footer p {
 }
 
 p {
-  margin-bottom: 1.15rem;
-  max-width: 40em;
+	margin-bottom: 1.15rem;
+	max-width: 40em;
 }
 
 p a,
 blockquote a {
-  color: var(--textColor);
-  text-decoration: none;
-  border-bottom: solid 2px var(--primary);
+	color: var(--textColor);
+	text-decoration: none;
+	border-bottom: solid 2px var(--primary);
 }
 
 h1,
@@ -146,87 +146,94 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 2.75rem 0 1.05rem;
-  font-family: var(--headingFont);
-  font-weight: 400;
-  line-height: 1.15;
+	margin: 2.75rem 0 1.05rem;
+	font-family: var(--headingFont);
+	font-weight: 400;
+	line-height: 1.15;
 }
 
 h1 {
-  margin-top: 0;
-  font-size: var(--h1);
+	margin-top: 0;
+	font-size: var(--h1);
 }
 
 h2 {
-  font-size: var(--h2);
+	font-size: var(--h2);
 }
 
 h3 {
-  font-size: var(--h3);
+	font-size: var(--h3);
 }
 
 h4 {
-  font-size: var(--h4);
+	font-size: var(--h4);
 }
 
 h5 {
-  font-size: var(--h5);
+	font-size: var(--h5);
 }
 
 small,
 .text_small {
-  font-size: var(--smallTextSize);
+	font-size: var(--smallTextSize);
 }
 
 /* END TYPE-SCALE */
 
 blockquote {
-  /* border: solid 1px var(--darkBlue); */
-  margin: 10px;
-  padding: 2em;
-  background: var(--cardBG);
+	/* border: solid 1px var(--darkBlue); */
+	margin: 10px;
+	padding: 2em;
+	background: var(--cardBG);
 	box-shadow: var(--level3);
+}
+@media (min-width: 576px) {
+	blockquote {
+		padding: 1em;
+		border: 1px solid red;
+	}
 }
 
 label {
-  display: block;
-  font-size: var(--smallTextSize);
+	display: block;
+	font-size: var(--smallTextSize);
 }
 
-input, textarea {
-  padding: 4px 5px;
-  border: var(--line);
-  border-radius: 4px;
+input,
+textarea {
+	padding: 4px 5px;
+	border: var(--line);
+	border-radius: 4px;
 }
 
 textarea {
-  width: 100%;
-  height: 5rem;
+	width: 100%;
+	height: 5rem;
 }
 
 ::placeholder {
-  color: var(--gray);
+	color: var(--gray);
 }
 
 select {
-  border: var(--line);
+	border: var(--line);
 }
 
 hr {
-  border-top: var(--line);
+	border-top: var(--line);
 }
 
 button {
 	--btnColor: var(--primary);
 
-  appearance: none;
-  color: var(--btnTextColor);
-  background: var(--btnColor);
-  border: none;
-  border-radius: 10px;
-  padding: 5px 25px;
+	appearance: none;
+	color: var(--btnTextColor);
+	background: var(--btnColor);
+	border: none;
+	border-radius: 10px;
+	padding: 5px 25px;
 	cursor: pointer;
-  box-shadow: var(--level1);
+	box-shadow: var(--level1);
 	transition: 0.3s ease-out box-shadow;
 }
 
@@ -284,20 +291,20 @@ button.small {
 }
 
 .card {
-  padding: 2em;
-  background: var(--cardBG);
-  box-shadow: var(--level3);
-  border-radius: var(--borderRadius);
+	padding: 2em;
+	background: var(--cardBG);
+	box-shadow: var(--level3);
+	border-radius: var(--borderRadius);
 }
 
 /* first item will never have margin top */
 .card > *:first-child {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 /* last item will never have margin bottom */
 .card > *:last-child {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .lightTheme {
@@ -336,55 +343,55 @@ button.small {
 
 /* THEME */
 .theme {
-  /* COLORS */
-  --green: #4fc4cf;
-  --red: #ff5470;
-  --yellow: #fbdd74;
-  --black: #181818;
-  --darkBlue: #994ff3;
-  --gray: #bfbfbf;
-  --lightGray: #f2f4f6;
-  --white: #fff;
-  --darkGray: #222;
+	/* COLORS */
+	--green: #4fc4cf;
+	--red: #ff5470;
+	--yellow: #fbdd74;
+	--black: #181818;
+	--darkBlue: #994ff3;
+	--gray: #bfbfbf;
+	--lightGray: #f2f4f6;
+	--white: #fff;
+	--darkGray: #222;
 
-  /* COLORS INTENTIONS */
-  --primary: var(--green);
-  --danger: var(--red);
-  /* --background: var(--lightGray); */
-  --background: var(--yellow);
-  --textColor: var(--black);
-  --lineColor: var(--gray);
-  --cardBG: var(--white);
-  --headerBG: var(--black);
-  --btnTextColor: var(--textColor);
-  --footerBG: var(--black);
+	/* COLORS INTENTIONS */
+	--primary: var(--green);
+	--danger: var(--red);
+	/* --background: var(--lightGray); */
+	--background: var(--yellow);
+	--textColor: var(--black);
+	--lineColor: var(--gray);
+	--cardBG: var(--white);
+	--headerBG: var(--black);
+	--btnTextColor: var(--textColor);
+	--footerBG: var(--black);
 
-  /* STYLES */
-  --line: 1px solid var(--lineColor);
-  /* --line: 1px solid var(--yellow); */
+	/* STYLES */
+	--line: 1px solid var(--lineColor);
+	/* --line: 1px solid var(--yellow); */
 
-  /* TYPE */
-  --headingFont: "Exo", sans-serif;
-  --bodyFont: "Inconsolata", monospace;
-  --slantText: "Calligraffitti", cursive;
-  --baseFontSize: 110%;
+	/* TYPE */
+	--headingFont: 'Exo', sans-serif;
+	--bodyFont: 'Inconsolata', monospace;
+	--slantText: 'Calligraffitti', cursive;
+	--baseFontSize: 110%;
 
-  /* SIZING FOR NON DEFAULT STYLING */
-  --h1: 4.209em;
-  --h2: 3.157em;
-  --h3: 2.369em;
-  --h4: 1.777em;
-  --h5: 1.333em;
-  --smallTextSize: 0.75em;
+	/* SIZING FOR NON DEFAULT STYLING */
+	--h1: 4.209em;
+	--h2: 3.157em;
+	--h3: 2.369em;
+	--h4: 1.777em;
+	--h5: 1.333em;
+	--smallTextSize: 0.75em;
 
-  /* ELEVATION LEVELS */
-  --level1: 0 2px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --level2: 0 6px 8px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --level3: 0 12px 17px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --level4: 0 22px 27px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	/* ELEVATION LEVELS */
+	--level1: 0 2px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	--level2: 0 6px 8px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--level3: 0 12px 17px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--level4: 0 22px 27px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
-  /* POSITIONING */
-  --containerPadding: 2.5%;
-  --headerHeight: 4rem;
-  --borderRadius: 25px;
+	/* POSITIONING */
+	--containerPadding: 2.5%;
+	--headerHeight: 4rem;
+	--borderRadius: 25px;
 }

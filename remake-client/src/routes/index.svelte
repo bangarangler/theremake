@@ -1,21 +1,48 @@
 <script lang="ts">
 	/* import { TEST } from '$lib/Env'; */
 	/* <p>Testing... : {TEST}</p> */
+	import { fly, fade } from 'svelte/transition';
+	/* import { flip } from 'svelte/animate'; */
 	import { theme } from '$stores/themeStore';
 	import ProjectCard from '$components/ProjectCard/ProjectCard.svelte';
+	import { onMount } from 'svelte';
+	let visible = false;
+	onMount(() => {
+		visible = true;
+	});
 </script>
 
 <section>
 	<div class="titleWrapper">
 		<h1>Hi. I'm Jon. Fullstack Developer...</h1>
-		<blockquote>
-			<p class="quote">A Foolish Consistency Is the Hobgoblin of Little Minds</p>
-			{#if $theme === 'DARK'}
-				<div class="quoteFooter">- Ralph Waldo Emerson</div>
-			{:else}
-				<div class="quoteFooter light">- Ralph Walso Emerson</div>
-			{/if}
-		</blockquote>
+		{#if visible}
+			<blockquote in:fade={{ delay: 100, duration: 1200 }} out:fade={{ duration: 100 }}>
+				<p
+					class="quote"
+					in:fly={{ delay: 100, x: -100, opacity: 0, duration: 1200 }}
+					out:fade={{ duration: 100 }}
+				>
+					A Foolish Consistency Is the Hobgoblin of Little Minds
+				</p>
+				{#if $theme === 'DARK'}
+					<div
+						class="quoteFooter"
+						in:fly={{ delay: 100, x: 100, opacity: 0, duration: 1000 }}
+						out:fade={{ duration: 100 }}
+					>
+						- Ralph Waldo Emerson
+					</div>
+				{:else}
+					<div
+						class="quoteFooter light"
+						in:fly={{ delay: 100, x: 100, opacity: 0, duration: 1000 }}
+						out:fade={{ duration: 100 }}
+					>
+						- Ralph Walso Emerson
+					</div>
+				{/if}
+			</blockquote>
+		{/if}
 	</div>
 	<div class="line" />
 	<div class="blobWrapper">
@@ -27,6 +54,9 @@
 <ProjectCard />
 
 <style>
+	/* Small devices (landscape phones 576px and up) */
+	/* @media (min-width: 576px) { */
+	/* } */
 	section {
 		padding: var(--containerPadding);
 		display: grid;
@@ -42,6 +72,8 @@
 	}
 
 	h1 {
+		font-size: var(--h1);
+		text-align: unset;
 		background: linear-gradient(271deg, var(--hotpink) 50%, var(--aqua) 70%, #a162e8 94%);
 		background-clip: border-box;
 		-webkit-background-clip: text;
@@ -81,7 +113,6 @@
 		text-align: right;
 		font-style: italic;
 		font-family: var(--slantText);
-		/* color: var(--footerTextColor); */
 		padding: 0;
 		text-align: center;
 		background: linear-gradient(to bottom left, #7a00cc, #ff1a75);
