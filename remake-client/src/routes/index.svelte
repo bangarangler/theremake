@@ -60,24 +60,81 @@
 	section {
 		padding: var(--containerPadding);
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) 3px minmax(50vmin, 1fr);
-		grid-template-areas: 'title line blob';
-		margin-bottom: 200px;
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			'title'
+			'line'
+			'blob';
+		margin-bottom: 125px;
+	}
+	@media (min-width: 900px) {
+		/* section { */
+		/* 	grid-template-columns: minmax(0, 1fr) 3px minmax(50vmin, 1fr); */
+		/* 	grid-template-areas: */
+		/* 		'title title title' */
+		/* 		'line line line' */
+		/* 		'blob blob blob'; */
+		/* } */
+	}
+	@media (min-width: 1200px) {
+		section {
+			padding: var(--containerPadding);
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) 3px minmax(50vmin, 1fr);
+			grid-template-areas: 'title line blob';
+			margin-bottom: 200px;
+		}
 	}
 	.titleWrapper {
-		grid-area: 'title';
-		place-self: center;
-		justify-self: center;
-		width: 60%;
+		width: 90%;
+		margin: 0 auto;
+	}
+	@media (min-width: 900px) {
+		.titleWrapper {
+			width: 70%;
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+		}
+	}
+	@media (min-width: 1200px) {
+		.titleWrapper {
+			display: grid;
+			grid-area: 'title';
+			place-self: center;
+			justify-self: center;
+			width: 60%;
+		}
 	}
 
 	h1 {
-		font-size: var(--h1);
-		text-align: unset;
+		font-size: var(--h3);
 		background: linear-gradient(271deg, var(--hotpink) 50%, var(--aqua) 70%, #a162e8 94%);
 		background-clip: border-box;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		text-align: center;
+		margin-bottom: 35px;
+	}
+	@media (min-width: 900px) {
+		h1 {
+			font-size: var(--h2);
+		}
+	}
+	@media (min-width: 1200px) {
+		h1 {
+			font-size: var(--h1);
+			background: linear-gradient(271deg, var(--hotpink) 50%, var(--aqua) 70%, #a162e8 94%);
+			background-clip: border-box;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-align: unset;
+		}
+	}
+
+	blockquote {
+		text-align: center;
+		margin-bottom: 35px;
 	}
 
 	.quote {
@@ -121,30 +178,106 @@
 		-webkit-text-fill-color: transparent;
 		font-size: 1.3rem;
 	}
+	@media (min-width: 500px) {
+	}
+	@media (min-width: 1200px) {
+		.quote {
+			quotes: '\201C''\201D''\2018''\2019';
+		}
+	}
 
 	.light {
 		-webkit-text-fill-color: unset;
 	}
 
 	.line {
-		width: 3px;
-		height: 100%;
+		width: 90%;
+		min-width: 90%;
+		height: 3px;
+		min-height: 3px;
 		background: var(--hotpink);
+		margin: 25px auto 50px auto;
+	}
+
+	@media (min-width: 500px) {
+	}
+	@media (min-width: 1200px) {
+		.line {
+			width: 3px;
+			height: 100%;
+			background: var(--hotpink);
+		}
 	}
 
 	h2 {
 		position: absolute;
-		top: 115px;
-		left: -56px;
+		top: 21px;
+		left: 36px;
 		z-index: 1;
+		font-size: var(--h3);
+		color: var(--textColor);
+		width: min-content;
+		background: var(--waveBG);
+		border-radius: 12px;
+		opacity: 0.8;
+		padding: 8px;
+	}
+	@media (min-width: 600px) {
+		h2 {
+			top: 21px;
+			left: 35px;
+			width: min-content;
+		}
+	}
+	@media (min-width: 900px) {
+		h2 {
+			top: 100px;
+			left: 140px;
+			font-size: var(--h1);
+			width: -moz-fit-content;
+			width: fit-content;
+			background: var(--waveBG);
+			border-radius: 12px;
+			opacity: 0.8;
+			padding: 8px;
+		}
+	}
+	@media (min-width: 1200px) {
+		h2 {
+			position: absolute;
+			top: 24px;
+			left: 46px;
+			z-index: 1;
+			font-size: var(--h2);
+			width: min-content;
+			background: var(--waveBG);
+			border-radius: 12px;
+			opacity: 0.8;
+			padding: 12px;
+		}
 	}
 
 	.blobWrapper {
-		width: 50vmin;
-		height: 50vmin;
+		width: 45vmin;
+		height: 45vmin;
 		grid-area: 'blob';
 		position: relative;
-		place-self: end;
+		place-self: center;
+	}
+	@media (min-width: 900px) {
+		.blobWrapper {
+			width: 55vmin;
+			height: 55vmin;
+		}
+	}
+	@media (min-width: 1200px) {
+		.blobWrapper {
+			width: 50vmin;
+			height: 50vmin;
+			grid-area: 'blob';
+			position: relative;
+			place-self: end;
+		}
 	}
 
 	.blob {
@@ -158,5 +291,24 @@
 		background-image: linear-gradient(45deg, #a162e8 15%, var(--aqua) 80%);
 		border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 		box-shadow: -10vmin 10vmin 0 rgba(255, 255, 255, 0.07);
+	}
+	@media (min-width: 900px) {
+		/* .blob { */
+		/* 	box-shadow: -8vmin 8vmin 0 rgba(255, 255, 255, 0.07); */
+		/* } */
+	}
+	@media (min-width: 1200px) {
+		.blob {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: var(--aqua);
+			background-image: none;
+			background-image: linear-gradient(45deg, #a162e8 15%, var(--aqua) 80%);
+			border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+			box-shadow: -8vmin 8vmin 0 rgba(255, 255, 255, 0.07);
+		}
 	}
 </style>

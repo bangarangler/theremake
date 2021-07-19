@@ -30,8 +30,16 @@
 		position: relative;
 	}
 	img {
-		max-height: 80px;
-		max-width: 80px;
+		max-height: 60px;
+		max-width: 60px;
+		margin-top: 10px;
+	}
+	@media (min-width: 1200px) {
+		img {
+			max-height: 80px;
+			max-width: 80px;
+			margin-top: 15px;
+		}
 	}
 	nav a {
 		position: relative;
@@ -40,6 +48,11 @@
 		color: var(--headerLinkOpacity);
 		padding: 0.1em 0;
 		position: relative;
+	}
+	@media (min-width: 1200px) {
+		nav a {
+			font-size: var(--h5);
+		}
 	}
 	nav a:before,
 	nav a:after {
