@@ -83,7 +83,7 @@
 	}
 	footer h3 {
 		grid-area: 'name';
-		padding: 1.5rem;
+		padding: 1.2rem;
 		font-family: var(--slantText);
 		border: 6px solid;
 		background: -webkit-gradient(linear, right top, left bottom, from(#7a00cc), to(#ff1a75));
@@ -105,6 +105,19 @@
 		text-align: center;
 		width: max-content;
 		margin: 20px auto;
+		font-size: var(--h4);
+	}
+	@media (min-width: 800px) {
+		footer h3 {
+			padding: 1.5rem;
+			font-size: var(--h3);
+		}
+	}
+	@media (min-width: 1200px) {
+		footer h3 {
+			padding: 1.5rem;
+			font-size: var(--h3);
+		}
 	}
 	footer .light {
 		padding: 1.5rem;
@@ -131,15 +144,28 @@
 		margin: 20px auto;
 	}
 	footer .footerSocialWrapper {
+		--iconSize: 40px;
 		grid-area: 'social';
-		width: 100%;
+		width: 90%;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
+	@media (min-width: 800px) {
+		footer .footerSocialWrapper {
+			--iconSize: 50px;
+			width: 95%;
+		}
+	}
+	@media (min-width: 1200px) {
+		footer .footerSocialWrapper {
+			--iconSize: 60px;
+			width: 100%;
+		}
+	}
 	.instagram {
 		color: #5851db;
-		width: 70px;
+		width: var(--iconSize);
 	}
 	footer a:hover {
 		color: var(--hotpink);
@@ -148,29 +174,39 @@
 	}
 	.facebook {
 		color: #3b5998;
-		width: 70px;
+		width: var(--iconSize);
 	}
 	.twitter {
 		color: #1da1f2;
-		width: 70px;
+		width: var(--iconSize);
 	}
 	.linkedin {
 		color: #0077b5;
-		width: 70px;
+		width: var(--iconSize);
 	}
 	.slack {
 		color: #cf0e5b;
-		width: 70px;
+		width: var(--iconSize);
 	}
 	.github {
 		color: #6cc644;
-		width: 70px;
+		width: var(--iconSize);
 	}
 	.copy {
 		grid-area: 'copy';
 	}
 	.copy p {
 		color: var(--hotpink);
-		font-size: var(--h4);
+		font-size: var(--h6);
+	}
+	@media (min-width: 800px) {
+		.copy p {
+			font-size: var(--h5);
+		}
+	}
+	@media (min-width: 1200px) {
+		.copy p {
+			font-size: var(--h4);
+		}
 	}
 </style>

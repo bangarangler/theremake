@@ -54,9 +54,6 @@
 <ProjectCard />
 
 <style>
-	/* Small devices (landscape phones 576px and up) */
-	/* @media (min-width: 576px) { */
-	/* } */
 	section {
 		padding: var(--containerPadding);
 		display: grid;
@@ -68,13 +65,6 @@
 		margin-bottom: 125px;
 	}
 	@media (min-width: 900px) {
-		/* section { */
-		/* 	grid-template-columns: minmax(0, 1fr) 3px minmax(50vmin, 1fr); */
-		/* 	grid-template-areas: */
-		/* 		'title title title' */
-		/* 		'line line line' */
-		/* 		'blob blob blob'; */
-		/* } */
 	}
 	@media (min-width: 1200px) {
 		section {

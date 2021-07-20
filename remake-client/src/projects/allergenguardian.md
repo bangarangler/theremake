@@ -2,7 +2,7 @@
 projectTitle: Allergen Guardian
 slug: allergenguardian
 projectRole: Full Stack
-projectDescription: 'Shop | Scan | Safe'
+projectDescription: 'Shop | Scan | Safe ---  Tired of wandering the shoping aisles hoping the product you need will jump off the shelf.  As if a sudden magical force could reach out and expose the solution and pull it into your reach away from the countless imposters lurking in the distance.  We feel your pain and proudly present Allergen Guardian!'
 techUsed: ['next.js', 'node', 'typescript', 'mongodb', 'react', 'graphql', 'redis', 'fastify']
 ---
 
