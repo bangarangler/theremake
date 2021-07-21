@@ -9,9 +9,9 @@ techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mo
 <script>
 	import {fly, fade} from 'svelte/transition'
   import {onMount} from 'svelte'
-  import pluarisDesktop from '$images/pluaris-dashboard.jpg'
-  import myMemoryMobile from '$images/mymemory-pluaris-mobile.jpg'
-  import myMemoryInfoMobile from '$images/mymemory-info-mobile.jpg'
+  import pluarisDesktop from '$images/pluaris-dashboard.jpg?w=600;700;800&format=jpg&srcset'
+  import myMemoryMobile from '$static/mymemory-pluaris-mobile.jpg?w=500;600;700&format=jpg&srcset'
+  import myMemoryInfoMobile from '$images/mymemory-info-mobile.jpg?w=500;600;700&format=jpg&srcset'
   let scrollY;
 	let ani = false;
   let exampleAnimate = false;
@@ -47,10 +47,10 @@ techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mo
 
 </div>
 <div class="card imgContainer">
-<img class="img1" src={myMemoryMobile} alt="Mobile view for Pluaris My Memory
-page" />
-<img class="img2" src={myMemoryInfoMobile} alt="Mobile view for Pluaris My Memory page
-information related to search.">
+<picture><img class="img1" srcset={myMemoryMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory
+page" /></picture>
+<picture><img class="img2" srcset={myMemoryInfoMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page
+information related to search."></picture>
 </div>
 </article>
 

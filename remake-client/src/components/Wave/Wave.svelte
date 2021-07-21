@@ -34,6 +34,12 @@
 		display: block;
 	}
 
+	@media (min-width: 1700px) {
+		.wave {
+			display: none;
+		}
+	}
+
 	.wave-path {
 		animation: wave-animation 12s linear infinite alternate;
 	}

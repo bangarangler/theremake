@@ -2,40 +2,61 @@
 	import { projectMetaData } from '$stores/projectMetaData';
 	import Wave from '$components/Wave/Wave.svelte';
 	import ProjectCardHeading from '$components/ProjectCard/ProjectCardHeading/ProjectCardHeading.svelte';
+	import eyeball from '$images/undraw-surveillance.svg?w=200;&format=svg&srcset';
+	export let innerWidth;
+	let toLargeText = 'Screen is getting kinda large there...';
+	$: if (innerWidth >= 1650) toLargeText = 'No Seriously; How wide does this go?';
+	$: if (innerWidth < 1650) toLargeText = 'Screen is getting kinda large there...';
+	$: if (innerWidth >= 1700) toLargeText = "That's it. No more. good day ; )";
 </script>
 
+<svelte:window bind:innerWidth />
+
 {#each $projectMetaData as md}
-	<Wave>
-		<div class="card wrapper">
-			<div class="titleSection">
-				<ProjectCardHeading
-					projectTitle={md.projectTitle}
-					projectRole={md.projectRole}
-					slug={md.slug}
-				/>
-			</div>
-			<aside class="card descriptionSection">
-				<h5 class="description__text">Description:</h5>
-				<p class="projectDescription__text">
-					{md.projectDescription}
-				</p>
-			</aside>
-			<aside class="card techUsedSection">
-				<h5 class="description__text">Tech Used:</h5>
-				{#each md.techUsed as techUsed}
+	<div class="maxCutOff">
+		<Wave>
+			<div class="card wrapper">
+				<div class="titleSection">
+					<ProjectCardHeading
+						projectTitle={md.projectTitle}
+						projectRole={md.projectRole}
+						slug={md.slug}
+					/>
+				</div>
+				<aside class="card descriptionSection">
+					<h5 class="description__text">Description:</h5>
 					<p class="projectDescription__text">
-						{techUsed}
+						{md.projectDescription}
 					</p>
-				{/each}
-			</aside>
-			<div class="fancyBoxWrapper cardSection">
-				<div class="fancyBox">
-					<span />
-					<h2><a href={`/projects/${md?.slug}`}>{md?.projectTitle}</a></h2>
+				</aside>
+				<aside class="card techUsedSection">
+					<h5 class="description__text">Tech Used:</h5>
+					{#each md.techUsed as techUsed}
+						<p class="projectDescription__text">
+							{techUsed}
+						</p>
+					{/each}
+				</aside>
+				<div class="fancyBoxWrapper cardSection">
+					<div class="fancyBox">
+						<span />
+						<h2><a href={`/projects/${md?.slug}`}>{md?.projectTitle}</a></h2>
+					</div>
+				</div>
+				<div class="toLarge">
+					<picture
+						><img
+							srcset={eyeball}
+							type="image/svg"
+							alt="Eyeball from
+				https://undraw.co"
+						/></picture
+					>
+					<p>{toLargeText}</p>
 				</div>
 			</div>
-		</div>
-	</Wave>
+		</Wave>
+	</div>
 {/each}
 
 <style>
@@ -76,6 +97,62 @@
 				'description description title'
 				'techUsed card .'
 				'techUsed card .';
+		}
+	}
+	.toLarge {
+		grid-area: toLarge;
+		display: none;
+	}
+	@media (min-width: 1500px) {
+		.wrapper {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-rows: minmax(0px, 1fr) minmax(0px, 1fr) minmax(0px, 1fr);
+			grid-template-areas:
+				'description description title'
+				'techUsed card toLarge'
+				'techUsed card toLarge';
+		}
+		@media (min-width: 1700px) {
+			.wrapper {
+				border-radius: 12px;
+				margin-bottom: 150px;
+			}
+		}
+		.toLarge {
+			grid-area: toLarge;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			font-family: var(--slantText);
+			position: relative;
+		}
+		.toLarge img {
+			max-width: 200px;
+			margin-bottom: 15px;
+		}
+		.toLarge p {
+			background: linear-gradient(271deg, #a162e8 50%, var(--aqua) 70%, var(--hotpink) 94%);
+			background-clip: border-box;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+	@media (min-width: 1700px) {
+		.maxCutOff {
+			max-width: 1700px;
+			margin: 0 auto;
+		}
+		.toLarge p {
+			transform: rotate(90deg);
+			background: unset;
+			background-clip: unset;
+			-webkit-background-clip: unset;
+			-webkit-text-fill-color: unset;
+			font-size: var(--h2);
+			position: fixed;
+			top: 470px;
+			right: -270px;
 		}
 	}
 	.titleSection {

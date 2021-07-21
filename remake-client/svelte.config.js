@@ -24,7 +24,8 @@ const config = {
 					$images: resolve('./src/images'),
 					$stores: resolve('./src/stores'),
 					$projects: resolve('./src/projects'),
-					$blogposts: resolve('./src/blogposts')
+					$blogposts: resolve('./src/blogposts'),
+					$static: resolve('./static')
 				}
 			},
 			plugins: [imagetools({ force: true })]
