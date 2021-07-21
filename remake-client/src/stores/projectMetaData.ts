@@ -13,6 +13,15 @@ export interface PreviousAndNextProject {
 	next?: string;
 }
 
+// export enum ToolChoices {
+// 	'JAVASCRIPT' = 'javascript',
+// 	'TYPESCRIPT' = 'typescript'
+// }
+
+// const tools: ToolChoices[] = [ToolChoices.JAVASCRIPT, ToolChoices.TYPESCRIPT];
+
 export const projectMetaData = writable<ProjectMetaDataType[]>([]);
 
 export const previousAndNextProject = writable<PreviousAndNextProject>({});
+
+// export const languageIcons = writable<ToolChoices[]>(tools);
