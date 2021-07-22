@@ -31,7 +31,7 @@
 				</aside>
 				<aside class="card techUsedSection">
 					<h5 class="description__text">Tech Used:</h5>
-					{#each md.techUsed as techUsed, i}
+					{#each md.techUsed as techUsed}
 						<p class="projectDescription__text">
 							{techUsed}
 						</p>

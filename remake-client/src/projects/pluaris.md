@@ -12,7 +12,9 @@ techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mo
   import pluarisDesktop from '$images/pluaris-dashboard.jpg?w=600;700;1600&format=jpg&srcset'
   import myMemoryMobile from '$static/mymemory-pluaris-mobile.jpg?w=200;400;700&format=jpg&srcset'
   import myMemoryInfoMobile from '$images/mymemory-info-mobile.jpg?w=200;400;700&format=jpg&srcset'
+  let headingText = "Software Engineer • Engineering Manager • Architecture / UI / UX / Development • 2019 - Present"
   let scrollY;
+  let innerWidth;
 	let animation = false;
   let backendAnimate = false;
   let frontendAnimate = false;
@@ -35,15 +37,19 @@ techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mo
     onMount(() => {
   animation = true
   })
+  $: if (innerWidth < 600) headingText = "Software Engineer • 2019 - Present"
+  $: if (innerWidth > 800) headingText = "Software/Engin Manager Architecture / UI / UX / Development • 2019 - Present"
+  $: if (innerWidth > 1000) headingText = "Software Engineer • Engineering Manager • Architecture / UI / UX / Development • 2019 - Present"
+  $: if (innerWidth <800) headingText = "Software Engineer • 2019 - Present"
 </script>
 
-<svelte:window bind:scrollY />
+<svelte:window bind:scrollY bind:innerWidth />
 
 <article>
 <div class="container">
 <h1 class:display={animation}>{projectTitle}</h1>
 
-<p class="headingText">Software Engineer • Engineering Manager • Architecture / UI / UX / Development • 2019 - Present</p>
+<p class="headingText">{headingText}</p>
 
 </div>
   <div class="card imgContainer">
@@ -183,6 +189,11 @@ opacity: 1;
   animation:
     typing 6.5s steps(80, end),
     blink-caret .75s step-end infinite;
+}
+@media(min-width: 500px) {
+.headingText {
+font-size: var(--smallText);
+}
 }
 @keyframes typing {
   from { width: 0 }
