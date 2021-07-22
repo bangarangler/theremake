@@ -80,7 +80,9 @@ Thats not to say it wasn't important data. Actually quite the opposite! However
 there is zero reason to have giant objects or massive amounts of meta data being sent over the net (possibly ending up on a mobile client).
 
 We created our <span class="graphql">GraphQL</span> API with two things in mind.
-Performance and obliterating our over fetching issue.
+Performance and dealing with our over fetching issue.
+
+I'm a big fan of <span class="graphql">GraphQL</span>! If you think of hitting a REST API... What do you get back typically? Well you get back all of the things! An example could be fetching User data.
 
 For the DataScience side of the coin we use <span class="python">Python</span> along with a _Flask_ API. I won't waste time name droping all of the DataScience tools and libraries we utilize as this is not my area of experteise. However; I have pitched in on the _Flask_ API and helped on and off with things such as (architecture, preformance, deployment, debugging, scripting).
 
