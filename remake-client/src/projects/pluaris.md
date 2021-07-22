@@ -9,31 +9,31 @@ techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mo
 <script>
 	import {fly, fade} from 'svelte/transition'
   import {onMount} from 'svelte'
-  import pluarisDesktop from '$images/pluaris-dashboard.jpg?w=600;700;800&format=jpg&srcset'
-  import myMemoryMobile from '$static/mymemory-pluaris-mobile.jpg?w=500;600;700&format=jpg&srcset'
-  import myMemoryInfoMobile from '$images/mymemory-info-mobile.jpg?w=500;600;700&format=jpg&srcset'
+  import pluarisDesktop from '$images/pluaris-dashboard.jpg?w=600;700;1600&format=jpg&srcset'
+  import myMemoryMobile from '$static/mymemory-pluaris-mobile.jpg?w=200;400;700&format=jpg&srcset'
+  import myMemoryInfoMobile from '$images/mymemory-info-mobile.jpg?w=200;400;700&format=jpg&srcset'
   let scrollY;
-	let ani = false;
-  let exampleAnimate = false;
-  let deploymentAnimate = false;
-  let responsibilityAnimate = false;
+	let animation = false;
+  let backendAnimate = false;
+  let frontendAnimate = false;
+  let devOpsAnimate = false;
 	$: if (scrollY > 350) {
   console.log("running...")
-		exampleAnimate = true
+		backendAnimate = true
     }
     $: if (scrollY > 620) {
-    deploymentAnimate = true
+    frontendAnimate = true
     }
     $: if (scrollY > 1100) {
-    responsibilityAnimate = true
+    devOpsAnimate = true
     }
     $: if(scrollY === 0) {
-    exampleAnimate = false
-    deploymentAnimate = false
-    responsibilityAnimate = false
+    backendAnimate = false
+    frontendAnimate = false
+    devOpsAnimate = false
     }
     onMount(() => {
-  ani = true
+  animation = true
   })
 </script>
 
@@ -41,16 +41,18 @@ techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mo
 
 <article>
 <div class="container">
-<h1 class:display={ani}>{projectTitle}</h1>
+<h1 class:display={animation}>{projectTitle}</h1>
 
 <p class="headingText">Software Engineer • Engineering Manager • Architecture / UI / UX / Development • 2019 - Present</p>
 
 </div>
   <div class="card imgContainer">
     <picture>
-      <img class="img1" srcset={myMemoryMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page" />
+      <source media="(min-width:1200px)" srcset={myMemoryMobile}>
+        <img class="img1" srcset={myMemoryMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page" />
     </picture>
     <picture>
+      <source media="(min-width:1200px)" srcset={myMemoryInfoMobile}>
       <img class="img2" srcset={myMemoryInfoMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page information related to search.">
     </picture>
 </div>
@@ -61,35 +63,80 @@ techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mo
 
 _Pluaris_ specializes in reading and comprehending data, analyzing cause and effect, identifying benchmarks and measuring performance against them, tracing and linking intelligence by topics, extracting critical intelligence, alerting, answering questions on-the-fly, and synthesizing outputs. This saves each employee an average of 2 hours per day. It accelerates the pace of business resulting in revenue growth and increased profitability.
 
-<h3 class:slideInLeft={exampleAnimate}>Backend</h3>
+<h3 class:slideInLeft={backendAnimate}>Backend</h3>
 
-_Pluaris_ uses a few different backends to accomplish it's goals and deliver
-for our customers in the **B2B** (Business to Business) and **B2C** (Business to Consumer) markets.
+We are transitioning from a **Monolith** to a more **Microservice** approach. Some
+services are now ran with <span class="docker">Docker</span>. With a goal of
+having our **Microservices** containerized and running in <span
+class="k8s">Kubernetes</span>.
 
-My primary responsibility is delivering **real time** information for our users
-along with a beautful intuitive **UX** (user experience)!
+We use <span class="nodejs">NodeJS</span>, ~~ExpressJS~~ Fastify, <span class="typescript">TypeScript</span>, <span class="graphql">GraphQL</span>, <span class="mongo">MongoDB</span>, <span class="redis">Redis</span>.
 
-What technology do we need to pull off such a task? Enter <span class="nodejs">NodeJS</span> and friends!
-
-We started off by revamping the **Express** framework and giving it some amazing
-superpowers by connecting it with **Apollo Server** to develop and deliver a <span class="graphql">GraphQL</span> API along with our REST API's. Which allowed us to address a fairly serious over fetching issue.
-
-We have a ton of meta data that the machine needs inorder to tweak models and do all sorts of fancy **NLP** (Natural Language Processing) &amp; **Machine Learning**; However our users never needed or cared about a "shocking" amount of it.
-
-Thats not to say it wasn't important data. Actually quite the opposite! However
-there is zero reason to have giant objects or massive amounts of meta data being sent over the net (possibly ending up on a mobile client).
-
-We created our <span class="graphql">GraphQL</span> API with two things in mind.
-Performance and obliterating our over fetching issue.
+I'm a big fan of automation and have tried to streamline lots of different tasks
+and workflows. ~~GoLang~~ <span class="go">Go</span> has been a fantastic
+addition and a joy to work with! Not that <span class="nodejs">NodeJS</span> is
+a slouch in the speed department but I have a feeling more **microservices**
+will be written in <span class="go">Go</span> in the future.
 
 For the DataScience side of the coin we use <span class="python">Python</span> along with a _Flask_ API. I won't waste time name droping all of the DataScience tools and libraries we utilize as this is not my area of experteise. However; I have pitched in on the _Flask_ API and helped on and off with things such as (architecture, preformance, deployment, debugging, scripting).
 
-<h3 class:slideInRight={deploymentAnimate}>Deployment</h3>
-<p>Aenean et laoreet nisi. Phasellus sagittis mauris at volutpat aliquam. Aenean vitae arcu quis est lobortis rutrum vitae sit amet ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam posuere, libero sed fringilla eleifend, massa nulla porta ligula, a porta mi ligula et turpis. Sed scelerisque urna vel massa finibus euismod. In non mauris eros. In dapibus nunc ac quam auctor, sit amet fermentum diam vulputate. Praesent eu porttitor tortor. Nam sed nibh quam. Quisque molestie venenatis neque vel placerat. Donec nec euismod justo. Praesent a pharetra metus. Fusce eget tellus urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae</p>
+<!-- _Pluaris_ uses a few different backends to accomplish it's goals and deliver -->
+<!-- for our customers in the **B2B** (Business to Business) and **B2C** (Business to Consumer) markets. -->
+<!--  -->
+<!-- My primary responsibility is delivering **real time** information for our users -->
+<!-- along with a beautful intuitive **UX** (user experience)! -->
 
-<h3 class:slideInLeft={responsibilityAnimate}>Responsibility</h3>
-<p>Nam mi est, dapibus ut aliquam ut, consequat vel nulla. Duis vitae pellentesque neque, ut tristique est. Morbi ut ligula fermentum, venenatis odio vel, laoreet mauris. Integer fermentum libero tortor, dictum semper mi tempus quis. Aliquam in lacinia leo. Morbi nec lobortis augue. Praesent sem nulla, accumsan id est at, facilisis molestie dolor. Aliquam semper sed felis a mollis. Vestibulum odio velit, lacinia quis felis vitae, convallis dictum felis. Maecenas non auctor justo.</p>
+<!-- What technology do we need to pull off such a task? Enter <span class="nodejs">NodeJS</span> and friends! -->
+<!--  -->
+<!-- We started off by revamping the **Express** framework and giving it some amazing -->
+<!-- superpowers by connecting it with **Apollo Server** to develop and deliver a <span class="graphql">GraphQL</span> API along with our REST API's. Which allowed us to address a fairly serious over fetching issue. -->
+<!--  -->
+<!-- We have a ton of meta data that the machine needs inorder to tweak models and do all sorts of fancy **NLP** (Natural Language Processing) &amp; **Machine Learning**; However our users never needed or cared about a "shocking" amount of it. -->
+<!--  -->
+<!-- Thats not to say it wasn't important data. Actually quite the opposite! However -->
+<!-- there is zero reason to have giant objects or massive amounts of meta data being sent over the net (possibly ending up on a mobile client). -->
+<!--  -->
+<!-- We created our <span class="graphql">GraphQL</span> API with two things in mind. -->
+<!-- Performance and obliterating our over fetching issue. As a kicker we also wanted -->
+<!-- to utilize subscriptions via *web-sockets* and get some static typing going on. -->
+<!--  -->
+
+<h3 class:slideInRight={frontendAnimate}>Frontend</h3>
+
+On the frontend we are using <span class="react">React</span>, along with <span
+class="typescript">TypeScript</span> to handle the data and deliver rich _user_
+tailored expierences for our clients.
+
+Your ~~data~~ **Internal Memory**,
+available to recall and curate a more personalized view into the inner workings
+of either your business or your brain in **real-time**.
+
+<h3 class:slideInLeft={devOpsAnimate}>Dev Ops</h3>
+
+Our current **cloud provider** is <span class="digitalocean">Digital Ocean</span>. We have some _automation_ scripts in place to pull in the new code, run some **tests**, re-build, and **deploy**.
+
+Our <span class="nodejs">NodeJS</span> servers are spread across multiple <span
+class="digitalocean">droplets</span> and we are **load-balancing** and using **reverse proxies**.
+
+A key piece of kit in this set up has been _Caddy_ and man is it awesome! Much
+cleaner and easier to work with than an <span class="nginx">Nginx</span> config.
+It handles auto **SSL** renewal with minimal fuss. And automating different
+servers to run different _Caddyfile(s)_ has been a fantastic experience.
+
+As we contine moving everything for **production** into <span
+class="docker">Docker</span> and finishing our move to <span
+class="k8s">K8s</span> we will have the freedom to take our platform and deploy
+it on <span class="aws">AWS</span>, <span class="googlecloud">Google Cloud</span>, <span class="azure">Azure</span>, or anywhere we need to go!
+
 </div>
+
+<div class="card oneImage">
+  <picture>
+  <source media="(min-width:1200px)" srcset={pluarisDesktop}>
+    <img srcset={pluarisDesktop} type="image/jpg" alt="Pluaris application view of the desktop">
+  </picture>
+</div>
+<div class="caption"><p>Dashboard view of Pluaris!</p></div>
 
 </article>
 
@@ -153,12 +200,19 @@ width: 100%;
 place-items: center;
 margin-bottom: 25px;
 }
+.imgContainer picture {
+  max-width: 300px;
+}
 .img1 {
-  max-height: 700px;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
   border-radius: 12px;
 }
 .img2 {
-  max-height: 700px;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
   border-radius: 12px;
 }
 
@@ -229,5 +283,64 @@ color: #68a063;
 }
 .graphql {
 color: #e535ab;
+}
+.typescript {
+color: #007acc;
+}
+.mongo {
+color: #4DB33D;
+}
+.redis {
+color: #D82C20;
+}
+.docker {
+color: #0db7ed;
+}
+.k8s {
+color: #3970e4;
+}
+.go {
+color: #007d9c;
+}
+.react {
+color: #61dbfb;
+}
+.digitalocean {
+color: #008bcf;
+}
+.nginx {
+color: #099639;
+}
+.aws {
+color: #FF9900;
+}
+.azure {
+color: #0080FF;
+}
+.googlecloud {
+color: #F4B400;
+}
+
+
+.oneImage {
+height: 600px;
+width: 800px;
+max-height: 500px;
+max-width: 800px;
+margin: 25px auto 0 auto;
+}
+.oneImage picture {
+max-width: 800px;
+}
+.oneImage picture img {
+width: 100%;
+height: 100%;
+object-fit: contain;
+}
+.caption p {
+margin: 15px auto 0 auto;
+text-align: center;
+font-family: var(--slantText);
+letter-spacing: .04em;
 }
 </style>
