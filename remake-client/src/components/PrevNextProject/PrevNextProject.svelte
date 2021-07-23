@@ -1,21 +1,14 @@
 <script>
 	import { page } from '$app/stores';
-	/* import { goto } from '$app/navigation'; */
 	import { projectMetaData, previousAndNextProject } from '$stores/projectMetaData';
 	import IoIosArrowRoundBack from 'svelte-icons/io/IoIosArrowRoundBack.svelte';
 	import IoIosArrowRoundForward from 'svelte-icons/io/IoIosArrowRoundForward.svelte';
 	import joyride from '$images/undraw-joyride.svg';
-	/* $: console.log('previousAndNextProject from PrevNextProject', $previousAndNextProject); */
 	$: activePage = $projectMetaData.filter((p) => $page.path.includes(p.slug))[0];
-	/* console.log('activePage HERE', activePage); */
 	let nextPage;
 	let prevPage;
 	function getPrevNext(prevNext, slug) {
-		/* console.log('prevNexxt', prevNext); */
-		/* console.log('slug from func', slug); */
 		for (let i = 0; i < prevNext.length; i++) {
-			/* console.log('prevNext[i]', prevNext[i]); */
-			/* console.log('slug in for loop', slug); */
 			if (prevNext[i].current === slug) {
 				nextPage = prevNext[i].next;
 				prevPage = prevNext[i].previous;
@@ -24,8 +17,6 @@
 		}
 	}
 	$: getPrevNext($previousAndNextProject, activePage.slug);
-	$: console.log('nextPage reactive', nextPage);
-	$: console.log('prevPage reactive', prevPage);
 </script>
 
 <div class="prevNextContainer">
@@ -68,13 +59,14 @@
 
 <style>
 	.prevNextContainer {
-		width: 800px;
-		height: 400px;
-		min-width: 800px;
-		min-height: 400px;
+		width: 90%;
+		/*height: 400px; */
+		min-width: 90%;
+		/*min-height: 400px;*/
 		border: 3px solid var(--darkGray);
 		border-radius: 12px;
 		margin: 100px auto 0 auto;
+		padding: 15px;
 		display: grid;
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 		place-items: center;
@@ -82,6 +74,26 @@
 			'prev svg svg next'
 			'prev svg svg next'
 			'projectNav projectNav projectNav projectNav';
+	}
+
+	@media (min-width: 800px) {
+		.prevNextContainer {
+			width: 80%;
+			min-width: 80%;
+		}
+	}
+	@media (min-width: 1000px) {
+		.prevNextContainer {
+			width: 800px;
+			height: 400px;
+			min-width: 800px;
+			min-height: 400px;
+			padding: unset;
+			grid-template-areas:
+				'prev svg svg next'
+				'prev svg svg next'
+				'projectNav projectNav projectNav projectNav';
+		}
 	}
 	.prev {
 		grid-area: prev;
@@ -94,10 +106,19 @@
 	}
 	.svgContainer {
 		grid-area: svg;
+		max-width: 200px;
+		width: 200px;
 	}
 	.svg {
-		max-height: 200px;
-		max-width: 300px;
+		height: 100%;
+		width: 100%;
+		object-fit: contain;
+	}
+	@media (min-width: 1000px) {
+		.svg {
+			max-height: 200px;
+			max-width: 300px;
+		}
 	}
 	.next {
 		grid-area: next;
@@ -129,6 +150,16 @@
 	.projectNav a {
 		color: var(--aqua);
 		text-decoration: none;
+		width: 125px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-align: center;
+	}
+	@media (min-width: 600px) {
+		.projectNav a {
+			width: unset;
+		}
 	}
 	.activeProj {
 		grid-area: activeProj;
