@@ -12,12 +12,15 @@ techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mo
   import pluarisDesktop from '$images/pluaris-dashboard.jpg?w=600;700;1600&format=jpg&srcset'
   import myMemoryMobile from '$static/mymemory-pluaris-mobile.jpg?w=200;400;700&format=jpg&srcset'
   import myMemoryInfoMobile from '$images/mymemory-info-mobile.jpg?w=200;400;700&format=jpg&srcset'
+
   let headingText = "Software Engineer • Engineering Manager • Architecture / UI / UX / Development • 2019 - Present"
   let innerWidth;
 	let animation = false;
-  let backendAnimate = false;
-  let frontendAnimate = false;
-  let devOpsAnimate = false;
+  let animations = [
+  {domElement: null, isVis: false},
+  {domElement: null, isVis: false},
+  {domElement: null, isVis: false}
+  ]
     onMount(() => {
   animation = true
   })
@@ -26,9 +29,6 @@ techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mo
   $: if (innerWidth > 1000) headingText = "Software Engineer • Engineering Manager • Architecture / UI / UX / Development • 2019 - Present"
   $: if (innerWidth < 800) headingText = "Software Engineer • 2019 - Present"
 
-  export let domEle1;
-  export let domEle2;
-  export let domEle3;
 function isInViewport(element ) {
 if (element) {
 const rect = element.getBoundingClientRect();
@@ -40,79 +40,22 @@ const rect = element.getBoundingClientRect();
     );
 }
 }
-function logThis() {
-console.log("IM IN THE VIEW PORT")
+
+function animationEvent() {
+  animations = animations.map((a, idx) => {
+  return {domElement:  document.querySelector(`.domEle${idx}`),
+  isVis:  isInViewport(a.domElement)}
+  })
 }
 
-export let elList;
 onMount(() => {
-domEle1 = document.querySelector('.domEle1');
-domEle2 = document.querySelector('.domEle2');
-domEle3 = document.querySelector('.domEle3');
-elList = [domEle1, domEle2, domEle3]
-document.addEventListener('scroll', function () {
-    const isVis = isInViewport(domEle1)
-    if (isVis) {
-logThis()
-    backendAnimate = true
-    }
-    if (!isVis) {
-    backendAnimate = false
-    }
+document.addEventListener('scroll', animationEvent)
+return () => document.removeEventListener('scroll', animationEvent)
 })
-document.addEventListener('scroll', function () {
-    const isVis = isInViewport(domEle2)
-    if (isVis) {
-logThis()
-    frontendAnimate = true
-    }
-    if (!isVis) {
-    frontendAnimate = false
-    }
-})
-document.addEventListener('scroll', function () {
-    const isVis = isInViewport(domEle3)
-    if (isVis) {
-logThis()
-    devOpsAnimate = true
-    }
-    if (!isVis) {
-    devOpsAnimate = false
-    }
-})
-return () => {
-document.removeEventListener('scroll', function () {
-    const isVis = isInViewport(item)
-    if (isVis) {
-    backendAnimate = true
-    }
-    if (!isVis) {
-    backendAnimate = false
-    }
-})
-document.removeEventListener('scroll', function () {
-    const isVis = isInViewport(item)
-    if (isVis) {
-    frontendAnimate = true
-    }
-    if (!isVis) {
-    backendAnimate = false
-    }
-})
-document.removeEventListener('scroll', function () {
-    const isVis = isInViewport(item)
-    if (isVis) {
-devOpsAnimate = true
-    }
-    if (!isVis) {
-    backendAnimate = false
-    }
-})
-}
-})
-$: isInViewport(domEle1)
-$: isInViewport(domEle2)
-$: isInViewport(domEle3)
+
+$: isInViewport(animations[0].domElement)
+$: isInViewport(animations[1].domElement)
+$: isInViewport(animations[2].domElement)
 </script>
 
 <svelte:window bind:innerWidth />
@@ -141,7 +84,7 @@ $: isInViewport(domEle3)
 
 _Pluaris_ specializes in reading and comprehending data, analyzing cause and effect, identifying benchmarks and measuring performance against them, tracing and linking intelligence by topics, extracting critical intelligence, alerting, answering questions on-the-fly, and synthesizing outputs. This saves each employee an average of 2 hours per day. It accelerates the pace of business resulting in revenue growth and increased profitability.
 
-<h3 class:slideInLeft={backendAnimate} class="domEle1">Backend</h3>
+<h3 class:slideInLeft={animations[0].isVis} class="domEle0">Backend</h3>
 
 We are transitioning from a **Monolith** to a more **Microservice** approach. Some
 services are now ran with <span class="docker">Docker</span>. With a goal of
@@ -179,7 +122,7 @@ For the DataScience side of the coin we use <span class="python">Python</span> a
 <!-- to utilize subscriptions via *web-sockets* and get some static typing going on. -->
 <!--  -->
 
-<h3 class:slideInRight={frontendAnimate} class="domEle2">Frontend</h3>
+<h3 class:slideInRight={animations[1].isVis} class="domEle1">Frontend</h3>
 
 On the frontend we are using <span class="react">React</span>, along with <span
 class="typescript">TypeScript</span> to handle the data and deliver rich _user_
@@ -189,7 +132,7 @@ Your ~~data~~ **Internal Memory**,
 available to recall and curate a more personalized view into the inner workings
 of either your business or your brain in **real-time**.
 
-<h3 class:slideInLeft={devOpsAnimate} class="domEle3">Dev Ops</h3>
+<h3 class:slideInLeft={animations[2].isVis} class="domEle2">Dev Ops</h3>
 
 Our current **cloud provider** is <span class="digitalocean">Digital Ocean</span>. We have some _automation_ scripts in place to pull in the new code, run some **tests**, re-build, and **deploy**.
 
