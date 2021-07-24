@@ -13,12 +13,13 @@ import (
 )
 
 // A build step that requires additional params, or platform specific steps for example
-// func Build() error {
-// 	mg.Deps(InstallDeps)
-// 	fmt.Println("Building...")
-// 	cmd := exec.Command("go", "build", "-o", "MyApp", ".")
-// 	return cmd.Run()
-// }
+func BuildClient() error {
+	fmt.Println("running npm run build for client...")
+	os.Chdir("./remake-client")
+	defer os.Chdir("..")
+	err := sh.Run("npm", "run", "build")
+	return err
+}
 
 // A custom install step if you need your bin someplace other than go/bin
 // func Install() error {
