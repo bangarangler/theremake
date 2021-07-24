@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
 	import { projectMetaData } from '$stores/projectMetaData';
 	import Wave from '$components/Wave/Wave.svelte';
+	//import Wave from '$lib/Wave/Wave.svelte';
 	import ProjectCardHeading from '$components/ProjectCard/ProjectCardHeading/ProjectCardHeading.svelte';
 	import eyeball from '$images/undraw-surveillance.svg?w=200;&format=svg&srcset';
 	export let innerWidth = null;

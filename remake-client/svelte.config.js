@@ -4,7 +4,8 @@ import preprocess from 'svelte-preprocess';
 import { imagetools } from 'vite-imagetools';
 // import node from '@sveltejs/adapter-node';
 // import pkg from "./package.json";
-import { resolve } from 'path';
+import path from 'path';
+import adapter from '@sveltejs/adapter-static';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -18,15 +19,16 @@ const config = {
 		// adapter: { adapter: node() },
 		// adapter: node(),
 		target: '#svelte',
+		adapter: adapter(),
 		vite: {
 			resolve: {
 				alias: {
-					$components: resolve('./src/components'),
-					$images: resolve('./src/images'),
-					$stores: resolve('./src/stores'),
-					$projects: resolve('./src/projects'),
-					$blogposts: resolve('./src/blogposts'),
-					$static: resolve('./static')
+					$components: path.resolve('./src/components'),
+					$images: path.resolve('./src/images'),
+					$stores: path.resolve('./src/stores'),
+					$projects: path.resolve('./src/projects'),
+					$blogposts: path.resolve('./src/blogposts'),
+					$static: path.resolve('./static')
 				}
 			},
 			plugins: [imagetools({ force: true })]

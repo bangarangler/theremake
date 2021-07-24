@@ -5,10 +5,13 @@
 	import { theme } from '$stores/themeStore';
 	import ProjectCard from '$components/ProjectCard/ProjectCard.svelte';
 	import { onMount } from 'svelte';
+	import { browser } from '$app/env';
 	let visible = false;
-	onMount(() => {
-		visible = true;
-	});
+	if (browser) {
+		onMount(() => {
+			visible = true;
+		});
+	}
 </script>
 
 <section>
