@@ -21,6 +21,14 @@ func BuildClient() error {
 	return err
 }
 
+func Start() error {
+	fmt.Println("Starting Prod...")
+	os.Chdir("./remake-client")
+	defer os.Chdir("..")
+	err := sh.Run("node", "build/index.js")
+	return err
+}
+
 // A custom install step if you need your bin someplace other than go/bin
 // func Install() error {
 // 	mg.Deps(Build)
