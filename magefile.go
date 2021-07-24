@@ -30,7 +30,7 @@ func InstallClient() error {
 	return err
 }
 
-func Start() error {
+func StartProd() error {
 	mg.Deps(CheckLanguageVersion)
 	mg.Deps(InstallClient)
 	mg.Deps(BuildClient)
@@ -41,6 +41,13 @@ func Start() error {
 	err := sh.Run("caddy", "run", "--config", "./Caddyfile")
 
 	return err
+}
+
+func Start() {
+	fmt.Println("Starting Prod for jonathandain.dev...")
+	mg.Deps(StopProd)
+	mg.Deps(Clean)
+	mg.Deps(StartProd)
 }
 
 func StopProd() error {
