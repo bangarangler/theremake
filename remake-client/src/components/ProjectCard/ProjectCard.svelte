@@ -3,7 +3,7 @@
 	import Wave from '$components/Wave/Wave.svelte';
 	import ProjectCardHeading from '$components/ProjectCard/ProjectCardHeading/ProjectCardHeading.svelte';
 	import eyeball from '$images/undraw-surveillance.svg?w=200;&format=svg&srcset';
-	export let innerWidth;
+	export let innerWidth = null;
 	let toLargeText = 'Screen is getting kinda large there...';
 	$: if (innerWidth >= 1650) toLargeText = 'No Seriously; How wide does this go?';
 	$: if (innerWidth < 1650) toLargeText = 'Screen is getting kinda large there...';

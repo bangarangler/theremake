@@ -2,12 +2,12 @@
 	export async function load() {
 		const projects = import.meta.globEager('../projects/*.md');
 		const projectList = Object.values(projects);
-		console.log('projectList', projectList);
+		//console.log('projectList', projectList);
 		// get the metaData
 		const projectMeta = projectList?.map((p) => {
 			return p?.metadata;
 		});
-		console.log('projectMeta', projectMeta);
+		//console.log('projectMeta', projectMeta);
 		let prevNext = [];
 		projectMeta.forEach((p, i) => {
 			const current = projectMeta[i];
@@ -39,7 +39,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { projectMetaData, previousAndNextProject } from '$stores/projectMetaData';
-	import type { ProjectMetaDataType, PreviousAndNextProject } from '$stores/projectMetaData';
+	import type { ProjectMetaDataType } from '$stores/projectMetaData';
 	import NavBar from '$components/NavBar/NavBar.svelte';
 	import Footer from '$components/Footer/Footer.svelte';
 	$: path = $page.path.replace('/', '');
@@ -53,8 +53,8 @@
 	if (metaData) {
 		projectMetaData.update(() => metaData);
 	}
-	$: console.log('projectMetaData from allergenguardian', $projectMetaData);
-	$: console.log('previousAndNextProject from allergenguardian', $previousAndNextProject);
+	//$: console.log('projectMetaData from allergenguardian', $projectMetaData);
+	//$: console.log('previousAndNextProject from allergenguardian', $previousAndNextProject);
 </script>
 
 <svelte:head>

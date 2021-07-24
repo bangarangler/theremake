@@ -2,7 +2,6 @@
 	/* import { TEST } from '$lib/Env'; */
 	/* <p>Testing... : {TEST}</p> */
 	import { fly, fade } from 'svelte/transition';
-	/* import { flip } from 'svelte/animate'; */
 	import { theme } from '$stores/themeStore';
 	import ProjectCard from '$components/ProjectCard/ProjectCard.svelte';
 	import { onMount } from 'svelte';

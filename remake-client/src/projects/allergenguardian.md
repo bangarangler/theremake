@@ -16,7 +16,7 @@ techUsed: ['next.js', 'node', 'typescript', 'mongodb', 'react', 'graphql', 'redi
   let deploymentAnimate = false;
   let responsibilityAnimate = false;
 	$: if (scrollY > 350) {
-  console.log("running...")
+  //console.log("running...")
 		exampleAnimate = true
     }
     $: if (scrollY > 620) {
