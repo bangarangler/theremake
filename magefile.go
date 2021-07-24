@@ -8,7 +8,7 @@ import (
 
 	// "os/exec"
 
-	// "github.com/magefile/mage/mg" // mg contains helpful utility functions, like Deps
+	"github.com/magefile/mage/mg" // mg contains helpful utility functions, like Deps
 	"github.com/magefile/mage/sh"
 )
 
