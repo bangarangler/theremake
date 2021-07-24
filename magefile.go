@@ -3,10 +3,11 @@
 package main
 
 import (
+	"errors"
 	"fmt"
+	"io/ioutil"
 	"os"
-
-	// "os/exec"
+	"strings"
 
 	"github.com/magefile/mage/mg" // mg contains helpful utility functions, like Deps
 	"github.com/magefile/mage/sh"
@@ -30,12 +31,61 @@ func InstallClient() error {
 }
 
 func Start() error {
+	mg.Deps(CheckLanguageVersion)
 	mg.Deps(InstallClient)
 	mg.Deps(BuildClient)
 	fmt.Println("Starting Prod...")
 	os.Chdir("./remake-client")
 	defer os.Chdir("..")
-	err := sh.Run("node", "build/index.js")
+
+	err := sh.Run("caddy", "run", "--config", "./Caddyfile")
+
+	return err
+}
+
+func StopProd() error {
+	var err error
+	fmt.Println("Stopping Caddy...")
+	err = sh.Run("caddy", "stop")
+	return err
+}
+
+func Clean() error {
+	var err error
+	fmt.Println("Cleaning...")
+	fmt.Println("deleteing all node_modules and build dir from client...")
+	os.Chdir("./remake-client")
+	defer os.Chdir("..")
+	err = sh.Run("rm", "-rf", "node_modules")
+	err = sh.Run("rm", "-rf", "build")
+	return err
+}
+
+func CheckLanguageVersion() error {
+	rescueStdout := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+	sh.Run("node", "-v") // print node version to console
+	w.Close()
+	out, _ := ioutil.ReadAll(r)
+	os.Stdout = rescueStdout
+
+	input := string(out[1:])                // remove the v
+	input = strings.TrimSuffix(input, "\n") // remove the \n so the bytes are a match further down
+
+	b, err := ioutil.ReadFile(".tool-versions")
+	if err != nil {
+		fmt.Println("err reading .tool-versions", err)
+		return err
+	}
+	str := string(b)
+	s := strings.Fields(str)
+	fmt.Println("Checking Node Version for match with .tool-versions", s[1]+"=="+input+"?")
+
+	if s[1] != input {
+		fmt.Println("You need to change your language version before continuing...")
+		return errors.New("Cancel!")
+	}
 	return err
 }
 
