@@ -1,15 +1,4 @@
 jonathandain.dev {
-  handle * {
-     reverse_proxy / localhost:3000
-  }
-
-  # handle /auth/* {
-  #   reverse_proxy /auth/* localhost:5000
-  # }
-
-  # handle /graphql {
-  #    reverse_proxy /graphql localhost:5000
-  # }
 
   handle * {
      root * /root/theremake/remake-client/build
@@ -24,3 +13,5 @@ jonathandain.dev {
   }
 
 }
+
+
