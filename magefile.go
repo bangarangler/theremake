@@ -35,10 +35,8 @@ func StartProd() error {
 	mg.Deps(InstallClient)
 	mg.Deps(BuildClient)
 	fmt.Println("Starting Prod...")
-	os.Chdir("./remake-client")
-	defer os.Chdir("..")
 
-	err := sh.Run("caddy", "run", "--config", "./Caddyfile")
+	err := sh.Run("caddy", "run", "--config", "./remake-client/Caddyfile")
 
 	return err
 }
