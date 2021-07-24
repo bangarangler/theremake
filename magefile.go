@@ -21,7 +21,17 @@ func BuildClient() error {
 	return err
 }
 
+func InstallClient() error {
+	fmt.Println("running npm install for client...")
+	os.Chdir("./remake-client")
+	defer os.Chdir("..")
+	err := sh.Run("npm", "install")
+	return err
+}
+
 func Start() error {
+	mg.Deps(InstallClient)
+	mg.Deps(BuildClient)
 	fmt.Println("Starting Prod...")
 	os.Chdir("./remake-client")
 	defer os.Chdir("..")
