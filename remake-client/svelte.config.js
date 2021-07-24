@@ -15,7 +15,8 @@ const config = {
 
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
-		// adapter: { adapt: node() },
+		// adapter: { adapter: node() },
+		// adapter: node(),
 		target: '#svelte',
 		vite: {
 			resolve: {
