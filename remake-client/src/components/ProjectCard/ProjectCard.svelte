@@ -227,20 +227,20 @@
 	}
 	.description__text {
 		font-family: var(--slantText);
-		color: var(--descriptionColor);
+		color: var(--darkAquaLightHotPink);
 
 		transition: 0.3s ease opacity;
 	}
 	@media (min-width: 1100px) {
 		.description__text {
 			font-family: var(--slantText);
-			color: var(--descriptionColor);
+			color: var(--darkAquaLightHotPink);
 
 			transition: 0.3s ease opacity;
 		}
 		.description__text {
 			font-family: var(--slantText);
-			color: var(--descriptionColor);
+			color: var(--darkAquaLightHotPink);
 
 			transition: 0.3s ease opacity;
 			margin: 0 0 1.05rem;
@@ -252,7 +252,7 @@
 	@media (min-width: 1200px) {
 		.description__text {
 			font-family: var(--slantText);
-			color: var(--descriptionColor);
+			color: var(--darkAquaLightHotPink);
 
 			transition: 0.3s ease opacity;
 			margin: 0 0 1.05rem;

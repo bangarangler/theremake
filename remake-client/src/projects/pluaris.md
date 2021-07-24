@@ -101,27 +101,6 @@ will be written in <span class="go">Go</span> in the future.
 
 For the DataScience side of the coin we use <span class="python">Python</span> along with a _Flask_ API. I won't waste time name droping all of the DataScience tools and libraries we utilize as this is not my area of experteise. However; I have pitched in on the _Flask_ API and helped on and off with things such as (architecture, preformance, deployment, debugging, scripting).
 
-<!-- _Pluaris_ uses a few different backends to accomplish it's goals and deliver -->
-<!-- for our customers in the **B2B** (Business to Business) and **B2C** (Business to Consumer) markets. -->
-<!--  -->
-<!-- My primary responsibility is delivering **real time** information for our users -->
-<!-- along with a beautful intuitive **UX** (user experience)! -->
-
-<!-- What technology do we need to pull off such a task? Enter <span class="nodejs">NodeJS</span> and friends! -->
-<!--  -->
-<!-- We started off by revamping the **Express** framework and giving it some amazing -->
-<!-- superpowers by connecting it with **Apollo Server** to develop and deliver a <span class="graphql">GraphQL</span> API along with our REST API's. Which allowed us to address a fairly serious over fetching issue. -->
-<!--  -->
-<!-- We have a ton of meta data that the machine needs inorder to tweak models and do all sorts of fancy **NLP** (Natural Language Processing) &amp; **Machine Learning**; However our users never needed or cared about a "shocking" amount of it. -->
-<!--  -->
-<!-- Thats not to say it wasn't important data. Actually quite the opposite! However -->
-<!-- there is zero reason to have giant objects or massive amounts of meta data being sent over the net (possibly ending up on a mobile client). -->
-<!--  -->
-<!-- We created our <span class="graphql">GraphQL</span> API with two things in mind. -->
-<!-- Performance and obliterating our over fetching issue. As a kicker we also wanted -->
-<!-- to utilize subscriptions via *web-sockets* and get some static typing going on. -->
-<!--  -->
-
 <h3 class:slideInRight={animations[1].isVis} class="domEle1">Frontend</h3>
 
 On the frontend we are using <span class="react">React</span>, along with <span
@@ -286,6 +265,7 @@ display: block;
 }
 .explanationContainer h3 {
 opacity: 0;
+width: max-content;
 }
 .explanationContainer h2 {
 text-align: left;
@@ -339,7 +319,7 @@ em {
 }
 strong {
 font-weight: bold;
-color: var(--aqua);
+color: var(--darkAquaLightHotPink);
 }
 .python {
  color: #4B8BBE;

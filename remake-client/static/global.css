@@ -34,7 +34,7 @@
 	--headerLinkOpacity: var(--lightGray);
 	--headerBorder: var(--aqua);
 	--waveBG: var(--darkGray);
-	--descriptionColor: var(--aqua);
+	--darkAquaLightHotPink: var(--aqua);
 
 	/* STYLES */
 	--line: 1px solid var(--lineColor);
@@ -316,7 +316,7 @@ button.small {
 	--headerLinkOpacity: var(--black);
 	--headerBorder: var(--hotpink);
 	--waveBG: var(--gray);
-	--descriptionColor: var(--hotpink);
+	--darkAquaLightHotPink: var(--hotpink);
 }
 
 /* .dark { */
