@@ -7,7 +7,6 @@ techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mo
 ---
 
 <script>
-	import {fly, fade} from 'svelte/transition'
   import {onMount} from 'svelte'
   import pluarisDesktop from '$images/pluaris-dashboard.jpg?w=600;700;1600&format=jpg&srcset'
   import myMemoryMobile from '$static/mymemory-pluaris-mobile.jpg?w=200;400;700&format=jpg&srcset'

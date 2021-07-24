@@ -7,7 +7,6 @@ techUsed: ['next.js', 'node', 'typescript', 'mongodb', 'react', 'graphql', 'redi
 ---
 
 <script>
-	import {fly, fade} from 'svelte/transition'
   import {onMount} from 'svelte'
   import test from '$images/beforeDawnTempLogo.svg'
   let scrollY;
