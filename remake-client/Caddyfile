@@ -1,32 +1,19 @@
-jonathandain.dev {
-
-  handle * {
-     root * /root/theremake/remake-client/build
-     encode zstd gzip
-     try_files {path} {path}/ /index.html
-
-     file_server
-  }
-
-  handle_errors {
-     respond "{http.error.status_code} {http.error.status_text}"
-  }
-
+www.jonathandain.dev {
+	redir https://jonathandain.dev{uri}
 }
 
-www.jonathandain.dev {
+jonathandain.dev {
+   handle * {
+      root * /root/theremake/remake-client/build
+      encode zstd gzip
+      try_files {path} {path}/ /index.html
 
-  handle * {
-     root * /root/theremake/remake-client/build
-     encode zstd gzip
-     try_files {path} {path}/ /index.html
+      file_server
+   }
 
-     file_server
-  }
-
-  handle_errors {
-     respond "{http.error.status_code} {http.error.status_text}"
-  }
+   handle_errors {
+      respond "{http.error.status_code} {http.error.status_text}"
+   }
 
 }
 
