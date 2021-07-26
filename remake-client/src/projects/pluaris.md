@@ -306,16 +306,37 @@ display: block;
 @media (min-width: 1000px) {
 .explanationContainer {
   width: 50%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 }
 .explanationContainer h3 {
 opacity: 0;
 width: max-content;
 }
+
+@media (min-width: 1000px) {
+  .explanationContainer h3 {
+  opacity: 0;
+  width: max-content;
+  align-self: flex-start;
+  }
+}
+
 .explanationContainer h2 {
 text-align: left;
 font-size: var(--h3);
 }
+@media (min-width: 1000px) {
+  .explanationContainer h2 {
+  text-align: left;
+  font-size: var(--h3);
+  align-self: flex-start;
+  }
+}
+
 @media(min-width: 1000px) {
   .explanationContainer h2 {
     font-size: var(--h2);
