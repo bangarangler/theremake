@@ -454,6 +454,11 @@ width: 75%;
 align-items: flex-start;
 justify-content: center;
 }
+@media (min-width: 400px) {
+.projectInfoContaner {
+  width: 80%;
+}
+}
 @media (min-width: 450px) {
 .projectInfoContaner {
   width: 80%;
