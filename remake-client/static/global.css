@@ -268,6 +268,7 @@ button.small {
 
 .layout {
 	padding: calc(3rem + var(--headerHeight)) 0;
+	padding-bottom: 0;
 }
 
 .grid {

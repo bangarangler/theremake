@@ -74,6 +74,7 @@
 			'prev svg svg next'
 			'prev svg svg next'
 			'projectNav projectNav projectNav projectNav';
+		margin-bottom: 100px;
 	}
 
 	@media (min-width: 800px) {
