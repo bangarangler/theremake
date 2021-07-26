@@ -9,6 +9,9 @@
 	$: if (innerWidth >= 1650) toLargeText = 'No Seriously; How wide does this go?';
 	$: if (innerWidth < 1650) toLargeText = 'Screen is getting kinda large there...';
 	$: if (innerWidth >= 1700) toLargeText = "That's it. No more. good day ; )";
+	export let stopRotation = false;
+	$: if (innerWidth < 500) stopRotation = true;
+	$: if (innerWidth > 500) stopRotation = false;
 </script>
 
 <svelte:window bind:innerWidth />
@@ -39,7 +42,7 @@
 					{/each}
 				</aside>
 				<div class="fancyBoxWrapper cardSection">
-					<div class="fancyBox">
+					<div class="fancyBox" class:stopRotation>
 						<span />
 						<h2><a href={`/projects/${md?.slug}`}>{md?.projectTitle}</a></h2>
 					</div>
@@ -250,6 +253,34 @@
 			margin-bottom: 1.15em;
 		}
 	}
+	.fancyBoxWrapper {
+		max-width: 250px;
+		margin: 0 auto;
+	}
+	@media (min-width: 500px) {
+		.fancyBoxWrapper {
+			max-width: unset;
+		}
+	}
+	.fancyBox {
+		max-width: 250px;
+	}
+	.fancyBox h2 {
+		font-size: var(--h3);
+	}
+	@media (min-width: 500px) {
+		.fancyBox {
+			position: relative;
+			width: 280px;
+			height: 380px;
+			background: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 5px;
+			max-width: unset;
+		}
+	}
 	@media (min-width: 1200px) {
 		.description__text {
 			font-family: var(--slantText);
@@ -323,6 +354,7 @@
 		position: relative;
 		z-index: 3;
 		text-align: center;
+		font-size: var(--h2);
 	}
 	@media (min-width: 700px) {
 		.fancyBoxWrapper {
@@ -414,6 +446,7 @@
 			position: relative;
 			z-index: 3;
 			text-align: center;
+			font-size: var(--h3);
 		}
 	}
 
@@ -427,6 +460,11 @@
 		100% {
 			transform: rotate(0deg);
 		}
+	}
+	.stopRotation,
+	.stopRotation::before,
+	.stopRotation::after {
+		animation: unset !important;
 	}
 	/* .hidden { */
 	/* 	opacity: 0; */

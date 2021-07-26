@@ -66,8 +66,6 @@
 			'blob';
 		margin-bottom: 125px;
 	}
-	@media (min-width: 900px) {
-	}
 	@media (min-width: 1200px) {
 		section {
 			padding: var(--containerPadding);
@@ -107,6 +105,12 @@
 		-webkit-text-fill-color: transparent;
 		text-align: center;
 		margin-bottom: 35px;
+		margin-top: 25px;
+	}
+	@media (min-width: 500px) {
+		h1 {
+			margin-top: unset;
+		}
 	}
 	@media (min-width: 900px) {
 		h1 {
@@ -191,8 +195,6 @@
 		margin: 25px auto 50px auto;
 	}
 
-	@media (min-width: 500px) {
-	}
 	@media (min-width: 1200px) {
 		.line {
 			width: 3px;
@@ -203,16 +205,23 @@
 
 	h2 {
 		position: absolute;
-		top: 21px;
-		left: 36px;
+		top: 15px;
+		left: 25px;
 		z-index: 1;
-		font-size: var(--h3);
+		font-size: var(--h4);
 		color: var(--textColor);
 		width: min-content;
 		background: var(--waveBG);
 		border-radius: 12px;
 		opacity: 0.8;
 		padding: 8px;
+	}
+	@media (min-width: 500px) {
+		h2 {
+			top: 21px;
+			left: 36px;
+			font-size: var(--h3);
+		}
 	}
 	@media (min-width: 600px) {
 		h2 {
@@ -283,11 +292,6 @@
 		background-image: linear-gradient(45deg, #a162e8 15%, var(--aqua) 80%);
 		border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 		box-shadow: -10vmin 10vmin 0 rgba(255, 255, 255, 0.07);
-	}
-	@media (min-width: 900px) {
-		/* .blob { */
-		/* 	box-shadow: -8vmin 8vmin 0 rgba(255, 255, 255, 0.07); */
-		/* } */
 	}
 	@media (min-width: 1200px) {
 		.blob {

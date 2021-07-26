@@ -51,7 +51,14 @@
 		display: grid;
 		place-items: center;
 		position: relative;
-		margin-top: 8px;
+		margin-top: 0px;
+		margin-bottom: 8px;
+	}
+	@media (min-width: 500px) {
+		.container {
+			margin-top: 8px;
+			margin-bottom: unset;
+		}
 	}
 	.toggle--label {
 		width: 100px;

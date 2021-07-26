@@ -150,11 +150,18 @@
 	.projectNav a {
 		color: var(--aqua);
 		text-decoration: none;
-		width: 125px;
+		width: 100px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		text-align: center;
+		font-size: var(--smallTextSize);
+	}
+	@media (min-width: 500px) {
+		.projectNav a {
+			width: 125px;
+			font-size: var(--bodyFont);
+		}
 	}
 	@media (min-width: 600px) {
 		.projectNav a {
@@ -165,9 +172,14 @@
 		grid-area: activeProj;
 		font-family: var(--slantText);
 		font-weight: bold;
-		font-size: var(--h5);
+		font-size: var(--h6) !important;
 		letter-spacing: 0.2rem;
 		color: var(--hotpink) !important;
+	}
+	@media (min-width: 500px) {
+		.activeProj {
+			font-size: var(--h5) !important;
+		}
 	}
 	.nextPage {
 		grid-area: nextProj;

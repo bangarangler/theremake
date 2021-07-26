@@ -27,6 +27,7 @@ techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mo
   $: if (innerWidth > 800) headingText = "Software/Engin Manager Architecture / UI / UX / Development • 2019 - Present"
   $: if (innerWidth > 1000) headingText = "Software Engineer • Engineering Manager • Architecture / UI / UX / Development • 2019 - Present"
   $: if (innerWidth < 800) headingText = "Software Engineer • 2019 - Present"
+  $: if (innerWidth < 500) headingText = "Software Engineer • Present";
 
 function isInViewport(element ) {
 if (element) {
@@ -137,14 +138,43 @@ it on <span class="aws">AWS</span>, <span class="googlecloud">Google Cloud</span
 </div>
 <div class="caption"><p>Dashboard view of Pluaris!</p></div>
 
+<div class="card projectInfoContaner">
+  <div class="projSection">
+    <h6>Position</h6>
+    <p>{projectRole}</p>
+    <h6>Organization</h6>
+    <p>Nowigence Inc</p>
+    <h6>Year</h6>
+    <p>2019 - Current</p>
+  </div>
+  <div class="projSection">
+    <h6>Work</h6>
+    <ul>
+    {#each techUsed as tu}
+    <li>{tu}</li>
+    {/each}
+    </ul>
+  </div>
+</div>
+
 </article>
 
 <style>
 article {
+  margin: 40px 25px 0;
+}
+@media (min-width: 500px) {
+article {
   margin: 0 45px;
 }
+}
+.container {
+margin-bottom: 45px;
+}
+@media (min-width: 500px) {
 .container {
 margin-bottom: 65px;
+}
 }
 h1 {
 background: linear-gradient(271deg,var(--hotpink) 30%, 50%,var(--aqua) 70%,#a162e8 94%);
@@ -152,6 +182,12 @@ background-clip: border-box;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 opacity: 0;
+font-size: var(--h2);
+}
+@media (min-width: 500px) {
+h1 {
+font-size: var(--h1);
+}
 }
 
 .display {
@@ -254,8 +290,13 @@ display: block;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 75%;
+  width: 90%;
   margin: 0 auto;
+}
+@media (min-width: 500px) {
+.explanationContainer {
+  width: 75%;
+}
 }
 @media (min-width: 1000px) {
 .explanationContainer {
@@ -391,5 +432,57 @@ margin: 15px auto 0 auto;
 text-align: center;
 font-family: var(--slantText);
 letter-spacing: .04em;
+}
+
+
+.projectInfoContaner {
+display: grid;
+grid-template-columns: minmax(0, 1fr);
+width: 95%;
+margin: 65px auto 0 auto;
+place-items: center;
+}
+.projectInfoContaner .projSection {
+display: flex;
+flex-direction: column;
+width: 75%;
+align-items: flex-start;
+justify-content: center;
+}
+@media (min-width: 450px) {
+.projectInfoContaner {
+  width: 80%;
+}
+}
+@media (min-width: 650px) {
+.projectInfoContaner {
+  width: 80%;
+max-width: 600px;
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+grid-column-gap: 0px;
+}
+.projectInfoContaner .projSection {
+  width: unset;
+}
+}
+@media (min-width: 1000px) {
+.projectInfoContaner {
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+width: 60%;
+grid-column-gap: 0px;
+}
+}
+@media (min-width: 1200px) {
+.projectInfoContaner {
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+width: 50%;
+grid-column-gap: 30px;
+}
+}
+.projectInfoContaner h6 {
+color: var(--lightGray);
+border-bottom: 1px solid var(--hotpink);
+width: -moz-fit-content;
+width: fit-content;
 }
 </style>
