@@ -14,4 +14,19 @@ jonathandain.dev {
 
 }
 
+www.jonathandain.dev {
+
+  handle * {
+     root * /root/theremake/remake-client/build
+     encode zstd gzip
+     try_files {path} {path}/ /index.html
+
+     file_server
+  }
+
+  handle_errors {
+     respond "{http.error.status_code} {http.error.status_text}"
+  }
+
+}
 
