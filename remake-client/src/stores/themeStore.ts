@@ -1,3 +1,4 @@
+import { browser } from '$app/env';
 import { writable } from 'svelte/store';
 
 interface CreateTheme {
@@ -8,24 +9,43 @@ interface CreateTheme {
 	reset: () => void;
 }
 
+function updateLocalStorage(selection: string) {
+	if (browser) {
+		localStorage.setItem('userTheme', selection);
+	}
+}
+
 function createTheme(): CreateTheme {
-	const { subscribe, set /*update*/ } = writable('DARK');
+	let stored: string;
+	if (browser) {
+		stored = localStorage?.userTheme;
+	}
+	const { subscribe, set /*update*/ } = writable(stored || 'DARK');
+	// const { subscribe, set /*update*/ } = writable('DARK');
 	return {
 		subscribe,
-		lightMode: () => set('LIGHT'),
-		darkMode: () => set('DARK'),
+		lightMode: () => {
+			updateLocalStorage('LIGHT');
+			set('LIGHT');
+		},
+		darkMode: () => {
+			updateLocalStorage('DARK');
+			set('DARK');
+		},
 		toggle: (whatTheme) => {
 			if (whatTheme === 'DARK') {
+				updateLocalStorage('LIGHT');
 				set('LIGHT');
 			} else {
+				updateLocalStorage('DARK');
 				set('DARK');
 			}
 		},
-		reset: () => set('DARK')
+		reset: () => {
+			updateLocalStorage('DARK');
+			set('DARK');
+		}
 	};
 }
 
 export const theme = createTheme();
-
-/* on:click={!$theme ? theme.lightMode : theme.darkMode} */
-// bind:checked={$theme}
