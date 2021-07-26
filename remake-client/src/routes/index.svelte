@@ -107,6 +107,11 @@
 		margin-bottom: 35px;
 		margin-top: 25px;
 	}
+	@media (min-width: 460px) {
+		h1 {
+			margin-top: unset;
+		}
+	}
 	@media (min-width: 500px) {
 		h1 {
 			margin-top: unset;

@@ -54,6 +54,12 @@
 		margin-top: 0px;
 		margin-bottom: 8px;
 	}
+	@media (min-width: 460px) {
+		.container {
+			margin-top: 8px;
+			margin-bottom: unset;
+		}
+	}
 	@media (min-width: 500px) {
 		.container {
 			margin-top: 8px;

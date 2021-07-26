@@ -163,6 +163,11 @@ it on <span class="aws">AWS</span>, <span class="googlecloud">Google Cloud</span
 article {
   margin: 40px 25px 0;
 }
+@media (min-width: 460px) {
+article {
+  margin: 0 25px 0;
+}
+}
 @media (min-width: 500px) {
 article {
   margin: 0 45px;

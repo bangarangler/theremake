@@ -102,6 +102,14 @@ header {
 	padding: 0 var(--containerPadding);
 	z-index: 5;
 }
+@media (min-width: 460px) {
+	header {
+		--headerHeight: 4rem;
+		height: var(--headerHeight);
+		flex-direction: row;
+		align-items: center;
+	}
+}
 @media (min-width: 500px) {
 	header {
 		--headerHeight: 4rem;
