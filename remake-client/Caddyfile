@@ -3,8 +3,10 @@ www.jonathandain.dev {
 }
 
 jonathandain.dev {
-   rewrite /robots.txt {path} {path}/ /robots.txt
-   handle * {
+   rewrite {
+      /robots.txt {path} {path}/ /robots.txt
+      }
+      handle * {
       root * /root/theremake/remake-client/build
       encode zstd gzip
       try_files {path} {path}/ /index.html
