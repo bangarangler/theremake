@@ -42,6 +42,7 @@
 	import type { ProjectMetaDataType } from '$stores/projectMetaData';
 	import NavBar from '$components/NavBar/NavBar.svelte';
 	import Footer from '$components/Footer/Footer.svelte';
+	import { browser } from '$app/env';
 	$: path = $page.path.replace('/', '');
 	$: title = path !== '' ? path : 'home';
 
@@ -52,6 +53,11 @@
 	}
 	if (metaData) {
 		projectMetaData.update(() => metaData);
+	}
+	if (browser) {
+		const newScript = document.createElement('script');
+		newScript.src = 'https://embed.small.chat/TBYMF8CLXGJ010MDRR.js';
+		document.body.appendChild(newScript);
 	}
 	//$: console.log('projectMetaData from allergenguardian', $projectMetaData);
 	//$: console.log('previousAndNextProject from allergenguardian', $previousAndNextProject);

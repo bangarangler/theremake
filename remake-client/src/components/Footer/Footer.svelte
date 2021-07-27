@@ -29,13 +29,12 @@
 		{
 			id: 2,
 			icon: FaFacebook,
-			path: 'https://www.facebook.com/jonathan.palacio.9461?ref=bookmarks',
+			path: 'https://www.facebook.com/bangarangler/',
 			text: 'facebook'
 		},
 		{
 			id: 3,
 			icon: FaLinkedinIn,
-			/* icon: <FaLinkedinIn className={styles.linkedin} />, */
 			path: 'https://www.linkedin.com/in/jonathan-palacio-401945a3/',
 			text: 'linkedin'
 		},
@@ -49,7 +48,7 @@
 			id: 5,
 			icon: FaSlack,
 			path:
-				'https://join.slack.com/t/bangarangler/shared_invite/enQtNjA4OTc5NTQwMTk1LTNjOTRlYjIwOTkyYzBhYTNmYjBjOWY5MTFjNGRkNmUyZWQ3MThiMDI1ZWQ3NjM2Mzg2NDNmZjllMGI3ZmE5NmE',
+				'https://join.slack.com/t/bangarangler/shared_invite/zt-7rrep0ir-rcFVBcbPNyruD6nQSu~plg',
 			text: 'slack'
 		}
 	];
@@ -63,7 +62,9 @@
 	{/if}
 	<div class="footerSocialWrapper">
 		{#each footerSocial as fs}
-			<a href={fs.path} class={fs.text} target="_blank"><svelte:component this={fs.icon} /></a>
+			<a href={fs.path} class={fs.text} target="_blank" rel="external"
+				><svelte:component this={fs.icon} /></a
+			>
 		{/each}
 	</div>
 	<div class="copy">
