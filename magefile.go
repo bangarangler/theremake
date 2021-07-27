@@ -34,6 +34,7 @@ func StartProd() error {
 	mg.Deps(CheckLanguageVersion)
 	mg.Deps(InstallClient)
 	mg.Deps(BuildClient)
+	mg.Deps(PostBuild)
 	fmt.Println("Starting Prod...")
 
 	err := sh.Run("caddy", "run", "--config", "./remake-client/Caddyfile")
@@ -45,7 +46,6 @@ func Start() {
 	fmt.Println("Starting Prod for jonathandain.dev...")
 	mg.Deps(StopProd)
 	mg.Deps(Clean)
-	mg.Deps(PostBuild)
 	mg.Deps(StartProd)
 }
 
