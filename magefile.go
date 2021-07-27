@@ -45,7 +45,15 @@ func Start() {
 	fmt.Println("Starting Prod for jonathandain.dev...")
 	mg.Deps(StopProd)
 	mg.Deps(Clean)
+	mg.Deps(PostBuild)
 	mg.Deps(StartProd)
+}
+
+func PostBuild() error {
+	var err error
+	fmt.Println("moving robots.txt into build dir...")
+	err = sh.Run("cp", "-r", "./remake-client/robots.txt", "./remake-client/build/")
+	return err
 }
 
 func StopProd() error {
