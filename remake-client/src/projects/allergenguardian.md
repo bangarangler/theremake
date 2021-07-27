@@ -8,38 +8,155 @@ techUsed: ['next.js', 'node', 'typescript', 'mongodb', 'react', 'graphql', 'redi
 
 <script>
   import {onMount} from 'svelte'
-  import test from '$images/beforeDawnTempLogo.svg'
-  let scrollY;
-	let ani = false;
-  let exampleAnimate = false;
-  let deploymentAnimate = false;
-  let responsibilityAnimate = false;
-	$: if (scrollY > 350) {
-  //console.log("running...")
-		exampleAnimate = true
-    }
-    $: if (scrollY > 620) {
-    deploymentAnimate = true
-    }
-    $: if (scrollY > 1100) {
-    responsibilityAnimate = true
-    }
-    $: if(scrollY === 0) {
-    exampleAnimate = false
-    deploymentAnimate = false
-    responsibilityAnimate = false
-    }
+  import tempImg from '$static/coming-soon-pixabay.jpg?w=600;700;1600&format=jpg&srcset'
+  //import tempImg1 from '$static/the-new-beginning-pixabay.jpg?w=200;400;700&format=jpg&srcset'
+  import tempImg2 from '$static/pexels-phone-art.jpg?w=200;400;700&format=jpg&srcset'
+
+  let headingText = "Software Engineer • Ongoing work in progress ; )"
+  let innerWidth;
+	let animation = false;
+  let animations = [
+  {domElement: null, isVis: false},
+  {domElement: null, isVis: false},
+  {domElement: null, isVis: false}
+  ]
     onMount(() => {
-  ani = true
+  animation = true
   })
+  $: if (innerWidth < 600) headingText = "Software Engineer • Partner • We do it all!"
+  $: if (innerWidth > 800) headingText = "Software Engineer • 2019 - Present"
+  $: if (innerWidth > 1000) headingText = "Software Engineer • Partner • We do it all!"
+  $: if (innerWidth < 800) headingText = "Software Engineer • Ongoing work in progress ; )"
+  $: if (innerWidth < 600) headingText = "Software Engineer •  Partner";
+
+function isInViewport(element ) {
+if (element) {
+const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+}
+
+function animationEvent() {
+  animations = animations.map((a, idx) => {
+  return {domElement:  document.querySelector(`.domEle${idx}`),
+  isVis:  isInViewport(a.domElement)}
+  })
+}
+
+onMount(() => {
+document.addEventListener('scroll', animationEvent)
+return () => document.removeEventListener('scroll', animationEvent)
+})
+
+$: isInViewport(animations[0].domElement)
+$: isInViewport(animations[1].domElement)
+$: isInViewport(animations[2].domElement)
 </script>
+
+<svelte:window bind:innerWidth />
+
+<article>
+<div class="container">
+<h1 class:display={animation}>{projectTitle}</h1>
+
+<p class="headingText">{headingText}</p>
+</div>
+
+  <div class="card imgContainer">
+    <picture>
+      <source media="(min-width:1000px)" srcset={tempImg}>
+        <img class="img1" srcset={tempImg} type="image/jpg" alt="Coming Soon!" />
+    </picture>
+    <!--<picture>
+      <source media="(min-width:1200px)" srcset={tempImg1}>
+      <img class="img2" srcset={tempImg1} type="image/jpg" alt="new beginning
+      and working like crazy">
+    </picture>-->
+</div>
+
+<div class="explanationContainer">
+
+<h2>Whats the holdup?</h2>
+
+_WORK ~ LIFE_ is the current hang. I work like a **crazy** person. 13 - 16 hour
+days are not uncommon and I've been like that since I can remember. _"Workaholic"_ would be a fair assesment. In the midst of very long workdays; Personal work gets slowed down.
+
+Reachinng out to all my **developers...** you guys know how it goes ; ) In
+fairness life at a start up is nuts. Lost count of the hats that we all wear <span class="emoji">🎩</span>.
+
+<h3 class:slideInLeft={animations[0].isVis} class="domEle0">Backend</h3>
+
+This is our personal project! We have, are and will continue to use the best technology
+for the job. We like to keep up to date and utilize new tech. If it's
+performant and can scale we'll give it a go and see if we like it!
+
+<h3 class:slideInRight={animations[1].isVis} class="domEle1">Frontend</h3>
+
+**Jon** put in content here!
+
+_Viewer_ See note for **Jon** above ; )
+
+<h3 class:slideInLeft={animations[2].isVis} class="domEle2">Dev Ops</h3>
+
+_Note to self..._ This needs content as well!
+
+</div>
+
+<div class="card oneImage">
+  <picture>
+  <source media="(min-width:1200px)" srcset={tempImg2}>
+    <img srcset={tempImg2} type="image/jpg" alt="phone... man time flys">
+  </picture>
+</div>
+<div class="caption"><p>Time keeps flying!</p></div>
+
+<div class="card projectInfoContaner">
+  <div class="projSection">
+    <h6>Position</h6>
+    <p>{projectRole}</p>
+    <h6>Organization</h6>
+    <p>J&J Studios</p>
+    <h6>Year</h6>
+    <p>2018 - Always</p>
+  </div>
+  <div class="projSection">
+    <h6>Work</h6>
+    <ul>
+    {#each techUsed as tu}
+    <li>{tu}</li>
+    {/each}
+    </ul>
+  </div>
+</div>
+
+</article>
 
 <style>
 article {
+  margin: 40px 25px 0;
+}
+@media (min-width: 460px) {
+article {
+  margin: 0 25px 0;
+}
+}
+@media (min-width: 500px) {
+article {
   margin: 0 45px;
 }
+}
+.container {
+margin-bottom: 45px;
+}
+@media (min-width: 500px) {
 .container {
 margin-bottom: 65px;
+}
 }
 h1 {
 background: linear-gradient(271deg,var(--hotpink) 30%, 50%,var(--aqua) 70%,#a162e8 94%);
@@ -47,6 +164,12 @@ background-clip: border-box;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 opacity: 0;
+font-size: var(--h2);
+}
+@media (min-width: 500px) {
+h1 {
+font-size: var(--h1);
+}
 }
 
 .display {
@@ -78,6 +201,7 @@ opacity: 1;
     typing 6.5s steps(80, end),
     blink-caret .75s step-end infinite;
 }
+
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
@@ -88,37 +212,113 @@ opacity: 1;
 }
 
 .imgContainer {
-display: flex;
-width: 100%;
-align-items: center;
-justify-content: center;
-gap: 40px;
-margin-bottom: 25px;
+display: grid;
+grid-template-columns: minmax(0, 1fr);
+place-items: center;
+}
+@media (min-width: 600px) {
+.imgContainer {
+  grid-template-columns: minmax(0, 1fr);
+}
+}
+@media (min-width: 1000px) {
+.imgContainer {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  place-items: center;
+  max-width: 1000px;
+  margin: 0 auto 25px;
+  }
+}
+
+.imgContainer picture {
+  width: auto;
+}
+.imgContainer picture:nth-child(2) {
+display: none;
+}
+@media (min-width: 600px) {
+.imgContainer picture:nth-child(2) {
+display: block;
+}
+}
+@media (min-width: 800px) {
+.imgContainer picture {
+  width: auto;
+  max-width: 800px;
+}
+}
+@media(min-width: 1000px) {
+.imgContainer picture {
+  height: unset;
+  width: auto;
+  max-width: 1000px;
+}
 }
 .img1 {
-  max-height: 300px;
-  max-width:600px;
-}
-.img2 {
-  height: 300px;
-  width: 600px;
-  max-height: 300px;
-  max-width:600px;
-  background: hotpink;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
   border-radius: 12px;
 }
+.img2 {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+
 .explanationContainer {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-width: 50%;
-margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+  margin: 0 auto;
+}
+@media (min-width: 500px) {
+.explanationContainer {
+  width: 75%;
+}
+}
+@media (min-width: 1000px) {
+.explanationContainer {
+  width: 50%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 }
 .explanationContainer h3 {
 opacity: 0;
+width: max-content;
 }
+
+@media (min-width: 1000px) {
+  .explanationContainer h3 {
+  opacity: 0;
+  width: max-content;
+  align-self: flex-start;
+  }
+}
+
 .explanationContainer h2 {
 text-align: left;
+font-size: var(--h3);
+}
+@media (min-width: 1000px) {
+  .explanationContainer h2 {
+  text-align: left;
+  font-size: var(--h3);
+  align-self: flex-start;
+  }
+}
+
+@media(min-width: 1000px) {
+  .explanationContainer h2 {
+    font-size: var(--h2);
+  }
 }
 .slideInLeft {
   animation: 1.2s ease slideInLeft;
@@ -151,26 +351,147 @@ text-align: left;
   margin-left: 0px;
   }
 }
-.fakeVideo {
+em {
+  font-family: var(--slantText);
+  letter-spacing: .2em;
+  font-size: var(--h6);
+  background: linear-gradient(271deg, #a162e8 30%, 50%,var(--aqua)
+  70%,var(--hotpink) 94%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+strong {
+font-weight: bold;
+color: var(--darkAquaLightHotPink);
+}
+.python {
+ color: #4B8BBE;
+}
+.nodejs {
+color: #68a063;
+}
+.graphql {
+color: #e535ab;
+}
+.typescript {
+color: #007acc;
+}
+.mongo {
+color: #4DB33D;
+}
+.redis {
+color: #D82C20;
+}
+.docker {
+color: #0db7ed;
+}
+.k8s {
+color: #3970e4;
+}
+.go {
+color: #007d9c;
+}
+.react {
+color: #61dbfb;
+}
+.digitalocean {
+color: #008bcf;
+}
+.nginx {
+color: #099639;
+}
+.aws {
+color: #FF9900;
+}
+.azure {
+color: #0080FF;
+}
+.googlecloud {
+color: #F4B400;
+}
+
+.emoji {
+    background: var(--lightGray);
+    border-radius: 12px;
+    padding: 2px;
+}
+
+.oneImage {
+margin: 25px auto 0 auto;
+}
+@media (min-width: 1000px) {
+.oneImage {
 height: 600px;
 width: 800px;
 max-height: 500px;
 max-width: 800px;
-background: purple;
-margin: 25px auto 0 auto;
 }
-.fakeCaption p {
+}
+.oneImage picture {
+max-width: 800px;
+}
+.oneImage picture img {
+width: 100%;
+height: 100%;
+object-fit: contain;
+}
+.caption p {
 margin: 15px auto 0 auto;
 text-align: center;
 font-family: var(--slantText);
+letter-spacing: .04em;
 }
+
+
 .projectInfoContaner {
 display: grid;
-grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-width: 50%;
+grid-template-columns: minmax(0, 1fr);
+width: 95%;
 margin: 65px auto 0 auto;
 place-items: center;
+}
+.projectInfoContaner .projSection {
+display: flex;
+flex-direction: column;
+width: 75%;
+align-items: flex-start;
+justify-content: center;
+}
+@media (min-width: 400px) {
+.projectInfoContaner {
+  width: 80%;
+}
+}
+@media (min-width: 450px) {
+.projectInfoContaner {
+  width: 80%;
+}
+}
+@media (min-width: 650px) {
+.projectInfoContaner {
+  width: 80%;
+max-width: 600px;
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+grid-column-gap: 0px;
+}
+.projectInfoContaner .projSection {
+  width: unset;
+}
+}
+@media (min-width: 1000px) {
+.projectInfoContaner {
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+width: 60%;
+grid-column-gap: 0px;
+}
+}
+@media (min-width: 1200px) {
+.projectInfoContaner {
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+width: 50%;
 grid-column-gap: 30px;
+}
 }
 .projectInfoContaner h6 {
 color: var(--lightGray);
@@ -179,66 +500,3 @@ width: -moz-fit-content;
 width: fit-content;
 }
 </style>
-
-<svelte:window bind:scrollY />
-
-<article>
-<div class="container">
-<h1 class:display={ani}>{projectTitle}</h1>
-
-<p class="headingText">Engineer • Partner / UI / UX / Development • 2021</p>
-
-</div>
-<div class="card imgContainer">
-<img class="img1" src={test} alt="testing" />
-<div class="img2"/>
-</div>
-
-<div class="explanationContainer">
-<h2>What's the problem?</h2>
-<p>Aliquam molestie vestibulum elit in feugiat. Nam suscipit justo erat. Donec hendrerit volutpat dolor. In ullamcorper laoreet lacus nec mattis. In luctus sem id ornare scelerisque. Fusce in magna mattis, facilisis leo id, tempor leo. Fusce non lobortis dolor, maximus bibendum velit. Curabitur scelerisque urna a metus tempus euismod. In pulvinar libero risus, id volutpat magna sollicitudin vel. Mauris a magna metus. In sit amet lorem nec erat convallis fringilla et ut nisl. Vivamus vel consequat risus. Suspendisse lorem libero, laoreet quis fringilla sit amet, accumsan a augue.</p>
-
-<h3 class:slideInLeft={exampleAnimate}>Example</h3>
-<p>Donec leo lorem, tristique quis ipsum a, suscipit commodo diam. Vestibulum cursus odio augue. Nunc laoreet magna eu tempor malesuada. Donec blandit sapien et auctor suscipit. Sed ac congue eros. Sed in dictum orci. Pellentesque placerat, dolor in dapibus interdum, urna velit semper velit, vel tincidunt augue arcu at odio.</p>
-
-<h3 class:slideInRight={deploymentAnimate}>Deployment</h3>
-<p>Aenean et laoreet nisi. Phasellus sagittis mauris at volutpat aliquam. Aenean vitae arcu quis est lobortis rutrum vitae sit amet ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam posuere, libero sed fringilla eleifend, massa nulla porta ligula, a porta mi ligula et turpis. Sed scelerisque urna vel massa finibus euismod. In non mauris eros. In dapibus nunc ac quam auctor, sit amet fermentum diam vulputate. Praesent eu porttitor tortor. Nam sed nibh quam. Quisque molestie venenatis neque vel placerat. Donec nec euismod justo. Praesent a pharetra metus. Fusce eget tellus urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae</p>
-
-<h3 class:slideInLeft={responsibilityAnimate}>Responsibility</h3>
-<p>Nam mi est, dapibus ut aliquam ut, consequat vel nulla. Duis vitae pellentesque neque, ut tristique est. Morbi ut ligula fermentum, venenatis odio vel, laoreet mauris. Integer fermentum libero tortor, dictum semper mi tempus quis. Aliquam in lacinia leo. Morbi nec lobortis augue. Praesent sem nulla, accumsan id est at, facilisis molestie dolor. Aliquam semper sed felis a mollis. Vestibulum odio velit, lacinia quis felis vitae, convallis dictum felis. Maecenas non auctor justo.</p>
-</div>
-
-<div class="fakeVideo"/>
-<div class="fakeCaption"><p>Something about the video here</p></div>
-
-<div class="explanationContainer">
-<h2>Our Solution</h2>
-<p>Lorem ipsum dolor sit amet. </p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo nulla, ullamcorper sit amet luctus vitae, ornare vel sem. Nam dapibus aliquet dui et venenatis. Ut fringilla nisl eget diam lobortis, at iaculis sem aliquam. Nam fringilla tincidunt augue id rhoncus. Mauris accumsan sem nulla, non vulputate quam eleifend at. Curabitur consequat consectetur sem ut tincidunt. Vivamus hendrerit facilisis risus sit amet tincidunt. Donec et ante viverra, eleifend dui vitae, blandit risus. Nam ac porta lectus, sit amet vehicula elit. </p>
-<p>Duis eget libero aliquet, consequat leo fermentum, pulvinar risus. Vivamus at enim fringilla est tristique lobortis at nec velit. Pellentesque mollis porttitor est vitae volutpat. Donec ipsum nibh, scelerisque at tellus vel, consequat interdum lectus. Duis blandit, urna iaculis elementum rhoncus, turpis nisi imperdiet neque, nec tempus ipsum ante sed erat. Praesent eu fermentum lectus, vitae rhoncus metus. Nunc a mauris a sem sollicitudin iaculis. Nullam cursus felis ipsum, sit amet consequat eros cursus sit amet. </p>
-<p>Duis eget libero aliquet, consequat leo fermentum, pulvinar risus. Vivamus at enim fringilla est tristique lobortis at nec velit. Pellentesque mollis porttitor est vitae volutpat. Donec ipsum nibh, scelerisque at tellus vel, consequat interdum lectus. Duis blandit, urna iaculis elementum rhoncus, turpis nisi imperdiet neque, nec tempus ipsum ante sed erat. Praesent eu fermentum lectus, vitae rhoncus metus. Nunc a mauris a sem sollicitudin iaculis. Nullam cursus felis ipsum, sit amet consequat eros cursus sit amet. </p>
-</div>
-
-<div class="fakeVideo"/>
-<div class="fakeCaption"><p>Something about the video here</p></div>
-
-<div class="card projectInfoContaner">
-<div>
-<h6>Position</h6>
-<p>{projectRole}</p>
-<h6>Organization</h6>
-<p>J&JStudio</p>
-<h6>Year</h6>
-<p>2020</p>
-</div>
-<div>
-<h6>Work</h6>
-<ul>
-{#each techUsed as tu}
-<li>{tu}</li>
-{/each}
-</ul>
-</div>
-</div>
-
-</article>
