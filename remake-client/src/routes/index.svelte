@@ -285,6 +285,11 @@
 			place-self: end;
 		}
 	}
+	@media (min-width: 1600px) {
+		.blobWrapper {
+			margin-right: 100px;
+		}
+	}
 
 	.blob {
 		position: absolute;
