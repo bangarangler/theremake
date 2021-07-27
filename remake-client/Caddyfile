@@ -3,6 +3,13 @@ www.jonathandain.dev {
 }
 
 jonathandain.dev {
+   handle /robots.txt {
+      root */root/theremake/remake-client/robots.txt
+      encode zstd gzip
+      try_files {path} {path}/ /index.html
+
+      file_server
+   }
    handle * {
       root * /root/theremake/remake-client/build
       encode zstd gzip
