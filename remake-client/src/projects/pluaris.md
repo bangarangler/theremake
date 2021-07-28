@@ -251,7 +251,8 @@ place-items: center;
   grid-column-gap: 0px;
   width: 100%;
   place-items: center;
-  margin-bottom: 25px;
+  max-width: 1200px;
+  margin: 0 auto 25px;
   }
 }
 

@@ -27,8 +27,16 @@
 		padding-bottom: 4em;
 	}
 	h1 {
+		margin-top: 35px;
+		font-size: var(--h2);
 		text-align: center;
 		color: var(--darkAquaLightHotPink);
+	}
+	@media (min-width: 450px) {
+		h1 {
+			margin-top: unset;
+			font-size: var(--h1);
+		}
 	}
 	span {
 		text-align: center;
