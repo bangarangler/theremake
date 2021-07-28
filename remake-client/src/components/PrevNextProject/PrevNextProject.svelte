@@ -24,6 +24,7 @@
 		on:click={(e) => e.stopPropagation()}
 		class="prev {!prevPage && 'disabled'}"
 		disabled={!prevPage}
+		sveltekit:prefetch
 		href={`/projects/${prevPage}/`}
 		><span class="arrowIcons"><IoIosArrowRoundBack /></span>
 		<p>prev</p></a
@@ -35,6 +36,7 @@
 		on:click={(e) => e.stopPropagation()}
 		class="next {!nextPage && 'disabled'}"
 		disabled={!nextPage}
+		sveltekit:prefetch
 		href={`/projects/${nextPage}/`}
 		><span class="arrowIcons"><IoIosArrowRoundForward /></span>
 		<p>next</p></a
@@ -43,6 +45,7 @@
 		{#each $projectMetaData as md}
 			<a
 				on:click={(e) => e.stopPropagation()}
+				sveltekit:prefetch
 				href={`/projects/${md.slug}/`}
 				rel="noopener"
 				class={$page.path.includes(md.slug)

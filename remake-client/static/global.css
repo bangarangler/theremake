@@ -18,6 +18,7 @@
 	--darkGray: #191919;
 	--lightGray: rgba(255, 255, 255, 0.5);
 	--gray: #f5f5f5;
+	--dracPurp: #bd93f9;
 
 	/* COLORS INTENTIONS */
 	--primary: var(--aqua);
@@ -35,6 +36,7 @@
 	--headerBorder: var(--aqua);
 	--waveBG: var(--darkGray);
 	--darkAquaLightHotPink: var(--aqua);
+	--dracPurpDarkGray: var(--dracPurp);
 
 	/* STYLES */
 	--line: 1px solid var(--lineColor);
@@ -336,6 +338,7 @@ button.small {
 	--headerBorder: var(--hotpink);
 	--waveBG: var(--gray);
 	--darkAquaLightHotPink: var(--hotpink);
+	--dracPurpDarkGray: #282a36;
 }
 
 /* .dark { */

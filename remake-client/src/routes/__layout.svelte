@@ -54,6 +54,16 @@
 	if (metaData) {
 		projectMetaData.update(() => metaData);
 	}
+	/*if (browser) {
+		let domReady = (cb) => {
+			document.readyState === 'interactive' || document.readyState === 'complete'
+				? cb()
+				: document.addEventListener('DOMContentLoaded', cb);
+		};
+		domReady(() => {
+			document.body.style.visibility = 'visible';
+		});
+}*/
 	if (browser) {
 		const newScript = document.createElement('script');
 		newScript.src = 'https://embed.small.chat/TBYMF8CLXGJ010MDRR.js';
@@ -64,6 +74,18 @@
 </script>
 
 <svelte:head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-VXH7YHY32W"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-VXH7YHY32W');
+	</script>
+
 	<title>{title.charAt(0).toUpperCase() + title.slice(1)} | Jonathan Dain Palacio</title>
 	<meta
 		name="description"
