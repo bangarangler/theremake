@@ -1,5 +1,5 @@
 <script>
-	import setUp from '$static/imgForUses.png?w=300;600;1600&format=png&srcset';
+	import setUp from '$static/imgForUses.png?w=300;600;1000&format=png&srcset';
 	import laptopImg from '$static/laptop-undraw.svg?w=200;400;800&format=svg&srcset';
 	import codingImg from '$static/undraw-coding.svg?w=200;400;800&format=svg&srcset';
 	import programmingImg from '$static/undraw-programming.svg?w=200;400;800&format=svg&srcset';
