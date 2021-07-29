@@ -173,6 +173,13 @@
 		transition: all 0.5s linear;
 		transform: skew(-5deg);
 	}
+	@media (hover: hover) and (pointer: fine) {
+		footer a:hover {
+			color: var(--hotpink);
+			transition: all 0.5s linear;
+			transform: skew(-5deg);
+		}
+	}
 	.facebook {
 		color: #3b5998;
 		width: var(--iconSize);

@@ -89,6 +89,17 @@
 	.current:after {
 		max-width: 100%;
 	}
+	@media (hover: hover) and (pointer: fine) {
+		nav a:hover:before,
+		.current:before {
+			opacity: 1;
+			width: 100%;
+		}
+		nav a:hover:after,
+		.current:after {
+			max-width: 100%;
+		}
+	}
 
 	nav a:first-child:before {
 		display: none;

@@ -255,6 +255,11 @@ button {
 button:hover {
 	box-shadow: var(--level2);
 }
+@media (hover: hover) and (pointer: fine) {
+	button:hover {
+		box-shadow: var(--level2);
+	}
+}
 
 button[disabled] {
 	opacity: 0.4;

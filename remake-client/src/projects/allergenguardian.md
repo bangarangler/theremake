@@ -27,10 +27,10 @@ year: 2018 - Always
   animation = true
   })
   $: if (innerWidth < 600) headingText = "Software Engineer • Partner • We do it all!"
-  $: if (innerWidth > 800) headingText = "Software Engineer • 2019 - Present"
-  $: if (innerWidth > 1000) headingText = "Software Engineer • Partner • We do it all!"
+  $: if (innerWidth > 800) headingText = "Software Engineer • Partner • 2019 - Present"
+  $: if (innerWidth > 1000) headingText = "Software Engineer • Ongoing work in progress : )"
   $: if (innerWidth < 800) headingText = "Software Engineer • Ongoing work in progress ; )"
-  $: if (innerWidth < 600) headingText = "Software Engineer •  Partner";
+  $: if (innerWidth < 600) headingText = "Software Engineer •  We do it all!";
 
 function isInViewport(element ) {
 if (element) {
@@ -350,51 +350,6 @@ em {
 strong {
 font-weight: bold;
 color: var(--darkAquaLightHotPink);
-}
-.python {
- color: #4B8BBE;
-}
-.nodejs {
-color: #68a063;
-}
-.graphql {
-color: #e535ab;
-}
-.typescript {
-color: #007acc;
-}
-.mongo {
-color: #4DB33D;
-}
-.redis {
-color: #D82C20;
-}
-.docker {
-color: #0db7ed;
-}
-.k8s {
-color: #3970e4;
-}
-.go {
-color: #007d9c;
-}
-.react {
-color: #61dbfb;
-}
-.digitalocean {
-color: #008bcf;
-}
-.nginx {
-color: #099639;
-}
-.aws {
-color: #FF9900;
-}
-.azure {
-color: #0080FF;
-}
-.googlecloud {
-color: #F4B400;
 }
 
 .emoji {
