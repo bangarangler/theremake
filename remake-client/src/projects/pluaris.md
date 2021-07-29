@@ -3,7 +3,7 @@ projectTitle: Pluaris
 slug: pluaris
 projectRole: Full Stack
 projectDescription: 'Pluaris enables its users to quickly analyze boatloads of data, whether structured or unstructured, extract actionable insights from all the critical touch points happening within their ecosystem. '
-techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mongo']
+techUsed: ['python', 'node', 'typescript', 'graphql', 'golang', 'redis', 'mongo']
 organization: Nowigence Inc
 year: 2019 - Current
 ---

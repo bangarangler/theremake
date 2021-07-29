@@ -136,7 +136,7 @@
 	}
 	.disabled {
 		cursor: not-allowed;
-		color: var(--lightGray);
+		color: var(--projH6DarkLight);
 	}
 	.arrowIcons {
 		display: block;
