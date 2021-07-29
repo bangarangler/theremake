@@ -25,12 +25,14 @@
 	--danger: var(--red);
 	--background: var(--black);
 	--textColor: var(--white);
+	--reverseTextColor: var(--black);
 	--lineColor: var(--hotpink);
 	--cardBG: var(--darkGray);
 	--cardBGGradient: linear-gradient(315deg, var(--black), var(--cardBG), var(--black));
 	--headerBG: var(--black);
 	--headerLinkText: var(--white);
-	--btnTextColor: var(--textColor);
+	--btnTextColor: var(--darkGray);
+	--btnBGColor: var(--aqua);
 	--footerBG: var(--black);
 	--headerLinkOpacity: var(--lightGray);
 	--headerBorder: var(--aqua);
@@ -38,6 +40,7 @@
 	--darkAquaLightHotPink: var(--aqua);
 	--dracPurpDarkGray: var(--dracPurp);
 	--projH6DarkLight: var(--lightGray);
+	--inputBorder: var(--aqua);
 
 	/* STYLES */
 	--line: 1px solid var(--lineColor);
@@ -217,13 +220,13 @@ label {
 input,
 textarea {
 	padding: 4px 5px;
-	border: var(--line);
+	border: 1px solid var(--inputBorder);
 	border-radius: 4px;
 }
 
 textarea {
 	width: 100%;
-	height: 5rem;
+	height: 10rem;
 }
 
 ::placeholder {
@@ -239,17 +242,16 @@ hr {
 }
 
 button {
-	--btnColor: var(--primary);
-
 	appearance: none;
 	color: var(--btnTextColor);
-	background: var(--btnColor);
+	background: var(--btnBGColor);
 	border: none;
 	border-radius: 10px;
 	padding: 5px 25px;
 	cursor: pointer;
 	box-shadow: var(--level1);
 	transition: 0.3s ease-out box-shadow;
+	font-weight: bold;
 }
 
 button:hover {
@@ -265,10 +267,10 @@ button[disabled] {
 	opacity: 0.4;
 }
 
-button.cancel {
-	--btnColor: var(--danger);
-	--btnTextColor: white;
-}
+/* button.cancel { */
+/* 	--btnColor: var(--danger); */
+/* 	--btnTextColor: white; */
+/* } */
 
 button.small {
 	font-size: var(--smallTextSize);
@@ -279,36 +281,36 @@ button.small {
 	padding-bottom: 0;
 }
 
-.grid {
-	--gridCols: 2;
-	display: block;
-	grid-template-columns: repeat(var(--gridCols), 1fr);
-}
-
-.cols-3 {
-	--gridCols: 3;
-}
-
-.flex {
-	--jContent: space-between;
-	display: block;
-	justify-content: var(--jContent);
-}
-
-.flex-around {
-	--jContent: space-around;
-}
+/* .grid { */
+/* 	--gridCols: 2; */
+/* 	display: block; */
+/* 	grid-template-columns: repeat(var(--gridCols), 1fr); */
+/* } */
+/*  */
+/* .cols-3 { */
+/* 	--gridCols: 3; */
+/* } */
+/*  */
+/* .flex { */
+/* 	--jContent: space-between; */
+/* 	display: block; */
+/* 	justify-content: var(--jContent); */
+/* } */
+/*  */
+/* .flex-around { */
+/* 	--jContent: space-around; */
+/* } */
 
 @media only screen and (min-width: 500px) {
 	:root {
 		--baseFontSize: 112.5%;
 	}
-	.grid {
-		display: grid;
-	}
-	.flex {
-		display: flex;
-	}
+	/* .grid { */
+	/* 	display: grid; */
+	/* } */
+	/* .flex { */
+	/* 	display: flex; */
+	/* } */
 }
 
 .card {
@@ -333,12 +335,12 @@ button.small {
 	--danger: var(--red);
 	--background: var(--white);
 	--textColor: var(--black);
+	--reverseTextColor: var(--white);
 	--lineColor: var(--hotpink);
 	--cardBG: var(--gray);
 	--cardBGGradient: linear-gradient(315deg, var(--white), var(--cardBG), var(--white));
 	--headerBG: var(--white);
 	--headerLinkText: var(--black);
-	/* --btnTextColor: var(--textColor); */
 	--footerBG: var(--white);
 	--headerLinkOpacity: var(--black);
 	--headerBorder: var(--hotpink);
@@ -346,75 +348,7 @@ button.small {
 	--darkAquaLightHotPink: var(--hotpink);
 	--dracPurpDarkGray: #282a36;
 	--projH6DarkLight: var(--darkGray);
-}
-
-/* .dark { */
-/*   --cardBG: var(--darkGray); */
-/*   --background: var(--black); */
-/*   --textColor: var(--lightGray); */
-/*   --headerBG: var(--darkGray); */
-/*   --btnTextColor: var(--black); */
-/*   --footerBG: var(--darkGray); */
-/* } */
-/*  */
-/* .oled { */
-/*   --black: #000; */
-/*   --cardBG: var(--darkGray); */
-/*   --headerBG: var(--darkGray); */
-/*   --footerBG: var(--darkGray); */
-/* } */
-
-/* THEME */
-.theme {
-	/* COLORS */
-	--green: #4fc4cf;
-	--red: #ff5470;
-	--yellow: #fbdd74;
-	--black: #181818;
-	--darkBlue: #994ff3;
-	--gray: #bfbfbf;
-	--lightGray: #f2f4f6;
-	--white: #fff;
-	--darkGray: #222;
-
-	/* COLORS INTENTIONS */
-	--primary: var(--green);
-	--danger: var(--red);
-	/* --background: var(--lightGray); */
-	--background: var(--yellow);
-	--textColor: var(--black);
-	--lineColor: var(--gray);
-	--cardBG: var(--white);
-	--headerBG: var(--black);
-	--btnTextColor: var(--textColor);
-	--footerBG: var(--black);
-
-	/* STYLES */
-	--line: 1px solid var(--lineColor);
-	/* --line: 1px solid var(--yellow); */
-
-	/* TYPE */
-	--headingFont: 'Exo', sans-serif;
-	--bodyFont: 'Inconsolata', monospace;
-	--slantText: 'Calligraffitti', cursive;
-	--baseFontSize: 110%;
-
-	/* SIZING FOR NON DEFAULT STYLING */
-	--h1: 4.209em;
-	--h2: 3.157em;
-	--h3: 2.369em;
-	--h4: 1.777em;
-	--h5: 1.333em;
-	--smallTextSize: 0.75em;
-
-	/* ELEVATION LEVELS */
-	--level1: 0 2px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-	--level2: 0 6px 8px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	--level3: 0 12px 17px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-	--level4: 0 22px 27px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-	/* POSITIONING */
-	--containerPadding: 2.5%;
-	--headerHeight: 4rem;
-	--borderRadius: 25px;
+	--inputBorder: var(--hotpink);
+	--btnBGColor: var(--hotpink);
+	--btnTextColor: var(--white);
 }
