@@ -37,6 +37,7 @@
 	--waveBG: var(--darkGray);
 	--darkAquaLightHotPink: var(--aqua);
 	--dracPurpDarkGray: var(--dracPurp);
+	--projH6DarkLight: var(--lightGray);
 
 	/* STYLES */
 	--line: 1px solid var(--lineColor);
@@ -339,6 +340,7 @@ button.small {
 	--waveBG: var(--gray);
 	--darkAquaLightHotPink: var(--hotpink);
 	--dracPurpDarkGray: #282a36;
+	--projH6DarkLight: var(--darkGray);
 }
 
 /* .dark { */

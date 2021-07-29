@@ -4,10 +4,13 @@ slug: pluaris
 projectRole: Full Stack
 projectDescription: 'Pluaris enables its users to quickly analyze boatloads of data, whether structured or unstructured, extract actionable insights from all the critical touch points happening within their ecosystem. '
 techUsed: ['python', 'node', 'typescript', 'graphql', 'typescript', 'redis', 'mongo']
+organization: Nowigence Inc
+year: 2019 - Current
 ---
 
 <script>
   import {onMount} from 'svelte'
+  import ProjectInfo from '$components/ProjectInfo/ProjectInfo.svelte'
   import pluarisDesktop from '$images/pluaris-dashboard.jpg?w=600;700;1600&format=jpg&srcset'
   import myMemoryMobile from '$static/mymemory-pluaris-mobile.jpg?w=200;400;700&format=jpg&srcset'
   import myMemoryInfoMobile from '$images/mymemory-info-mobile.jpg?w=200;400;700&format=jpg&srcset'
@@ -138,24 +141,7 @@ it on <span class="aws">AWS</span>, <span class="googlecloud">Google Cloud</span
 </div>
 <div class="caption"><p>Dashboard view of Pluaris!</p></div>
 
-<div class="card projectInfoContaner">
-  <div class="projSection">
-    <h6>Position</h6>
-    <p>{projectRole}</p>
-    <h6>Organization</h6>
-    <p>Nowigence Inc</p>
-    <h6>Year</h6>
-    <p>2019 - Current</p>
-  </div>
-  <div class="projSection">
-    <h6>Work</h6>
-    <ul>
-    {#each techUsed as tu}
-    <li>{tu}</li>
-    {/each}
-    </ul>
-  </div>
-</div>
+<ProjectInfo {projectRole} {techUsed} {organization} {year}/>
 
 </article>
 
@@ -461,60 +447,4 @@ font-family: var(--slantText);
 letter-spacing: .04em;
 }
 
-
-.projectInfoContaner {
-display: grid;
-grid-template-columns: minmax(0, 1fr);
-width: 95%;
-margin: 65px auto 0 auto;
-place-items: center;
-}
-.projectInfoContaner .projSection {
-display: flex;
-flex-direction: column;
-width: 75%;
-align-items: flex-start;
-justify-content: center;
-}
-@media (min-width: 400px) {
-.projectInfoContaner {
-  width: 80%;
-}
-}
-@media (min-width: 450px) {
-.projectInfoContaner {
-  width: 80%;
-}
-}
-@media (min-width: 650px) {
-.projectInfoContaner {
-  width: 80%;
-max-width: 600px;
-grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-grid-column-gap: 0px;
-}
-.projectInfoContaner .projSection {
-  width: unset;
-}
-}
-@media (min-width: 1000px) {
-.projectInfoContaner {
-grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-width: 60%;
-grid-column-gap: 0px;
-}
-}
-@media (min-width: 1200px) {
-.projectInfoContaner {
-grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-width: 50%;
-grid-column-gap: 30px;
-}
-}
-.projectInfoContaner h6 {
-color: var(--lightGray);
-border-bottom: 1px solid var(--hotpink);
-width: -moz-fit-content;
-width: fit-content;
-}
 </style>

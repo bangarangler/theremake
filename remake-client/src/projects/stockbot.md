@@ -6,10 +6,13 @@ projectDescription: 'Stock Bot is an trading robot.  Designed with the sole
 purpose of making us money while we sleep.  I need to learn this. | Note to
 future self... jon go study this!'
 techUsed: ["python", "golang", "aws", "docker", "kubernetes"]
+organization: J&J Studios
+year: 2018 - Always
 ---
 
 <script>
   import {onMount} from 'svelte'
+  import ProjectInfo from '$components/ProjectInfo/ProjectInfo.svelte'
   //import tempImg from '$static/coming-soon-pixabay.jpg?w=600;700;1600&format=jpg&srcset'
   //import tempImg from '$static/the-new-beginning-pixabay.jpg?w=200;400;700&format=jpg&srcset'
   import tempImg from '$static/pexels-working.jpg?w=600;800;1600&format=jpg&srcset'
@@ -118,24 +121,7 @@ _Note to self..._ This needs content as well!
 </div>
 <div class="caption"><p>Time keeps flying!</p></div>
 
-<div class="card projectInfoContaner">
-  <div class="projSection">
-    <h6>Position</h6>
-    <p>{projectRole}</p>
-    <h6>Organization</h6>
-    <p>J&J Studios</p>
-    <h6>Year</h6>
-    <p>2018 - Always</p>
-  </div>
-  <div class="projSection">
-    <h6>Work</h6>
-    <ul>
-    {#each techUsed as tu}
-    <li>{tu}</li>
-    {/each}
-    </ul>
-  </div>
-</div>
+<ProjectInfo {projectRole} {techUsed} {organization} {year}/>
 
 </article>
 
@@ -446,60 +432,4 @@ font-family: var(--slantText);
 letter-spacing: .04em;
 }
 
-
-.projectInfoContaner {
-display: grid;
-grid-template-columns: minmax(0, 1fr);
-width: 95%;
-margin: 65px auto 0 auto;
-place-items: center;
-}
-.projectInfoContaner .projSection {
-display: flex;
-flex-direction: column;
-width: 75%;
-align-items: flex-start;
-justify-content: center;
-}
-@media (min-width: 400px) {
-.projectInfoContaner {
-  width: 80%;
-}
-}
-@media (min-width: 450px) {
-.projectInfoContaner {
-  width: 80%;
-}
-}
-@media (min-width: 650px) {
-.projectInfoContaner {
-  width: 80%;
-max-width: 600px;
-grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-grid-column-gap: 0px;
-}
-.projectInfoContaner .projSection {
-  width: unset;
-}
-}
-@media (min-width: 1000px) {
-.projectInfoContaner {
-grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-width: 60%;
-grid-column-gap: 0px;
-}
-}
-@media (min-width: 1200px) {
-.projectInfoContaner {
-grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-width: 50%;
-grid-column-gap: 30px;
-}
-}
-.projectInfoContaner h6 {
-color: var(--lightGray);
-border-bottom: 1px solid var(--hotpink);
-width: -moz-fit-content;
-width: fit-content;
-}
 </style>
