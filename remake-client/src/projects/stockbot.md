@@ -251,18 +251,6 @@ display: block;
   max-width: 1000px;
 }
 }
-.img1 {
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-}
-.img2 {
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-}
 
 
 .explanationContainer {
@@ -380,11 +368,6 @@ max-width: 800px;
 }
 .oneImage picture {
 max-width: 800px;
-}
-.oneImage picture img {
-width: 100%;
-height: 100%;
-object-fit: contain;
 }
 .caption p {
 margin: 15px auto 0 auto;

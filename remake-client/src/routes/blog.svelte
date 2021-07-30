@@ -55,21 +55,11 @@
 		width: 90%;
 		padding: 0.5em;
 	}
-	.imgWrapper img {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-	}
 	@media (min-width: 1200px) {
 		.wrapper {
 			max-width: 1000px;
 			margin: 25px auto;
 			padding: 2em;
-		}
-		.imgWrapper img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
 		}
 	}
 </style>

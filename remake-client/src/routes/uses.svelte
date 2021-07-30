@@ -145,11 +145,6 @@ type="image/svg" />-->
 			margin-bottom: 100px;
 		}
 	}
-	.imgWrapper img {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-	}
 	section h1 {
 		font-size: var(--h2);
 		color: var(--darkAquaLightHotPink);
@@ -289,11 +284,6 @@ type="image/svg" />-->
 			max-width: 400px;
 			min-width: 400px;
 		}
-	}
-	.usesTitleWrapper picture img {
-		height: 100%;
-		width: 100%;
-		object-fit: contain;
 	}
 	ul {
 		display: flex;

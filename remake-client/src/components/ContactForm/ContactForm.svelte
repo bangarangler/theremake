@@ -186,11 +186,6 @@
 			max-width: 600px;
 		}
 	}
-	.imgWrapper picture img {
-		height: 100%;
-		width: 100%;
-		object-fit: contain;
-	}
 	.imgWrapper p {
 		grid-area: bottom;
 		text-align: center;
