@@ -6,3 +6,4 @@ remake-client/functions
 .env
 remake-backend/cmd/tmp
 remake-backend/curl/token.txt
+remake-backend/tmp

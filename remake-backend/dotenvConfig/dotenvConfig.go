@@ -8,7 +8,8 @@ import (
 )
 
 func goDotEnvVar(key string) string {
-	err := godotenv.Load("./remake-backend/.env")
+	// err := godotenv.Load("./remake-backend/.env")
+	err := godotenv.Load("./.env")
 	if err != nil {
 		log.Fatalf("error loading env")
 	}
