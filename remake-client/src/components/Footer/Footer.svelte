@@ -104,9 +104,14 @@
 		border-image: -webkit-gradient(linear, right top, left bottom, from(#7a00cc), to(#ff1a75)) 1;
 		border-image: linear-gradient(to bottom left, #7a00cc, #ff1a75) 1;
 		text-align: center;
-		width: max-content;
+		max-width: 290px;
 		margin: 20px auto;
 		font-size: var(--h4);
+	}
+	@media (min-width: 500px) {
+		footer h3 {
+			width: max-content;
+		}
 	}
 	@media (min-width: 800px) {
 		footer h3 {

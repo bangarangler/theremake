@@ -1,3 +1,42 @@
+<script>
+	import { browser } from '$app/env';
+
+	import { onMount } from 'svelte';
+	export let moon;
+	if (browser) {
+		onMount(() => {
+			moon = document.querySelector('#contain-all-moon');
+		});
+	}
+	function changeMoon(moon) {
+		if (moon) {
+			// testing... going to refactor this
+			let pink = 'var(--hotpink)';
+			let purp = 'var(--dracPurp)';
+			let orange = '#FF7F50';
+			let red = 'var(--red)';
+			let darkPurp = '#230820';
+			setTimeout(() => {
+				moon.style.setProperty('--moonBGColor', darkPurp);
+			}, 8000);
+			setTimeout(() => {
+				moon.style.setProperty('--moonBGColor', orange);
+			}, 6000);
+			setTimeout(() => {
+				moon.style.setProperty('--moonBGColor', red);
+			}, 4000);
+			setTimeout(() => {
+				moon.style.setProperty('--moonBGColor', pink);
+			}, 2000);
+			setTimeout(() => {
+				moon.style.setProperty('--moonBGColor', purp);
+			}, 1000);
+		}
+	}
+	$: changeMoon(moon);
+	$: console.log('moon', moon);
+</script>
+
 <div class="contain-page">
 	<div id="contain-all-moon">
 		<svg style="isolation:isolate" viewBox="0 0 400 400" width="100%" height="100%">
@@ -104,7 +143,8 @@
 		/*position: fixed;*/
 		display: inline-block;
 		overflow: hidden;
-		background: #242424;
+		/* background: #242424; */
+		background: var(--moonBGColor);
 		border-radius: 50%;
 		width: 600px;
 		/*left: 50%;*/

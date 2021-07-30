@@ -13,36 +13,34 @@
 <section>
 	<div class="wrapper">
 		<h1 class="heading">Looking for Jon?</h1>
-		<div class="card headingWrap">
-			{#if visible}
-				<blockquote in:fade={{ delay: 100, duration: 1200 }} out:fade={{ duration: 100 }}>
-					<p
-						class="quote"
-						in:fly={{ delay: 100, x: -100, opacity: 0, duration: 1200 }}
+		{#if visible}
+			<blockquote in:fade={{ delay: 100, duration: 1200 }} out:fade={{ duration: 100 }}>
+				<p
+					class="quote"
+					in:fly={{ delay: 100, x: -100, opacity: 0, duration: 1200 }}
+					out:fade={{ duration: 100 }}
+				>
+					This is the way... <br /> ... to contact me!
+				</p>
+				{#if $theme === 'DARK'}
+					<div
+						class="quoteFooter"
+						in:fly={{ delay: 100, x: 100, opacity: 0, duration: 1000 }}
 						out:fade={{ duration: 100 }}
 					>
-						This is the way... <br /> ... to contact me!
-					</p>
-					{#if $theme === 'DARK'}
-						<div
-							class="quoteFooter"
-							in:fly={{ delay: 100, x: 100, opacity: 0, duration: 1000 }}
-							out:fade={{ duration: 100 }}
-						>
-							<p>- I have spoken ; )</p>
-						</div>
-					{:else}
-						<div
-							class="quoteFooter light"
-							in:fly={{ delay: 100, x: 100, opacity: 0, duration: 1000 }}
-							out:fade={{ duration: 100 }}
-						>
-							<p>- I have spoken ; )</p>
-						</div>
-					{/if}
-				</blockquote>
-			{/if}
-		</div>
+						<p>- I have spoken ; )</p>
+					</div>
+				{:else}
+					<div
+						class="quoteFooter light"
+						in:fly={{ delay: 100, x: 100, opacity: 0, duration: 1000 }}
+						out:fade={{ duration: 100 }}
+					>
+						<p>- I have spoken ; )</p>
+					</div>
+				{/if}
+			</blockquote>
+		{/if}
 		<div class="moon">
 			<Moon />
 		</div>
@@ -55,7 +53,7 @@
 <style>
 	.wrapper {
 		display: grid;
-		margin-bottom: 100px;
+		margin-bottom: 50px;
 		/*grid-template-columns: minmax(0, auto);*/
 		grid-template-rows: minmax(0, auto) 1fr;
 		place-items: center;
@@ -64,34 +62,40 @@
 			'moon'
 			'wrap';
 	}
+	@media (min-width: 500px) {
+		.wrapper {
+			margin-bottom: 100px;
+		}
+	}
 	@media (min-width: 1000px) {
 		.wrapper {
 			width: 90%;
 			margin: 0 auto;
 			grid-column-gap: 30px;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			/* grid-template-columns: repeat(2, minmax(0, 1fr)); */
+			grid-template-columns: repeat(2, minmax(0, auto));
 			grid-template-rows: minmax(0, auto) 1fr;
 			grid-template-areas:
 				'head head'
 				'wrap moon';
 		}
 	}
-	.headingWrap {
-		display: flex;
-		flex-direction: column;
-		grid-area: wrap;
-		/*width: 90%;*/
-		/*margin: 0px auto 35px;*/
-		background: transparent;
-		padding: 0;
+	@media (min-width: 1400px) {
+		.wrapper {
+			max-width: 1400px;
+		}
 	}
 	blockquote {
+		grid-area: wrap;
 		text-align: center;
+		border-radius: 12px;
+		padding-bottom: 12px;
 		margin-bottom: 35px;
 	}
 	@media (min-width: 500px) {
 		blockquote p {
 			font-size: 1.5rem;
+			padding-bottom: 0.2em;
 		}
 	}
 
@@ -184,23 +188,19 @@
 			max-width: 600px;
 		}
 	}
-	h2 {
-		/*font-size: var(--h3);*/
-		font-size: var(--h3);
-		background: linear-gradient(271deg, var(--hotpink) 30%, var(--aqua) 60%, #a162e8 74%);
-		background-clip: border-box;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		text-align: center;
-	}
-	@media (min-width: 600px) {
-		h2 {
-			font-size: var(--h1);
-		}
-	}
 	.formWrapper {
 		width: 100%;
-		height: 80vh;
+		height: 100%;
 		margin: 50px auto 150px;
+	}
+	@media (min-width: 1200px) {
+		.formWrapper {
+			height: 80vh;
+		}
+	}
+	@media (min-width: 1400px) {
+		.formWrapper {
+			max-width: 1400px;
+		}
 	}
 </style>

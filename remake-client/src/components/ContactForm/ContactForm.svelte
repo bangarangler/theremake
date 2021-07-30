@@ -21,7 +21,7 @@
 		</div>
 		<div class="btnWrapper">
 			<button class="glow-on-hover" type="button">Send to Jon</button>
-			<button class="cancel">Cancel</button>
+			<button class="glow-on-hover cancel" type="button">Cancel</button>
 		</div>
 	</form>
 	<div class="stuff">
@@ -44,18 +44,41 @@
 <style>
 	.wrapper {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		width: 100%;
+		grid-template-columns: minmax(0, 1fr);
+		width: 80%;
 		height: 100%;
-		grid-gap: 15px;
-		grid-template-areas: 'stuff form';
+		margin: 0 auto;
+		grid-row-gap: 100px;
+		grid-template-areas:
+			'stuff'
+			'form';
+	}
+	@media (min-width: 1100px) {
+		.wrapper {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			margin: unset;
+			width: 100%;
+			grid-gap: 15px;
+			grid-template-areas: 'stuff form';
+		}
 	}
 	.wrapper form {
 		grid-area: form;
 		display: flex;
 		flex-direction: column;
-		width: 75%;
+		align-items: baseline;
+		width: 90%;
 		margin: 0 auto;
+	}
+	@media (min-width: 500px) {
+		.wrapper form {
+			width: 75%;
+		}
+	}
+	@media (min-width: 1100px) {
+		.wrapper form {
+			align-items: unset;
+		}
 	}
 	.wrapper form input::placeholder {
 		color: var(--reverseTextColor);
@@ -65,14 +88,38 @@
 	}
 	.wrapper form button {
 		width: max-content;
-		margin-bottom: 10px;
+		margin-bottom: 50px;
 		/* background: var(--hotpink); */
+	}
+	@media (min-width: 1100px) {
+		.wrapper form button {
+			margin-bottom: 10px;
+		}
 	}
 	.wrapper form div h3 {
 		font-family: var(--slantText);
 		transform: skewY(-15deg);
-		border-bottom: 1px solid var(--darkAquaLightHotPink);
+		border-bottom: 4px solid var(--darkAquaLightHotPink);
 		margin: 120px auto 200px;
+		font-size: var(--h5);
+	}
+	@media (min-width: 500px) {
+		.wrapper form div {
+			font-size: var(--h4);
+		}
+	}
+	@media (min-width: 700px) {
+		.wrapper form div h3 {
+			font-size: var(--h3);
+		}
+	}
+	.wrapper form div {
+		align-self: center;
+	}
+	@media (min-width: 1100px) {
+		.wrapper form div {
+			align-self: unset;
+		}
 	}
 	.wrapper .stuff {
 		grid-area: stuff;
@@ -80,8 +127,9 @@
 	.imgWrapper {
 		/* height: 100%; */
 		/* width: 100%; */
+		border-radius: 12px;
 		background: var(--cardBG);
-		min-height: 80vh;
+		min-height: auto;
 		padding: 2em;
 		display: grid;
 		grid-template-rows: minmax(0, auto) minmax(0, 1fr) minmax(0, auto);
@@ -89,20 +137,48 @@
 			'top'
 			'middle'
 			'bottom';
-		/* display: flex; */
-		/* flex-direction: column; */
-		/* align-items: center; */
-		/* justify-content: center; */
+	}
+	/* @media (min-width: 1100px) { */
+	/* 	.imgWrapper { */
+	/* 		border-radius: unset; */
+	/* 	} */
+	/* } */
+	@media (min-width: 500px) {
+		.imgWrapper {
+			min-height: 60vh;
+		}
+	}
+	@media (min-width: 1200px) {
+		.imgWrapper {
+			min-height: 80vh;
+		}
 	}
 	.imgWrapper h2 {
 		grid-area: top;
 		text-align: center;
 		margin: 0;
 		color: var(--darkAquaLightHotPink);
+		font-size: var(--h4);
+	}
+	@media (min-width: 500px) {
+		.imgWrapper h2 {
+			font-size: var(--h3);
+		}
+	}
+	@media (min-width: 1200px) {
+		.imgWrapper h2 {
+			font-size: var(--h2);
+		}
 	}
 	.imgWrapper picture {
 		grid-area: middle;
-		/* max-width: 400px; */
+		max-width: 400px;
+		margin: 0 auto;
+	}
+	@media (min-width: 1200px) {
+		.imgWrapper picture {
+			max-width: 600px;
+		}
 	}
 	.imgWrapper picture img {
 		height: 100%;
@@ -112,16 +188,22 @@
 	.imgWrapper p {
 		grid-area: bottom;
 		text-align: center;
-		margin: 0;
+		margin: 0 auto;
 		font-family: var(--slantText);
 		letter-spacing: 1.5px;
 		color: var(--darkAquaLightHotPink);
 	}
 	.btnWrapper {
 		display: flex;
+		flex-direction: column;
 		width: 80%;
 		align-items: center;
 		justify-content: space-evenly;
+	}
+	@media (min-width: 1100px) {
+		.btnWrapper {
+			flex-direction: row;
+		}
 	}
 	.cancel {
 		height: 30px;
@@ -190,5 +272,11 @@
 		100% {
 			background-position: 0 0;
 		}
+	}
+	.cancel {
+		height: 35px;
+	}
+	.cancel:hover:before {
+		background: linear-gradient(45deg, var(--red), var(--hotpink));
 	}
 </style>
