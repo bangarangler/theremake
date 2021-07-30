@@ -17,6 +17,5 @@ func goDotEnvVar(key string) string {
 
 // var PgConnStr = goDotEnvVar("POSTGRES_URL")
 var (
-	Port         = goDotEnvVar("PORT")
-	NotionAPIKey = goDotEnvVar("NOTION_API_KEY")
+	Port = goDotEnvVar("PORT")
 )

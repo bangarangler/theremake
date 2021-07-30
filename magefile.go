@@ -139,8 +139,8 @@ func FEDev() error {
 // Start Backend Dev Server
 func BEDev() error {
 	fmt.Println("Starting up backend development server!")
-	// os.Chdir("./remake-backend/cmd/")
-	// defer os.Chdir("..")
+	os.Chdir("./remake-backend/cmd/")
+	defer os.Chdir("..")
 	err := sh.Run("air")
 	return err
 }
