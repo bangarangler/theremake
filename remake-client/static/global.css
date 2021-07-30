@@ -43,6 +43,7 @@
 	--projH6DarkLight: var(--lightGray);
 	--inputBorder: var(--aqua);
 	--moonBGColor: var(--moonDefault);
+	--color-selection: var(--aqua);
 
 	/* STYLES */
 	--line: 1px solid var(--lineColor);
@@ -353,4 +354,5 @@ button.small {
 	--inputBorder: var(--hotpink);
 	--btnBGColor: var(--hotpink);
 	--btnTextColor: var(--white);
+	--color-selection: var(--hotpink);
 }

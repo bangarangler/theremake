@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import ImageLoader from '$images/ImageLoader.svelte';
 	import logo from '$images/beforeDawnTempLogo.svg';
 	/* import logo from '$images/beforeDawnTempLogo.svg?w=80&h=80&webp'; */
 	import ToggleSwitch from '$components/ThemeToggle.svelte';
@@ -11,7 +12,8 @@
 <header>
 	<nav>
 		<a href="/">
-			<img src={logo} type="image" alt="jonathandain.dev logo" />
+			<!--<img src={logo} type="image" alt="jonathandain.dev logo" />-->
+			<div><ImageLoader srcset={logo} ty="image/svg" alt="jonathandain.dev logo" /></div>
 		</a>
 		{#each pages as page}
 			<a href={page.path} class={path === page.path ? 'current' : null} data-hover={page.hover}
@@ -29,13 +31,13 @@
 		margin-top: 12px;
 		position: relative;
 	}
-	img {
+	nav a div {
 		max-height: 60px;
 		max-width: 60px;
 		margin-top: 10px;
 	}
 	@media (min-width: 1200px) {
-		img {
+		nav a div {
 			max-height: 80px;
 			max-width: 80px;
 			margin-top: 15px;

@@ -1,5 +1,6 @@
 <script>
 	import contactImg from '$static/contact-image.svg?w=600;700;1000&format=svg&srcset';
+	import ImageLoader from '$images/ImageLoader.svelte';
 </script>
 
 <div class="wrapper">
@@ -29,10 +30,15 @@
 			<h2>Excited to chat!</h2>
 			<picture>
 				<source media="(min-width:1000px)" srcset={contactImg} />
-				<img
+				<!--<img
 					class="img1"
 					srcset={contactImg}
 					type="image/svg"
+					alt="Epic illistration from samji_illustrator!  Please check them out!"
+/>-->
+				<ImageLoader
+					ty="image/svg"
+					srcset={contactImg}
 					alt="Epic illistration from samji_illustrator!  Please check them out!"
 				/>
 			</picture>

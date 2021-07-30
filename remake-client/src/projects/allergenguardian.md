@@ -11,6 +11,7 @@ year: 2018 - Always
 <script>
   import {onMount} from 'svelte'
   import ProjectInfo from '$components/ProjectInfo/ProjectInfo.svelte'
+  import ImageLoader from '$images/ImageLoader.svelte'
   import tempImg from '$static/coming-soon-pixabay.jpg?w=600;700;1600&format=jpg&srcset'
   //import tempImg1 from '$static/the-new-beginning-pixabay.jpg?w=200;400;700&format=jpg&srcset'
   import tempImg2 from '$static/pexels-phone-art.jpg?w=200;400;700&format=jpg&srcset'
@@ -73,7 +74,8 @@ $: isInViewport(animations[2].domElement)
   <div class="card imgContainer">
     <picture>
       <source media="(min-width:1000px)" srcset={tempImg}>
-        <img class="img1" srcset={tempImg} type="image/jpg" alt="Coming Soon!" />
+        <!--<img class="img1" srcset={tempImg} type="image/jpg" alt="Coming Soon!" />-->
+        <ImageLoader srcset={tempImg} ty="image/jpg" alt="Coming Soon!" />
     </picture>
     <!--<picture>
       <source media="(min-width:1200px)" srcset={tempImg1}>
@@ -113,7 +115,8 @@ _Note to self..._ This needs content as well!
 <div class="card oneImage">
   <picture>
   <source media="(min-width:1200px)" srcset={tempImg2}>
-    <img srcset={tempImg2} type="image/jpg" alt="phone... man time flys">
+    <!--<img srcset={tempImg2} type="image/jpg" alt="phone... man time flys">-->
+    <ImageLoader srcset={tempImg2} ty="image/jpg" alt="phone... man time flys" />
   </picture>
 </div>
 <div class="caption"><p>Time keeps flying!</p></div>

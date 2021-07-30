@@ -110,7 +110,7 @@
 	}
 	@media (min-width: 500px) {
 		footer h3 {
-			width: max-content;
+			max-width: unset;
 		}
 	}
 	@media (min-width: 800px) {

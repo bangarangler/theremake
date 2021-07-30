@@ -1,9 +1,11 @@
 <script>
 	import { page } from '$app/stores';
 	import { projectMetaData, previousAndNextProject } from '$stores/projectMetaData';
+	import ImageLoader from '$images/ImageLoader.svelte';
 	import IoIosArrowRoundBack from 'svelte-icons/io/IoIosArrowRoundBack.svelte';
 	import IoIosArrowRoundForward from 'svelte-icons/io/IoIosArrowRoundForward.svelte';
-	import joyride from '$images/undraw-joyride.svg';
+	/* import setUp from '$static/imgForUses.png?w=300;600;1000&format=png&srcset'; */
+	import joyride from '$images/undraw-joyride.svg?w=300;600;800&format=svg&srcset';
 	$: activePage = $projectMetaData.filter((p) => $page.path.includes(p.slug))[0];
 	let nextPage;
 	let prevPage;
@@ -30,7 +32,8 @@
 		<p>prev</p></a
 	>
 	<div class="svgContainer">
-		<img class="svg" src={joyride} alt="arrow svg art from undraw" />
+		<!--<img class="svg" src={joyride} alt="arrow svg art from undraw" />-->
+		<ImageLoader srcset={joyride} ty="image/svg" alt="arrow svg art from undraw" />
 	</div>
 	<a
 		on:click={(e) => e.stopPropagation()}
@@ -111,15 +114,9 @@
 	.svgContainer {
 		grid-area: svg;
 		max-width: 200px;
-		width: 200px;
-	}
-	.svg {
-		height: 100%;
-		width: 100%;
-		object-fit: contain;
 	}
 	@media (min-width: 1000px) {
-		.svg {
+		.svgContainer {
 			max-height: 200px;
 			max-width: 300px;
 		}

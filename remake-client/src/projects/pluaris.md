@@ -11,6 +11,7 @@ year: 2019 - Current
 <script>
   import {onMount} from 'svelte'
   import ProjectInfo from '$components/ProjectInfo/ProjectInfo.svelte'
+  import ImageLoader from '$images/ImageLoader.svelte'
   import pluarisDesktop from '$images/pluaris-dashboard.jpg?w=600;700;1600&format=jpg&srcset'
   import myMemoryMobile from '$static/mymemory-pluaris-mobile.jpg?w=200;400;700&format=jpg&srcset'
   import myMemoryInfoMobile from '$images/mymemory-info-mobile.jpg?w=200;400;700&format=jpg&srcset'
@@ -73,11 +74,13 @@ $: isInViewport(animations[2].domElement)
   <div class="card imgContainer">
     <picture>
       <source media="(min-width:1000px)" srcset={myMemoryMobile}>
-        <img class="img1" srcset={myMemoryMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page" />
+        <!--<img class="img1" srcset={myMemoryMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page" />-->
+        <ImageLoader srcset={myMemoryMobile} ty="image/jpg" alt="Mobile view for Pluaris My Memory page" />
     </picture>
     <picture>
       <source media="(min-width:1200px)" srcset={myMemoryInfoMobile}>
-      <img class="img2" srcset={myMemoryInfoMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page information related to search.">
+      <!--<img class="img2" srcset={myMemoryInfoMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page information related to search.">-->
+      <ImageLoader srcset={myMemoryInfoMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page information related to search." />
     </picture>
 </div>
 
@@ -136,7 +139,8 @@ it on <span class="aws">AWS</span>, <span class="googlecloud">Google Cloud</span
 <div class="card oneImage">
   <picture>
   <source media="(min-width:1200px)" srcset={pluarisDesktop}>
-    <img srcset={pluarisDesktop} type="image/jpg" alt="Pluaris application view of the desktop">
+    <!--<img srcset={pluarisDesktop} type="image/jpg" alt="Pluaris application view of the desktop">-->
+    <ImageLoader srcset={pluarisDesktop} ty="image/jpg" alt="Pluaris application view of the desktop" />
   </picture>
 </div>
 <div class="caption"><p>Dashboard view of Pluaris!</p></div>

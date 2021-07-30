@@ -1,5 +1,6 @@
 <script context="module">
 	/* export const prerender = true; */
+	import ImageLoader from '$images/ImageLoader.svelte';
 </script>
 
 <section>
@@ -12,10 +13,15 @@
 				media="(min-width:1000px)"
 				srcset={'https://media.giphy.com/media/l3E6F9xoxTabw3JYY/source.gif'}
 			/>
-			<img
+			<!--<img
 				class="img1"
 				srcset={'https://media.giphy.com/media/l3E6F9xoxTabw3JYY/source.gif'}
 				type="image/gif"
+				alt="Sillicon Valley... funny moment"
+/>-->
+			<ImageLoader
+				ty="image/gif"
+				srcset={'https://media.giphy.com/media/l3E6F9xoxTabw3JYY/source.gif'}
 				alt="Sillicon Valley... funny moment"
 			/>
 		</picture>

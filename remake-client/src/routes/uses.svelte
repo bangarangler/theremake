@@ -5,6 +5,7 @@
 	import programmingImg from '$static/undraw-programming.svg?w=200;400;800&format=svg&srcset';
 	import botImg from '$static/undraw-firmware.svg?w=200;400;800&format=svg&srcset';
 	import audioImg from '$static/undraw-audio.svg?w=200;400;800&format=svg&srcset';
+	import ImageLoader from '$images/ImageLoader.svelte';
 </script>
 
 <section>
@@ -12,10 +13,16 @@
 	<div class="card wrapper">
 		<picture class="imgWrapper">
 			<source media="(min-width:1000px)" srcset={setUp} />
-			<img
+			<!--	<img
 				class="img1"
 				srcset={setUp}
 				type="image/png"
+				alt="Epic illistration from samji_illustrator!  Please check them out!"
+				loading="lazy"
+/>-->
+			<ImageLoader
+				ty="image/png"
+				srcset={setUp}
 				alt="Epic illistration from samji_illustrator!  Please check them out!"
 			/>
 		</picture>
@@ -26,7 +33,9 @@
 				<h3>Computers</h3>
 				<picture>
 					<source media="(min-width: 600px)" srcset={laptopImg} />
-					<img srcset={laptopImg} alt="Computers!" type="image/svg" />
+					<!--<img loading="lazy" srcset={laptopImg} alt="Computers!"
+type="image/svg" />-->
+					<ImageLoader ty="image/svg" srcset={laptopImg} alt="Computers!" />
 				</picture>
 			</div>
 			<ul>
@@ -39,7 +48,9 @@
 				<h3>Hardware</h3>
 				<picture>
 					<source media="(min-width: 600px)" srcset={codingImg} />
-					<img srcset={codingImg} alt="Computers!" type="image/svg" />
+					<!--<img loading="lazy" srcset={codingImg} alt="Computers!"
+type="image/svg" />-->
+					<ImageLoader ty="image/svg" srcset={codingImg} alt="Hardware!" />
 				</picture>
 			</div>
 			<ul>
@@ -56,7 +67,8 @@
 				<h3>Software</h3>
 				<picture>
 					<source media="(min-width: 600px)" srcset={botImg} />
-					<img srcset={botImg} alt="Computers!" type="image/svg" />
+					<!--<img loading="lazy" srcset={botImg} alt="Computers!" type="image/svg" />-->
+					<ImageLoader ty="image/svg" srcset={botImg} alt="Software!" />
 				</picture>
 			</div>
 			<ul>
@@ -72,7 +84,9 @@
 				<h3>Terminal</h3>
 				<picture>
 					<source media="(min-width: 600px)" srcset={programmingImg} />
-					<img srcset={programmingImg} alt="Computers!" type="image/svg" />
+					<!--<img loading="lazy" srcset={programmingImg} alt="Computers!"
+type="image/svg" />-->
+					<ImageLoader ty="image/svg" srcset={programmingImg} alt="Terminal!" />
 				</picture>
 			</div>
 			<ul>
@@ -86,7 +100,9 @@
 				<h3>Audio</h3>
 				<picture>
 					<source media="(min-width: 600px)" srcset={audioImg} />
-					<img srcset={audioImg} alt="Computers!" type="image/svg" />
+					<!--<img loading="lazy" srcset={audioImg} alt="Computers!"
+type="image/svg" />-->
+					<ImageLoader ty="image/svg" srcset={audioImg} alt="Audio!" />
 				</picture>
 			</div>
 			<ul>

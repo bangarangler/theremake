@@ -1,40 +1,5 @@
 <script>
-	import { browser } from '$app/env';
-
-	import { onMount } from 'svelte';
-	export let moon;
-	if (browser) {
-		onMount(() => {
-			moon = document.querySelector('#contain-all-moon');
-		});
-	}
-	function changeMoon(moon) {
-		if (moon) {
-			// testing... going to refactor this
-			let pink = 'var(--hotpink)';
-			let purp = 'var(--dracPurp)';
-			let orange = '#FF7F50';
-			let red = 'var(--red)';
-			let darkPurp = '#230820';
-			setTimeout(() => {
-				moon.style.setProperty('--moonBGColor', darkPurp);
-			}, 8000);
-			setTimeout(() => {
-				moon.style.setProperty('--moonBGColor', orange);
-			}, 6000);
-			setTimeout(() => {
-				moon.style.setProperty('--moonBGColor', red);
-			}, 4000);
-			setTimeout(() => {
-				moon.style.setProperty('--moonBGColor', pink);
-			}, 2000);
-			setTimeout(() => {
-				moon.style.setProperty('--moonBGColor', purp);
-			}, 1000);
-		}
-	}
-	$: changeMoon(moon);
-	$: console.log('moon', moon);
+	console.log('hello');
 </script>
 
 <div class="contain-page">
@@ -129,6 +94,23 @@
 </div>
 
 <style>
+	@keyframes moonBGColorOptions {
+		0% {
+			background: var(--moonBGColor);
+		}
+		25% {
+			background: #60d394;
+		}
+		50% {
+			background: linear-gradient(271deg, var(--hotpink) 30%, 50%, var(--aqua) 70%, #a162e8 94%);
+		}
+		75% {
+			background: var(--dracPurp);
+		}
+		100% {
+			background: linear-gradient(to bottom left, #7a00cc, #ff1a75);
+		}
+	}
 	.contain-page {
 		height: 100%;
 		width: 100%;
@@ -154,6 +136,11 @@
 		padding: 0;
 		box-sizing: border-box;
 		box-shadow: inset 0 -10px black;
+		animation: moonBGColorOptions 60s infinite alternate;
+		/* animation-name: moonBGColorOptions; */
+		/* animation-duration: 60s; */
+		/* animation-iteration-count: infinite; */
+		/* animation-direction: alternate; */
 	}
 	#contain-all-moon svg {
 		transform-origin: 50% 50%;

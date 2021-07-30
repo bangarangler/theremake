@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/env';
 	import { theme } from '$stores/themeStore';
-	/* $: console.log('theme', $theme); */
 	$: bool = $theme === 'DARK' ? true : false;
-	/* $: console.log('$theme', $theme); */
 	$: if ($theme) {
 		if (browser) {
 			const el = window.document.body;
