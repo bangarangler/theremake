@@ -7,18 +7,17 @@ import (
 )
 
 type MessageFromContactForm struct {
-	Name    string `json:"name"`
-	Email   string `json:"email"`
-	Message string `json:"message"`
-	Subject string `json:"subject"`
+	Name    string `json:"name" validate:"required,min=2"`
+	Email   string `json:"email" validate:"required,email"`
+	Message string `json:"message" validate:"required,min=10"`
+	Subject string `json:"subject" validate:"required,min=5"`
 }
 
 func PostMessage(c *fiber.Ctx) error {
 
-	var body MessageFromContactForm
+	// var body MessageFromContactForm
+	body := new(MessageFromContactForm)
 
-	fmt.Println(body)
-	fmt.Println(c.Request())
 	err := c.BodyParser(&body)
 
 	if err != nil {
@@ -29,6 +28,11 @@ func PostMessage(c *fiber.Ctx) error {
 		})
 	}
 
+	errors := ValidateStruct(*body)
+	if errors != nil {
+		return c.Status(fiber.StatusBadRequest).JSON(errors)
+	}
+
 	newMsg := &MessageFromContactForm{
 		Name:    body.Name,
 		Email:   body.Email,
@@ -37,7 +41,6 @@ func PostMessage(c *fiber.Ctx) error {
 	}
 
 	fmt.Println(newMsg)
-
 	err = SendEmailFromContact(*newMsg)
 	if err != nil {
 		fmt.Println("err Sending Email...", err)
