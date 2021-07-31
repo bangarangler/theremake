@@ -18,5 +18,7 @@ func goDotEnvVar(key string) string {
 
 // var PgConnStr = goDotEnvVar("POSTGRES_URL")
 var (
-	Port = goDotEnvVar("PORT")
+	Port      = goDotEnvVar("PORT")
+	EmailUser = goDotEnvVar("EMAIL_USER")
+	EmailPW   = goDotEnvVar("EMAIL_PW")
 )
