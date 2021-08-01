@@ -1,27 +1,96 @@
-<script>
+<script lang="ts">
 	import contactImg from '$static/contact-image.svg?w=600;700;1000&format=svg&srcset';
+	import Portal from '$components/Portal/Portal.svelte';
+	import Loader from '$components/Loader/Loader.svelte';
 	import ImageLoader from '$images/ImageLoader.svelte';
+	import Modal from '$components/Modal/Modal.svelte';
+	import Toast from '$components/Toast/Toast.svelte';
+	import { isValid } from '$stores/toastStore';
+	import { validate, ValidOptions } from './validate';
+	export let isModalOpen = false;
+	let name: string = '';
+	let email: string = '';
+	let message: string = '';
+	let subject: string = '';
+	let loading = false;
+	let displayMsg = '';
+	async function submit() {
+		displayMsg = '';
+		console.log({ name, email, subject, message });
+		$isValid = true;
+		const ok = validate({ name, email, subject, message });
+		if (ok === ValidOptions.ALL_GOOD) {
+			loading = true;
+			try {
+				const res = await fetch('http://localhost:5000/contact', {
+					method: 'post',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ name, email, subject, message })
+				});
+				if (res) {
+					console.log('res', await res.json());
+					name = '';
+					email = '';
+					message = '';
+					subject = '';
+					displayMsg = 'Hey! I got your Message!';
+					isModalOpen = true;
+				}
+				$isValid = false;
+				loading = false;
+			} catch (err) {
+				console.log('err fetching', err);
+				displayMsg = "Oh my... Something went wrong!  I'll look into it ; ()";
+				isModalOpen = true;
+				$isValid = false;
+				loading = false;
+			}
+		}
+	}
 </script>
 
 <div class="wrapper">
-	<form>
-		<labe>Name</labe>
-		<input type="text" placeholder="Jane Doe" />
-		<labe>Email</labe>
-		<input type="email" placeholder="jane.doe@abracadabra.com" />
-		<labe>Message</labe>
+	<form on:submit|preventDefault={() => submit()}>
+		<Toast duration={3000} />
+		<Modal bind:isModalOpen>
+			<div class="displayMsgWrapper">
+				<p>{displayMsg}</p>
+			</div>
+		</Modal>
+		<label for="name">Name</label>
+		<input
+			id="name"
+			type="text"
+			placeholder="Jane Doe"
+			bind:value={name}
+			on:blur={() => ($isValid = false)}
+		/>
+		<label for="email">Email</label>
+		<input
+			id="email"
+			required
+			type="email"
+			placeholder="jane.doe@abracadabra.com"
+			bind:value={email}
+		/>
+		<label for="subject">Subject</label>
+		<input id="subject" type="text" placeholder="Mercury retrograde..." bind:value={subject} />
+		<label for="message">Message</label>
 		<textarea
 			name="message"
 			id="message"
 			cols="30"
 			rows="50"
 			placeholder="My deep dark secret is..."
+			bind:value={message}
 		/>
 		<div>
 			<h3>Let's Build Something!</h3>
 		</div>
 		<div class="btnWrapper">
-			<button class="glow-on-hover" type="button">Send to Jon</button>
+			<button class="glow-on-hover" type="submit" disabled={$isValid}>Send to Jon</button>
 			<button class="glow-on-hover cancel" type="button">Cancel</button>
 		</div>
 	</form>
@@ -45,6 +114,11 @@
 			<p>reach out anytime!</p>
 		</div>
 	</div>
+	{#if loading}
+		<Portal>
+			<Loader />
+		</Portal>
+	{/if}
 </div>
 
 <style>
@@ -87,15 +161,14 @@
 		}
 	}
 	.wrapper form input::placeholder {
-		color: var(--reverseTextColor);
+		color: var(--black);
 	}
 	.wrapper form textarea::placeholder {
-		color: var(--reverseTextColor);
+		color: var(--black);
 	}
 	.wrapper form button {
 		width: max-content;
 		margin-bottom: 50px;
-		/* background: var(--hotpink); */
 	}
 	@media (min-width: 1100px) {
 		.wrapper form button {
@@ -106,8 +179,13 @@
 		font-family: var(--slantText);
 		transform: skewY(-15deg);
 		border-bottom: 4px solid var(--darkAquaLightHotPink);
-		margin: 120px auto 200px;
+		margin: 100px auto 120px;
 		font-size: var(--h5);
+	}
+	@media (min-width: 400px) {
+		.wrapper form div {
+			font-size: var(--h4);
+		}
 	}
 	@media (min-width: 500px) {
 		.wrapper form div {
@@ -116,7 +194,14 @@
 	}
 	@media (min-width: 700px) {
 		.wrapper form div h3 {
-			font-size: var(--h3);
+			font-size: var(--h4);
+			margin: 150px auto 120px;
+		}
+	}
+	/*TODO: check on large screen*/
+	@media (min-width: 1600px) {
+		.wrapper form div h3 {
+			font-size: var(--h4);
 		}
 	}
 	.wrapper form div {
@@ -279,5 +364,10 @@
 	}
 	.cancel:hover:before {
 		background: linear-gradient(45deg, var(--red), var(--hotpink));
+	}
+	.displayMsgWrapper {
+		/* border: 1px solid red; */
+		display: grid;
+		place-items: center;
 	}
 </style>

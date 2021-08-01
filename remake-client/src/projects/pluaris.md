@@ -33,7 +33,7 @@ year: 2019 - Current
   $: if (innerWidth < 800) headingText = "Software Engineer • 2019 - Present"
   $: if (innerWidth < 500) headingText = "Software Engineer • Present";
 
-function isInViewport(element ) {
+function isInViewport(element) {
 if (element) {
 const rect = element.getBoundingClientRect();
     return (

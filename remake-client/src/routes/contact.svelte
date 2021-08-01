@@ -191,7 +191,7 @@
 	.formWrapper {
 		width: 100%;
 		height: 100%;
-		margin: 50px auto 150px;
+		margin: 50px auto 100px;
 	}
 	@media (min-width: 1200px) {
 		.formWrapper {
