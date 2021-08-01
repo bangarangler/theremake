@@ -1,6 +1,6 @@
 <script lang="ts">
 	import contactImg from '$static/contact-image.svg?w=600;700;1000&format=svg&srcset';
-	import Portal from '$components/Portal/Portal.svelte';
+	/* import Portal from '$components/Portal/Portal.svelte'; */
 	import Loader from '$components/Loader/Loader.svelte';
 	import ImageLoader from '$images/ImageLoader.svelte';
 	import Modal from '$components/Modal/Modal.svelte';
@@ -14,6 +14,7 @@
 	let subject: string = '';
 	let loading = false;
 	let displayMsg = '';
+	let displayEnding = '';
 	async function submit() {
 		displayMsg = '';
 		console.log({ name, email, subject, message });
@@ -31,18 +32,21 @@
 				});
 				if (res) {
 					console.log('res', await res.json());
-					name = '';
+					displayMsg = `Hey ${name}; 🐚\n I got your message!`;
+					displayEnding = '🎈 - Mischief Managed';
 					email = '';
 					message = '';
 					subject = '';
-					displayMsg = 'Hey! I got your Message!';
+					name = '';
 					isModalOpen = true;
 				}
 				$isValid = false;
 				loading = false;
 			} catch (err) {
 				console.log('err fetching', err);
-				displayMsg = "Oh my... Something went wrong!  I'll look into it ; ()";
+				displayMsg =
+					'⛔ Oh my... Something\n went wrong! Please try\n again or contact me on slack!';
+				displayEnding = '🎈 - Mischief NOT Managed';
 				isModalOpen = true;
 				$isValid = false;
 				loading = false;
@@ -52,59 +56,68 @@
 </script>
 
 <div class="wrapper">
-	<form on:submit|preventDefault={() => submit()}>
-		<Toast duration={3000} />
-		<Modal bind:isModalOpen>
-			<div class="displayMsgWrapper">
-				<p>{displayMsg}</p>
+	{#if !loading}
+		<form on:submit|preventDefault={() => submit()}>
+			<Toast duration={3000} />
+			<Modal bind:isModalOpen>
+				<div class="displayMsgWrapper">
+					<pre>{displayMsg}</pre>
+					<p class="mischief">{displayEnding}</p>
+				</div>
+			</Modal>
+			<label for="name">Name</label>
+			<input
+				id="name"
+				type="text"
+				placeholder="Jane Doe"
+				bind:value={name}
+				on:blur={() => ($isValid = false)}
+			/>
+			<label for="email">Email</label>
+			<input
+				id="email"
+				required
+				type="email"
+				placeholder="jane.doe@abracadabra.com"
+				bind:value={email}
+			/>
+			<label for="subject">Subject</label>
+			<input id="subject" type="text" placeholder="Mercury retrograde..." bind:value={subject} />
+			<label for="message">Message</label>
+			<textarea
+				name="message"
+				id="message"
+				cols="30"
+				rows="50"
+				placeholder="My deep dark secret is..."
+				bind:value={message}
+			/>
+			<div>
+				<h3>Let's Build Something!</h3>
 			</div>
-		</Modal>
-		<label for="name">Name</label>
-		<input
-			id="name"
-			type="text"
-			placeholder="Jane Doe"
-			bind:value={name}
-			on:blur={() => ($isValid = false)}
-		/>
-		<label for="email">Email</label>
-		<input
-			id="email"
-			required
-			type="email"
-			placeholder="jane.doe@abracadabra.com"
-			bind:value={email}
-		/>
-		<label for="subject">Subject</label>
-		<input id="subject" type="text" placeholder="Mercury retrograde..." bind:value={subject} />
-		<label for="message">Message</label>
-		<textarea
-			name="message"
-			id="message"
-			cols="30"
-			rows="50"
-			placeholder="My deep dark secret is..."
-			bind:value={message}
-		/>
-		<div>
-			<h3>Let's Build Something!</h3>
-		</div>
-		<div class="btnWrapper">
-			<button class="glow-on-hover" type="submit" disabled={$isValid}>Send to Jon</button>
-			<button class="glow-on-hover cancel" type="button">Cancel</button>
-		</div>
-	</form>
+			<div class="btnWrapper">
+				<button class="glow-on-hover" type="submit" disabled={$isValid}>Send to Jon</button>
+				<button class="glow-on-hover cancel" type="button">Cancel</button>
+			</div>
+		</form>
+	{/if}
+	{#if loading}
+		<form>
+			<Loader />
+			<div>
+				<h3>Let's Build Something!</h3>
+			</div>
+			<div class="btnWrapper">
+				<button class="glow-on-hover" type="submit" disabled={$isValid}>Send to Jon</button>
+				<button class="glow-on-hover cancel" type="button">Cancel</button>
+			</div>
+		</form>
+	{/if}
 	<div class="stuff">
 		<div class="imgWrapper">
 			<h2>Excited to chat!</h2>
 			<picture>
 				<source media="(min-width:1000px)" srcset={contactImg} />
-				<!--<img
-					class="img1"
-					srcset={contactImg}
-					type="image/svg"
-					alt="Epic illistration from samji_illustrator!  Please check them out!"
-/>-->
 				<ImageLoader
 					ty="image/svg"
 					srcset={contactImg}
@@ -114,11 +127,6 @@
 			<p>reach out anytime!</p>
 		</div>
 	</div>
-	{#if loading}
-		<Portal>
-			<Loader />
-		</Portal>
-	{/if}
 </div>
 
 <style>
@@ -195,7 +203,12 @@
 	@media (min-width: 700px) {
 		.wrapper form div h3 {
 			font-size: var(--h4);
-			margin: 150px auto 120px;
+			margin: 70px auto 120px;
+		}
+	}
+	@media (min-width: 700px) {
+		.wrapper form div h3 {
+			margin: 140px auto 120px;
 		}
 	}
 	/*TODO: check on large screen*/
@@ -289,6 +302,7 @@
 	@media (min-width: 1100px) {
 		.btnWrapper {
 			flex-direction: row;
+			width: 100%;
 		}
 	}
 	.cancel {
@@ -369,5 +383,15 @@
 		/* border: 1px solid red; */
 		display: grid;
 		place-items: center;
+	}
+	pre {
+		color: var(--darkAquaLightHotPink);
+		font-weight: bold;
+		border-bottom: 2px solid var(--dracPurp);
+	}
+	.mischief {
+		font-family: var(--slantText);
+		letter-spacing: 1.5px;
+		font-size: var(--h5);
 	}
 </style>

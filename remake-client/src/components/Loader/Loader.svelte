@@ -9,7 +9,8 @@
 <style>
 	.loaderWrapper {
 		max-height: 200px;
-		max-width: 300px;
+		/* max-width: 300px; */
+		width: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;

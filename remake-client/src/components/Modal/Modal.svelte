@@ -22,11 +22,11 @@
 <style>
 	.modalWrapper {
 		position: fixed;
-		inset: 100px 0 0;
-		min-width: 320px;
+		inset: 25vh 0 0;
+		/* min-width: 320px; */
 		max-width: 530px;
 		margin: 0 auto;
-		width: 100%;
+		width: 80%;
 		z-index: 101;
 		border-radius: 12px;
 		max-height: 300px;
@@ -35,6 +35,11 @@
 		display: grid;
 		grid-template-rows: 20px auto;
 		grid-row-gap: 10px;
+	}
+	@media (min-width: 620px) {
+		.modalWrapper {
+			width: 100%;
+		}
 	}
 	.modalWrapper button {
 		width: max-content;
