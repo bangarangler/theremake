@@ -3,6 +3,10 @@ www.jonathandain.dev {
 }
 
 jonathandain.dev {
+   handle /contact/* {
+     reverse_proxy /contact/* localhost:5000
+   }
+
       handle * {
       root * /root/theremake/remake-client/build
       encode zstd gzip

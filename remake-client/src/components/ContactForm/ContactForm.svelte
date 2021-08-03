@@ -23,7 +23,8 @@
 		if (ok === ValidOptions.ALL_GOOD) {
 			loading = true;
 			try {
-				const res = await fetch('http://localhost:5000/contact', {
+				/* const res = await fetch('http://localhost:5000/contact', { */
+				const res = await fetch('https://jonathandain.dev/contact', {
 					method: 'post',
 					headers: {
 						'Content-Type': 'application/json'

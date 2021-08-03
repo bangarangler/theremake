@@ -29,13 +29,14 @@ func main() {
 	app.Use(logger.New())
 	app.Use(recover.New())
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "http://localhost:3000",
+		AllowOrigins: "http://localhost:3000, https://jonathandain.dev",
 	}))
 
 	setupRoutes(app)
 
 	PORT := dotenvConfig.Port
-	err := app.Listen("localhost:" + PORT)
+	// err := app.Listen("localhost:" + PORT)
+	err := app.Listen("jonathandain.dev:" + PORT)
 	if err != nil {
 		fmt.Println("err", err)
 		panic(err)
