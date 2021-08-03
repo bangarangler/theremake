@@ -36,8 +36,8 @@ func main() {
 	setupRoutes(app)
 
 	PORT := dotenvConfig.Port
-	// err := app.Listen("localhost:" + PORT)
-	err := app.Listen("jonathandain.dev:" + PORT)
+	err := app.Listen("localhost:" + PORT)
+	// err := app.Listen("jonathandain.dev:" + PORT)
 	if err != nil {
 		fmt.Println("err", err)
 		panic(err)
