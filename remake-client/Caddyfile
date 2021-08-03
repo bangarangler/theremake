@@ -3,6 +3,7 @@ www.jonathandain.dev {
 }
 
 jonathandain.dev {
+
    handle /api/* {
      reverse_proxy /api/* localhost:5000
    }
