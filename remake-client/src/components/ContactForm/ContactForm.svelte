@@ -24,7 +24,7 @@
 			loading = true;
 			try {
 				/* const res = await fetch('http://localhost:5000/contact', { */
-				const res = await fetch('https://jonathandain.dev/contact', {
+				const res = await fetch('https://jonathandain.dev/api/contact', {
 					method: 'post',
 					headers: {
 						'Content-Type': 'application/json'
