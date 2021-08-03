@@ -144,9 +144,3 @@ func BEDev() error {
 	err := sh.Run("air")
 	return err
 }
-
-// Clean up after yourself
-// func Clean() {
-// 	fmt.Println("Cleaning...")
-// 	os.RemoveAll("MyApp")
-// }
