@@ -193,11 +193,17 @@
 	.formWrapper {
 		width: 100%;
 		height: 100%;
-		margin: 50px auto 100px;
+		margin: 0px auto 100px;
+	}
+	@media (min-width: 910px) {
+		.formWrapper {
+			margin: 100px auto 100px;
+		}
 	}
 	@media (min-width: 1200px) {
 		.formWrapper {
-			height: 80vh;
+			/* height: 80vh; */
+			height: unset;
 		}
 	}
 	@media (min-width: 1400px) {

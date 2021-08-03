@@ -7,6 +7,7 @@
 	import Toast from '$components/Toast/Toast.svelte';
 	import { isValid } from '$stores/toastStore';
 	import { validate, ValidOptions } from './validate';
+	import { BASE_URL } from '$lib/Env';
 	export let isModalOpen = false;
 	let name: string = '';
 	let email: string = '';
@@ -17,14 +18,14 @@
 	let displayEnding = '';
 	async function submit() {
 		displayMsg = '';
-		console.log({ name, email, subject, message });
+		/* console.log({ name, email, subject, message }); */
 		$isValid = true;
 		const ok = validate({ name, email, subject, message });
 		if (ok === ValidOptions.ALL_GOOD) {
 			loading = true;
 			try {
-				/* const res = await fetch('http://localhost:5000/contact', { */
-				const res = await fetch('https://jonathandain.dev/api/contact', {
+				const res = await fetch(`http://${BASE_URL}/api/contact`, {
+					/* const res = await fetch(`https://${BASE_URL}/api/contact`, { */
 					method: 'post',
 					headers: {
 						'Content-Type': 'application/json'
@@ -32,13 +33,10 @@
 					body: JSON.stringify({ name, email, subject, message })
 				});
 				if (res) {
-					console.log('res', await res.json());
+					/* console.log('res', await res.json()); */
 					displayMsg = `Hey ${name}; 🐚\n I got your message!`;
 					displayEnding = '🎈 - Mischief Managed';
-					email = '';
-					message = '';
-					subject = '';
-					name = '';
+					resetInputs();
 					isModalOpen = true;
 				}
 				$isValid = false;
@@ -53,6 +51,12 @@
 				loading = false;
 			}
 		}
+	}
+	function resetInputs() {
+		email = '';
+		message = '';
+		subject = '';
+		name = '';
 	}
 </script>
 
@@ -93,12 +97,12 @@
 				placeholder="My deep dark secret is..."
 				bind:value={message}
 			/>
-			<div>
-				<h3>Let's Build Something!</h3>
-			</div>
 			<div class="btnWrapper">
 				<button class="glow-on-hover" type="submit" disabled={$isValid}>Send to Jon</button>
-				<button class="glow-on-hover cancel" type="button">Cancel</button>
+				<button class="glow-on-hover cancel" type="button" on:click={resetInputs}>Cancel</button>
+			</div>
+			<div>
+				<h3>Let's Build Something!</h3>
 			</div>
 		</form>
 	{/if}
@@ -109,7 +113,9 @@
 				<h3>Let's Build Something!</h3>
 			</div>
 			<div class="btnWrapper">
-				<button class="glow-on-hover" type="submit" disabled={$isValid}>Send to Jon</button>
+				<button class="glow-on-hover" type="submit" disabled={$isValid}
+					>{loading ? 'Sending...' : 'Send to Jon'}</button
+				>
 				<button class="glow-on-hover cancel" type="button">Cancel</button>
 			</div>
 		</form>
@@ -137,7 +143,7 @@
 		width: 80%;
 		height: 100%;
 		margin: 0 auto;
-		grid-row-gap: 100px;
+		grid-row-gap: 50px;
 		grid-template-areas:
 			'stuff'
 			'form';
@@ -147,7 +153,7 @@
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 			margin: unset;
 			width: 100%;
-			grid-gap: 15px;
+			grid-gap: unset;
 			grid-template-areas: 'stuff form';
 		}
 	}
@@ -177,7 +183,7 @@
 	}
 	.wrapper form button {
 		width: max-content;
-		margin-bottom: 50px;
+		margin-bottom: 15px;
 	}
 	@media (min-width: 1100px) {
 		.wrapper form button {
@@ -204,12 +210,13 @@
 	@media (min-width: 700px) {
 		.wrapper form div h3 {
 			font-size: var(--h4);
-			margin: 70px auto 120px;
+			margin: 85px auto 120px;
 		}
 	}
-	@media (min-width: 700px) {
+	@media (min-width: 1200px) {
 		.wrapper form div h3 {
-			margin: 140px auto 120px;
+			font-size: var(--h4);
+			margin: 100px auto 120px;
 		}
 	}
 	/*TODO: check on large screen*/
@@ -299,11 +306,18 @@
 		width: 80%;
 		align-items: center;
 		justify-content: space-evenly;
+		margin-top: 30px;
 	}
 	@media (min-width: 1100px) {
 		.btnWrapper {
 			flex-direction: row;
 			width: 100%;
+			margin-top: 50px;
+		}
+	}
+	@media (min-width: 1360px) {
+		.btnWrapper {
+			margin-top: 100px;
 		}
 	}
 	.cancel {

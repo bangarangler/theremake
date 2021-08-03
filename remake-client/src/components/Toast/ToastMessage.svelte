@@ -17,8 +17,14 @@
 
 <style>
 	div {
-		height: 10px;
+		height: 15px;
 		background: linear-gradient(to bottom left, #7a00cc, #ff1a75);
+	}
+	@media (min-width: 500px) {
+		div {
+			height: 10px;
+			background: linear-gradient(to bottom left, #7a00cc, #ff1a75);
+		}
 	}
 	p {
 		margin: 0;

@@ -7,3 +7,4 @@ remake-client/functions
 remake-backend/cmd/tmp
 remake-backend/curl/token.txt
 remake-backend/tmp
+remake-api.service
