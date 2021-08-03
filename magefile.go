@@ -61,7 +61,8 @@ func BuildBackend() error {
 	os.Chdir("./remake-backend")
 	defer os.Chdir("..")
 	fmt.Println("Building go backend for linux...")
-	err := sh.Run("GOOS=linux", "GOARCH=amd64", "go", "build")
+	// err := sh.Run("GOOS=linux", "GOARCH=amd64", "go", "build")
+	err := sh.Run("go", "build")
 	return err
 }
 
