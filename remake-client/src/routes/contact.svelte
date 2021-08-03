@@ -55,7 +55,7 @@
 <style>
 	.wrapper {
 		display: grid;
-		margin-bottom: 50px;
+		/* margin-bottom: 50px; */
 		/*grid-template-columns: minmax(0, auto);*/
 		grid-template-rows: minmax(0, auto) 1fr;
 		place-items: center;
@@ -64,11 +64,11 @@
 			'moon'
 			'wrap';
 	}
-	@media (min-width: 500px) {
-		.wrapper {
-			margin-bottom: 100px;
-		}
-	}
+	/* @media (min-width: 500px) { */
+	/* 	.wrapper { */
+	/* 		margin-bottom: 100px; */
+	/* 	} */
+	/* } */
 	@media (min-width: 1000px) {
 		.wrapper {
 			width: 90%;

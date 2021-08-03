@@ -4,21 +4,16 @@
 	import ryanImg from '$static/ryan-image.svg';
 	import ImageLoader from '$images/ImageLoader.svelte';
 	export let testimonial;
-	$: ({ firstName, lastName, title, company } = testimonial);
+	$: ({ firstName, lastName, title, company, reference } = testimonial);
 </script>
 
 <div class="testimonialWrapper">
 	<span class="quote" />
 	<div class="refSection">
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur ante id nulla sodales
-			commodo. Nullam sit amet lacinia risus. Nullam quis semper libero, et ultricies orci. Aliquam
-			pretium, elit efficitur fermentum interdum, sem ligula aliquet urna, eget aliquet elit turpis
-			a nulla.pit ipsum maximus. Quisque rhoncus vel est eu molestie.
-		</p>
+		<p>{reference}</p>
 	</div>
 	<p class="name">{firstName} {lastName}</p>
-	<span>{title} {company}</span>
+	<span>{title}: {company}</span>
 	{#if firstName === 'Carson'}
 		<picture>
 			<source media="(min-width:1000px)" srcset={carsonImg} />
@@ -72,6 +67,12 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		margin-bottom: 50px;
+	}
+	@media (min-width: 910px) {
+		.testimonialWrapper {
+			margin-bottom: 0px;
+		}
 	}
 	picture div {
 		max-width: 100px;
@@ -115,6 +116,9 @@
 		font-size: 0.9em;
 		/* color: var(--darkAquaLightHotPink); */
 		margin-bottom: 30px;
+		text-align: center;
+		font-weight: bold;
+		font-style: italic;
 	}
 	.quote:before {
 		content: open-quote;
