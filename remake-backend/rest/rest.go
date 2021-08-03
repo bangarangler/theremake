@@ -6,5 +6,5 @@ import (
 )
 
 func PostMessageRoute(route fiber.Router) {
-	route.Post("/", contact.PostMessage)
+	route.Post("/contact", contact.PostMessage)
 }

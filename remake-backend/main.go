@@ -20,7 +20,7 @@ func ping(ctx *fiber.Ctx) {
 
 func setupRoutes(app *fiber.App) {
 	rest.PingRoute(app.Group("/ping"))
-	rest.PostMessageRoute(app.Group("/contact"))
+	rest.PostMessageRoute(app.Group("/api"))
 
 }
 
