@@ -24,8 +24,7 @@
 		if (ok === ValidOptions.ALL_GOOD) {
 			loading = true;
 			try {
-				/* const res = await fetch(`http://${BASE_URL}/api/contact`, { */
-				const res = await fetch(`https://${BASE_URL}/api/contact`, {
+				const res = await fetch(`${BASE_URL}/api/contact`, {
 					method: 'post',
 					headers: {
 						'Content-Type': 'application/json'

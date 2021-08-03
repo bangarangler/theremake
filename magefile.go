@@ -31,13 +31,21 @@ func InstallClient() error {
 }
 
 func StartProd() error {
+	var err error
+	// Check Lang Versions
 	mg.Deps(CheckLanguageVersion)
+	// Instal and Build Backend
+	mg.Deps(InstallBEDeps)
+	mg.Deps(BuildBackend)
+	// Instal and Build Frontend
 	mg.Deps(InstallClient)
 	mg.Deps(BuildClient)
+	// PostBuild
 	mg.Deps(PostBuild)
 	fmt.Println("Starting Prod...")
 
-	err := sh.Run("caddy", "run", "--config", "./remake-client/Caddyfile")
+	err = sh.Run("systemctl", "start", "remake-api")
+	err = sh.Run("caddy", "run", "--config", "./remake-client/Caddyfile")
 
 	return err
 }
@@ -48,6 +56,16 @@ func Start() {
 	mg.Deps(Clean)
 	mg.Deps(StartProd)
 }
+
+func BuildBackend() error {
+	os.Chdir("./remake-backend")
+	defer os.Chdir("..")
+	fmt.Println("Building go backend for linux...")
+	err := sh.Run("GOOS=linux", "GOARCH=amd64", "go", "build")
+	return err
+}
+
+// GOOS=linux GOARCH=amd64 go build
 
 func PostBuild() error {
 	var err error
@@ -60,6 +78,8 @@ func StopProd() error {
 	var err error
 	fmt.Println("Stopping Caddy...")
 	err = sh.Run("caddy", "stop")
+	fmt.Println("Stopping remake-api.service...")
+	err = sh.Run("systemctl", "stop", "remake-api")
 	return err
 }
 
@@ -71,6 +91,9 @@ func Clean() error {
 	defer os.Chdir("..")
 	err = sh.Run("rm", "-rf", "node_modules")
 	err = sh.Run("rm", "-rf", "build")
+	// BACKEND
+	os.Chdir("../remake-backend")
+	err = sh.Run("rm", "-rf", "remake-backend")
 	return err
 }
 
