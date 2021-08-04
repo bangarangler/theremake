@@ -136,6 +136,7 @@
 	blockquote {
 		text-align: center;
 		margin-bottom: 35px;
+		border-radius: 12px;
 	}
 
 	.quote {
