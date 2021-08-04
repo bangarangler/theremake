@@ -2,6 +2,7 @@
 	import carsonImg from '$static/carson.svg';
 	import jonBImg from '$static/jon-b-image.svg';
 	import ryanImg from '$static/ryan-image.svg';
+	import ilyaImg from '$static/undraw-profile.svg';
 	import ImageLoader from '$images/ImageLoader.svelte';
 	export let testimonial;
 	$: ({ firstName, lastName, title, company, reference } = testimonial);
@@ -44,6 +45,21 @@
 			/></svg
 		>
 	{/if}
+	{#if firstName === 'Ilya'}
+		<picture>
+			<source media="(min-width:500px)" srcset={jonBImg} />
+			<div>
+				<ImageLoader srcset={ilyaImg} ty="image/svg" alt="{title} {firstName}" />
+			</div>
+		</picture>
+		<svg class="ilya" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+			><path
+				fill="currentColor"
+				fill-opacity="1"
+				d="M0,192L34.3,202.7C68.6,213,137,235,206,240C274.3,245,343,235,411,202.7C480,171,549,117,617,96C685.7,75,754,85,823,128C891.4,171,960,245,1029,261.3C1097.1,277,1166,235,1234,197.3C1302.9,160,1371,128,1406,112L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+			/></svg
+		>
+	{/if}
 	{#if firstName === 'Jonathan'}
 		<picture>
 			<source media="(min-width:500px)" srcset={jonBImg} />
@@ -59,6 +75,36 @@
 			/></svg
 		>
 	{/if}
+	{#if firstName === 'Shawn'}
+		<picture>
+			<source media="(min-width:500px)" srcset={ilyaImg} />
+			<div>
+				<ImageLoader srcset={ilyaImg} ty="image/svg" alt="{title} {firstName}" />
+			</div>
+		</picture>
+		<svg class="shawn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+			><path
+				fill="currentColor"
+				fill-opacity="1"
+				d="M0,192L34.3,202.7C68.6,213,137,235,206,240C274.3,245,343,235,411,202.7C480,171,549,117,617,96C685.7,75,754,85,823,128C891.4,171,960,245,1029,261.3C1097.1,277,1166,235,1234,197.3C1302.9,160,1371,128,1406,112L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+			/></svg
+		>
+	{/if}
+	{#if firstName === 'Shridatta'}
+		<picture>
+			<source media="(min-width:500px)" srcset={ilyaImg} />
+			<div>
+				<ImageLoader srcset={ilyaImg} ty="image/svg" alt="{title} {firstName}" />
+			</div>
+		</picture>
+		<svg class="shridatta" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+			><path
+				fill="currentColor"
+				fill-opacity="1"
+				d="M0,192L34.3,202.7C68.6,213,137,235,206,240C274.3,245,343,235,411,202.7C480,171,549,117,617,96C685.7,75,754,85,823,128C891.4,171,960,245,1029,261.3C1097.1,277,1166,235,1234,197.3C1302.9,160,1371,128,1406,112L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+			/></svg
+		>
+	{/if}
 </div>
 
 <style>
@@ -67,7 +113,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 50px;
+		margin-bottom: 15px;
 	}
 	@media (min-width: 910px) {
 		.testimonialWrapper {
@@ -86,7 +132,16 @@
 	.carson {
 		color: var(--dracPurp);
 	}
+	.ilya {
+		color: var(--hotpink);
+	}
 	.jonb {
+		color: var(--dracPurp);
+	}
+	.shawn {
+		color: var(--aqua);
+	}
+	.shridatta {
 		color: var(--hotpink);
 	}
 	.name {
@@ -108,6 +163,8 @@
 		background: var(--cardBG);
 		border-radius: 12px;
 		padding: 1em;
+		max-height: 400px;
+		overflow: auto;
 	}
 	.refSection p {
 		margin-bottom: 0;
