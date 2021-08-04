@@ -44,6 +44,8 @@
 	--inputBorder: var(--aqua);
 	--moonBGColor: var(--moonDefault);
 	--color-selection: var(--aqua);
+	--sweetImgWrapper: var(--darkGray);
+	--sweetImgWrapText: var(--hotpink);
 
 	/* STYLES */
 	--line: 1px solid var(--lineColor);
@@ -355,4 +357,6 @@ button.small {
 	--btnBGColor: var(--hotpink);
 	--btnTextColor: var(--white);
 	--color-selection: var(--hotpink);
+	--sweetImgWrapper: var(--hotpink);
+	--sweetImgWrapText: var(--black);
 }

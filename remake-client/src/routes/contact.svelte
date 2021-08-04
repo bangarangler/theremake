@@ -2,6 +2,7 @@
 	import Moon from '$components/Moon/Moon.svelte';
 	import ContactForm from '$components/ContactForm/ContactForm.svelte';
 	import Testimonials from '$components/Testimonials/Testimonials.svelte';
+	import Bio from '$components/Bio/Bio.svelte';
 	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { theme } from '$stores/themeStore';
@@ -46,6 +47,7 @@
 			<Moon />
 		</div>
 	</div>
+	<Bio />
 	<Testimonials />
 	<div class="formWrapper">
 		<ContactForm />
