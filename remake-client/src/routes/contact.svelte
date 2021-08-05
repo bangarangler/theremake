@@ -54,7 +54,9 @@
 	{#if browser}
 		<div class="resumeDownload">
 			<button class="glow-on-hover" type="button"
-				><a href="/software-engineer-jon-palacio.pdf" target="_blank">Download Resume</a></button
+				><a href="/software-engineer-jon-palacio.pdf" rel="external" target="_blank"
+					>Download Resume</a
+				></button
 			>
 		</div>
 	{/if}
