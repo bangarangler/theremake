@@ -36,36 +36,36 @@
 	{#each pageInfo.data.slice(0, 3) as testimonial}
 		<TestimonialCard {testimonial} />
 	{/each}
-	<div class="notFixed">
-		<p
-			class:disabled={!pageInfo?.prePage}
-			on:click={() => (pageInfo = paginate(testimonials, pageInfo.prePage))}
-		>
-			Prev
-		</p>
-		<span
-			class:disabled={!pageInfo?.prePage}
-			on:click={() => (pageInfo = paginate(testimonials, pageInfo.prePage))}
-			><IoIosArrowRoundBack class="arrow" /></span
-		>
-		<span
-			class:disabled={!pageInfo?.nextPage}
-			on:click={() => (pageInfo = paginate(testimonials, pageInfo.nextPage))}
-			><IoIosArrowRoundForward class="arrow" /></span
-		>
-		<p
-			class:disabled={!pageInfo?.nextPage}
-			on:click={() => (pageInfo = paginate(testimonials, pageInfo.nextPage))}
-		>
-			Next
-		</p>
-	</div>
 </section>
+<div class="prevNext">
+	<p
+		class:disabled={!pageInfo?.prePage}
+		on:click={() => (pageInfo = paginate(testimonials, pageInfo.prePage))}
+	>
+		Prev
+	</p>
+	<span
+		class:disabled={!pageInfo?.prePage}
+		on:click={() => (pageInfo = paginate(testimonials, pageInfo.prePage))}
+		><IoIosArrowRoundBack class="arrow" /></span
+	>
+	<span
+		class:disabled={!pageInfo?.nextPage}
+		on:click={() => (pageInfo = paginate(testimonials, pageInfo.nextPage))}
+		><IoIosArrowRoundForward class="arrow" /></span
+	>
+	<p
+		class:disabled={!pageInfo?.nextPage}
+		on:click={() => (pageInfo = paginate(testimonials, pageInfo.nextPage))}
+	>
+		Next
+	</p>
+</div>
 
 <style>
 	.testimonialWrapper {
 		display: grid;
-		grid-template-rows: minmax(0, 1fr);
+		grid-template-rows: minmax(1px, 1fr);
 		grid-gap: 30px;
 		place-items: center;
 		padding: 2em;
@@ -80,6 +80,7 @@
 	}
 	@media (min-width: 910px) {
 		.testimonialWrapper {
+			grid-template-rows: unset;
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 			max-width: unset;
 			margin: unset;
@@ -102,7 +103,7 @@
 		/* border: 1px solid red; */
 		width: max-content;
 	}
-	.notFixed {
+	.prevNext {
 		/* position: static; */
 		text-align: center;
 		display: flex;
@@ -110,19 +111,17 @@
 		justify-content: space-between;
 		/* border: 1px solid red; */
 		width: max-content;
-		place-self: end;
-		grid-area: auto / -2;
+		margin: 0 100px 50px auto;
 	}
 	@media (min-width: 1100px) {
-		.notFixed {
+		.prevNext {
 			width: 250px;
 		}
 	}
-	@media (min-width: 700px) {
-		/* .testimonialWrapper #notFixed { */
-		/* 	position: static; */
-		/* 	grid-column: -4 / -1; */
-		/* } */
+	@media (min-width: 1400px) {
+		.prevNext {
+			margin: 0 auto 50px auto;
+		}
 	}
 	@media (min-width: 1100px) {
 		.testimonialWrapper .arrowContainer {
@@ -134,13 +133,13 @@
 	.testimonialWrapper .arrowContainer span:hover {
 		color: var(--darkAquaLightHotPink);
 	}
-	.testimonialWrapper .notFixed span:hover {
+	.prevNext span:hover {
 		color: var(--darkAquaLightHotPink);
 	}
 	.testimonialWrapper .arrowContainer:hover {
 		cursor: pointer;
 	}
-	.testimonialWrapper .notFixed:hover {
+	.prevNext:hover {
 		cursor: pointer;
 	}
 	.testimonialWrapper .arrowContainer span {
@@ -152,7 +151,7 @@
 		width: 100%;
 		object-fit: contain;
 	}
-	.testimonialWrapper .notFixed span {
+	.prevNext span {
 		max-height: 50px;
 		max-width: 50px;
 		display: block;
@@ -165,14 +164,14 @@
 		margin-bottom: 0;
 		font-size: var(--smallTextSize);
 	}
-	.testimonialWrapper .notFixed p {
+	.prevNext p {
 		margin-bottom: 0;
 		font-size: var(--smallTextSize);
 	}
 	.testimonialWrapper .arrowContainer p:hover {
 		color: var(--darkAquaLightHotPink);
 	}
-	.testimonialWrapper .notFixed p:hover {
+	.prevNext p:hover {
 		color: var(--darkAquaLightHotPink);
 	}
 	.disabled {
