@@ -51,17 +51,18 @@
 	<div class="formWrapper">
 		<ContactForm />
 	</div>
-	<!--{#if browser}
+	{#if browser}
 		<div class="resumeDownload">
 			<button class="glow-on-hover" type="submit"
 				><a
 					href="../../static/software-engineer-jon-palacio.pdf"
+					rel="external"
 					target="_blank"
 					download="software_engineer_jon_palacio.pdf">Download Resume</a
 				></button
 			>
 		</div>
-	{/if}-->
+	{/if}
 </section>
 
 <style>
