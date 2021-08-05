@@ -6,7 +6,6 @@
 	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { theme } from '$stores/themeStore';
-	import { browser } from '$app/env';
 	let visible = false;
 	onMount(() => {
 		visible = true;
@@ -51,18 +50,11 @@
 	<div class="formWrapper">
 		<ContactForm />
 	</div>
-	{#if browser}
-		<div class="resumeDownload">
-			<button class="glow-on-hover" type="submit"
-				><a
-					href="../../static/software-engineer-jon-palacio.pdf"
-					rel="external"
-					target="_blank"
-					download="software_engineer_jon_palacio.pdf">Download Resume</a
-				></button
-			>
-		</div>
-	{/if}
+	<div class="resumeDownload">
+		<button class="glow-on-hover" type="button"
+			><a href="/software-engineer-jon-palacio.pdf" target="_blank">Download Resume</a></button
+		>
+	</div>
 </section>
 
 <style>
