@@ -1,7 +1,10 @@
-<script context="module">
-	/* export const prerender = true; */
+<script>
+	import Testimonials from '$components/Testimonials/Testimonials.svelte';
+	import Bio from '$components/Bio/Bio.svelte';
 </script>
 
-<section>
-	<h1>About Page</h1>
-</section>
+<Bio />
+<Testimonials />
+
+<style>
+</style>

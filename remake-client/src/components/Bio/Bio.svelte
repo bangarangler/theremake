@@ -4,6 +4,22 @@
 	import bNDad from '$static/bnDad.jpg?w=400;600;1000&format=jpg&srcset';
 </script>
 
+<div class="bioText">
+	<h1>What does Jon do?</h1>
+	<p>
+		Jon is from North Carolina where he works as a Software Engineer at Nowigence Inc. He has
+		significant experience with Web technologies, building and securing API's and developing
+		performant and scalable backends, putting together frontends to give users a phenominal user
+		experience and has recently fell down the Gopher (GoLang) rabbit hole! In his spare time, Jon
+		enjoys Netflix, reading, and oddly enough... more coding!
+	</p>
+	<p>
+		Jon's a proud father, husband, and Linux nerd! When not hard at work you will find him spending
+		time with his family; Quite possibly multi-tasking and reading blog posts on anything and
+		everything tech related.
+	</p>
+</div>
+
 <section>
 	<div class="custom-shape-divider-top">
 		<svg
@@ -57,22 +73,6 @@ two screens and nice background."
 	</div>
 </section>
 
-<div class="bioText">
-	<h2>What does Jon do?</h2>
-	<p>
-		Jon is from North Carolina where he works as a Software Engineer at Nowigence Inc. He has
-		significant experience with Web technologies, building and securing API's and developing
-		performant and scalable backends, putting together frontends to give users a phenominal user
-		experience and has recently fell down the Gopher (GoLang) rabbit hole! In his spare time, Jon
-		enjoys Netflix, reading, and oddly enough... more coding!
-	</p>
-	<p>
-		Jon's a proud father, husband, and Linux nerd! When not hard at work you will find him spending
-		time with his family; Quite possibly multi-tasking and reading blog posts on anything and
-		everything tech related.
-	</p>
-</div>
-
 <style>
 	section {
 		position: relative;
@@ -80,7 +80,7 @@ two screens and nice background."
 		background: linear-gradient(to bottom, var(--hotpink), transparent);
 		max-width: 100%;
 		/* margin: 0 auto; */
-		margin: 150px auto;
+		margin: 0 auto 150px;
 	}
 	@media (min-width: 500px) {
 		section {
@@ -90,19 +90,19 @@ two screens and nice background."
 	@media (min-width: 600px) {
 		section {
 			max-width: 80%;
-			margin: 0 auto;
+			margin: 0 auto 150px;
 		}
 	}
 	@media (min-width: 1060px) {
 		section {
 			max-width: unset;
-			margin: unset;
+			margin: 0 auto 75px;
 		}
 	}
 	@media (min-width: 1600px) {
 		section {
 			max-width: 1600px;
-			margin: 0 auto;
+			margin: 0 auto 100px;
 		}
 	}
 	.custom-shape-divider-top {
@@ -217,22 +217,28 @@ two screens and nice background."
 	}
 	@media (min-width: 500px) {
 		.bioText {
-			margin: 130px auto 100px;
+			margin: 0px auto 100px;
 		}
 	}
 	@media (min-width: 1060px) {
 		.bioText {
 			width: 50%;
+			margin: 0px auto 100px;
 		}
 	}
-	.bioText h2 {
-		margin-bottom: 40px;
-		color: var(--dracPurpDarkGray);
-		font-size: var(--h3);
+	.bioText h1 {
+		margin-bottom: 50px;
+		/* color: var(--dracPurpDarkGray); */
+		font-size: var(--h2);
+		background: linear-gradient(271deg, var(--hotpink) 30%, 50%, var(--aqua) 70%, #a162e8 94%);
+		background-clip: border-box;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 	@media (min-width: 980px) {
-		.bioText h2 {
-			font-size: var(--h2);
+		.bioText h1 {
+			font-size: var(--h1);
+			width: max-content;
 		}
 	}
 	.bioTitle .bnDadWrap {

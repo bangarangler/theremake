@@ -47,8 +47,6 @@
 			<Moon />
 		</div>
 	</div>
-	<Bio />
-	<Testimonials />
 	<div class="formWrapper">
 		<ContactForm />
 	</div>
