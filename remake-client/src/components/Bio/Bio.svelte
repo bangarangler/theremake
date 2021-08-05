@@ -80,7 +80,7 @@ two screens and nice background."
 		background: linear-gradient(to bottom, var(--hotpink), transparent);
 		max-width: 100%;
 		/* margin: 0 auto; */
-		margin: 0 auto 150px;
+		margin: 0 auto 200px;
 	}
 	@media (min-width: 500px) {
 		section {
