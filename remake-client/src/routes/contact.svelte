@@ -50,6 +50,15 @@
 	<div class="formWrapper">
 		<ContactForm />
 	</div>
+	<div class="resumeDownload">
+		<button class="glow-on-hover" type="submit"
+			><a
+				href="../../static/software-engineer-jon-palacio.pdf"
+				target="_blank"
+				download="software_engineer_jon_palacio.pdf">Download Resume</a
+			></button
+		>
+	</div>
 </section>
 
 <style>
@@ -209,6 +218,81 @@
 	@media (min-width: 1400px) {
 		.formWrapper {
 			max-width: 1400px;
+		}
+	}
+	.resumeDownload {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 100px;
+	}
+	.glow-on-hover a {
+		text-decoration: none;
+		color: inherit;
+	}
+	.glow-on-hover {
+		width: 220px;
+		height: 50px;
+		border: none;
+		outline: none;
+		color: var(--white);
+		background: var(--darkGray);
+		cursor: pointer;
+		position: relative;
+		z-index: 0;
+		border-radius: 10px;
+	}
+
+	.glow-on-hover:before {
+		content: '';
+		background: linear-gradient(45deg, #0fc, #bd93f9, #ff1a75, #00ffd5, #002bff);
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		background-size: 400%;
+		z-index: -1;
+		filter: blur(5px);
+		width: calc(100% + 4px);
+		height: calc(100% + 4px);
+		animation: glowing 20s linear infinite;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		border-radius: 10px;
+	}
+
+	.glow-on-hover:active {
+		color: #000;
+	}
+
+	.glow-on-hover:active:after {
+		background: transparent;
+	}
+
+	.glow-on-hover:hover:before {
+		opacity: 1;
+	}
+
+	.glow-on-hover:after {
+		z-index: -1;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: var(--darkGray);
+		left: 0;
+		top: 0;
+		border-radius: 10px;
+	}
+
+	@keyframes glowing {
+		0% {
+			background-position: 0 0;
+		}
+		50% {
+			background-position: 400% 0;
+		}
+		100% {
+			background-position: 0 0;
 		}
 	}
 </style>
