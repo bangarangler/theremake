@@ -51,7 +51,7 @@
 	<div class="formWrapper">
 		<ContactForm />
 	</div>
-	{#if browser}
+	<!--{#if browser}
 		<div class="resumeDownload">
 			<button class="glow-on-hover" type="submit"
 				><a
@@ -61,7 +61,7 @@
 				></button
 			>
 		</div>
-	{/if}
+	{/if}-->
 </section>
 
 <style>
