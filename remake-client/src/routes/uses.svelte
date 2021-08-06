@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import setUp from '$static/imgForUses.png?w=300;600;1000&format=png&srcset';
 	import laptopImg from '$static/laptop-undraw.svg?w=200;400;800&format=svg&srcset';
 	import codingImg from '$static/undraw-coding.svg?w=200;400;800&format=svg&srcset';
@@ -13,13 +13,6 @@
 	<div class="card wrapper">
 		<picture class="imgWrapper">
 			<source media="(min-width:1000px)" srcset={setUp} />
-			<!--	<img
-				class="img1"
-				srcset={setUp}
-				type="image/png"
-				alt="Epic illistration from samji_illustrator!  Please check them out!"
-				loading="lazy"
-/>-->
 			<ImageLoader
 				ty="image/png"
 				srcset={setUp}
@@ -33,8 +26,6 @@
 				<h3>Computers</h3>
 				<picture>
 					<source media="(min-width: 600px)" srcset={laptopImg} />
-					<!--<img loading="lazy" srcset={laptopImg} alt="Computers!"
-type="image/svg" />-->
 					<ImageLoader ty="image/svg" srcset={laptopImg} alt="Computers!" />
 				</picture>
 			</div>
@@ -48,15 +39,15 @@ type="image/svg" />-->
 				<h3>Hardware</h3>
 				<picture>
 					<source media="(min-width: 600px)" srcset={codingImg} />
-					<!--<img loading="lazy" srcset={codingImg} alt="Computers!"
-type="image/svg" />-->
 					<ImageLoader ty="image/svg" srcset={codingImg} alt="Hardware!" />
 				</picture>
 			</div>
 			<ul>
-				<li>Trackball Mouse</li>
-				<li>Apple Magic TrackPad (don't see much use anymore)</li>
-				<li>ErgoDox EZ split keyboard</li>
+				<li>Kensington Orbit Trackball Mouse</li>
+				<li>Apple Magic TrackPad 2 (don't see much use anymore)</li>
+				<a href="https://ergodox-ez.com/" target="_blank" rel="external"
+					><li>ErgoDox split keyboard</li></a
+				>
 				<li>Handful of USB sticks (Linux Installers, Backups, misc)</li>
 				<li>External SSD (not everything can live on github ; ) )</li>
 				<li>LG Ultrawide Monitor (34 inch)</li>
@@ -67,15 +58,20 @@ type="image/svg" />-->
 				<h3>Software</h3>
 				<picture>
 					<source media="(min-width: 600px)" srcset={botImg} />
-					<!--<img loading="lazy" srcset={botImg} alt="Computers!" type="image/svg" />-->
 					<ImageLoader ty="image/svg" srcset={botImg} alt="Software!" />
 				</picture>
 			</div>
 			<ul>
-				<li>Notion</li>
-				<li>ULauncher (Linux) Alfred (Mac)</li>
-				<li>MailSpring (Email client)</li>
-				<li>Firefox (Main Browser)</li>
+				<a href="https://www.notion.so" target="_blank" rel="external"><li>Notion</li></a>
+				<a href="https://ulauncher.io/" target="_blank" rel="external"
+					><li>ULauncher (Linux) ~ Alfred (Mac)</li></a
+				>
+				<a href="https://getmailspring.com/" target="_blank" rel="external"
+					><li>MailSpring (Email client)</li></a
+				>
+				<a href="https://www.mozilla.org/en-US/firefox/developer/" target="_blank" rel="external"
+					><li>Firefox Dev Edition (Main Browser)</li></a
+				>
 				<li>Firefox | Chrome | Edge | Vivaldi | Safari (Dev Browsers)</li>
 			</ul>
 		</div>
@@ -84,15 +80,19 @@ type="image/svg" />-->
 				<h3>Terminal</h3>
 				<picture>
 					<source media="(min-width: 600px)" srcset={programmingImg} />
-					<!--<img loading="lazy" srcset={programmingImg} alt="Computers!"
-type="image/svg" />-->
 					<ImageLoader ty="image/svg" srcset={programmingImg} alt="Terminal!" />
 				</picture>
 			</div>
 			<ul>
-				<li>Alacritty</li>
-				<li>Tmux</li>
-				<li>Neovim</li>
+				<a href="https://github.com/alacritty/alacritty" target="_blank" rel="external"
+					><li>Alacritty</li></a
+				>
+				<a href="https://github.com/tmux/tmux/wiki" target="_blank" rel="external"><li>Tmux</li></a>
+				<a href="https://neovim.io/" target="_blank" rel="external"><li>Neovim</li></a>
+				<a href="https://curl.se/" target="_blank" rel="external"><li>curl</li></a>
+				<a href="https://github.com/bangarangler/stow-dotfiles" target="_blank" rel="external"
+					><li>Dotfiles</li></a
+				>
 			</ul>
 		</div>
 		<div class="audioWrapper">
@@ -107,11 +107,15 @@ type="image/svg" />-->
 			</div>
 			<ul>
 				<li>Sony 1000xm3's</li>
-				<li>Spotify</li>
+				<a href="https://www.spotify.com" target="_blank" rel="external"><li>Spotify</li></a>
 			</ul>
 		</div>
 	</div>
 </section>
+<p class="notAffiliate">
+	Not affiliate links! Just wanted to share incase your interested in improving your terminal
+	experience ; )
+</p>
 
 <style>
 	section {
@@ -293,11 +297,25 @@ type="image/svg" />-->
 		flex-wrap: wrap;
 		margin-bottom: 30px;
 	}
+	ul a {
+		text-decoration: none;
+		color: inherit;
+		border-bottom: 1px solid var(--dracPurpDarkGray);
+	}
+	ul a:hover {
+		color: var(--darkAquaLightHotPink);
+		border-bottom: 1px solid var(--darkAquaLightHotPink);
+	}
 	li {
 		list-style-type: disc;
 	}
 	ul li::marker {
 		color: var(--darkAquaLightHotPink);
 		font-size: 25px;
+	}
+	.notAffiliate {
+		margin: auto auto 100px;
+		text-align: center;
+		width: 50%;
 	}
 </style>

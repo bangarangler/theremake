@@ -2,7 +2,7 @@
 projectTitle: Allergen Guardian
 slug: allergenguardian
 projectRole: Full Stack
-projectDescription: 'Shop | Scan | Safe ---  Tired of wandering the shoping aisles hoping the product you need will jump off the shelf.  As if a sudden magical force could reach out and expose the solution and pull it into your reach away from the countless imposters lurking in the distance.  We feel your pain and proudly present Allergen Guardian!'
+projectDescription: 'Shop | Scan | Safe --- Tired of wandering the shopping aisles hoping the product you need will jump off the shelf. As if a sudden magical force could reach out and expose the solution and pull it into your reach away from the countless imposters lurking in the distance. We feel your pain and proudly present... Allergen Guardian!'
 techUsed: ['next.js', 'node', 'typescript', 'mongodb', 'react', 'graphql', 'redis', 'fastify']
 organization: J&J Studios
 year: 2018 - Always
@@ -74,14 +74,8 @@ $: isInViewport(animations[2].domElement)
   <div class="card imgContainer">
     <picture>
       <source media="(min-width:1000px)" srcset={tempImg}>
-        <!--<img class="img1" srcset={tempImg} type="image/jpg" alt="Coming Soon!" />-->
         <ImageLoader srcset={tempImg} ty="image/jpg" alt="Coming Soon!" />
     </picture>
-    <!--<picture>
-      <source media="(min-width:1200px)" srcset={tempImg1}>
-      <img class="img2" srcset={tempImg1} type="image/jpg" alt="new beginning
-      and working like crazy">
-    </picture>-->
 </div>
 
 <div class="explanationContainer">
@@ -89,10 +83,10 @@ $: isInViewport(animations[2].domElement)
 <h2>Whats the holdup?</h2>
 
 _WORK ~ LIFE_ is the current hang. I work like a **crazy** person. 13 - 16 hour
-days are not uncommon and I've been like that since I can remember. _"Workaholic"_ would be a fair assesment. In the midst of very long workdays; Personal work gets slowed down.
+days are not uncommon and I've been like that since I can remember. _"Workaholic"_ would be a fair assessment. In the midst of very long workdays; Personal work gets slowed down.
 
-Reachinng out to all my **developers...** you guys know how it goes ; ) In
-fairness life at a start up is nuts. Lost count of the hats that we all wear <span class="emoji">🎩</span>.
+Reaching out to all my **developers...** you guys know how it goes ; ) In
+fairness life at a startup is nuts. Lost count of the hats that we all wear <span class="emoji">🎩</span>.
 
 <h3 class:slideInLeft={animations[0].isVis} class="domEle0">Backend</h3>
 

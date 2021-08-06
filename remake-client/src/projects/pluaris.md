@@ -74,12 +74,10 @@ $: isInViewport(animations[2].domElement)
   <div class="card imgContainer">
     <picture>
       <source media="(min-width:1000px)" srcset={myMemoryMobile}>
-        <!--<img class="img1" srcset={myMemoryMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page" />-->
         <ImageLoader srcset={myMemoryMobile} ty="image/jpg" alt="Mobile view for Pluaris My Memory page" />
     </picture>
     <picture>
       <source media="(min-width:1200px)" srcset={myMemoryInfoMobile}>
-      <!--<img class="img2" srcset={myMemoryInfoMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page information related to search.">-->
       <ImageLoader srcset={myMemoryInfoMobile} type="image/jpg" alt="Mobile view for Pluaris My Memory page information related to search." />
     </picture>
 </div>
@@ -93,7 +91,7 @@ _Pluaris_ specializes in reading and comprehending data, analyzing cause and eff
 <h3 class:slideInLeft={animations[0].isVis} class="domEle0">Backend</h3>
 
 We are transitioning from a **Monolith** to a more **Microservice** approach. Some
-services are now ran with <span class="docker">Docker</span>. With a goal of
+services are now run with <span class="docker">Docker</span>. With a goal of
 having our **Microservices** containerized and running in <span
 class="k8s">Kubernetes</span>.
 
@@ -105,13 +103,13 @@ addition and a joy to work with! Not that <span class="nodejs">NodeJS</span> is
 a slouch in the speed department but I have a feeling more **microservices**
 will be written in <span class="go">Go</span> in the future.
 
-For the DataScience side of the coin we use <span class="python">Python</span> along with a _Flask_ API. I won't waste time name droping all of the DataScience tools and libraries we utilize as this is not my area of experteise. However; I have pitched in on the _Flask_ API and helped on and off with things such as (architecture, preformance, deployment, debugging, scripting).
+For the DataScience side of the coin we use <span class="python">Python</span> along with a _Flask_ API. I won't waste time name dropping all of the DataScience tools and libraries we utilize as this is not my area of expertise. However; I have pitched in on the _Flask_ API and helped on and off with things such as (architecture, performance, deployment, debugging, scripting).
 
 <h3 class:slideInRight={animations[1].isVis} class="domEle1">Frontend</h3>
 
 On the frontend we are using <span class="react">React</span>, along with <span
 class="typescript">TypeScript</span> to handle the data and deliver rich _user_
-tailored expierences for our clients.
+tailored experiences for our clients.
 
 Your ~~data~~ **Internal Memory**,
 available to recall and curate a more personalized view into the inner workings
@@ -124,12 +122,12 @@ Our current **cloud provider** is <span class="digitalocean">Digital Ocean</span
 Our <span class="nodejs">NodeJS</span> servers are spread across multiple <span
 class="digitalocean">droplets</span> and we are **load-balancing** and using **reverse proxies**.
 
-A key piece of kit in this set up has been _Caddy_ and man is it awesome! Much
+A key piece of kit in this setup has been _Caddy_ and man is it awesome! Much
 cleaner and easier to work with than an <span class="nginx">Nginx</span> config.
 It handles auto **SSL** renewal with minimal fuss. And automating different
 servers to run different _Caddyfile(s)_ has been a fantastic experience.
 
-As we contine moving everything for **production** into <span
+As we continue moving everything for **production** into <span
 class="docker">Docker</span> and finishing our move to <span
 class="k8s">K8s</span> we will have the freedom to take our platform and deploy
 it on <span class="aws">AWS</span>, <span class="googlecloud">Google Cloud</span>, <span class="azure">Azure</span>, or anywhere we need to go!
