@@ -1,12 +1,11 @@
 ---
-projectTitle: Stock Bot
-slug: stockbot
+projectTitle: Test three
+slug: testthree
 projectRole: Full Stack
 projectDescription: 'Stock Bot is a trading robot.  Designed with the sole
-purpose of making us money while we sleep.  I need to learn this. | Note to
-future self... jon go study this!'
+purpose of making us money while we sleep.  I need to learn this.'
 techUsed: ["typescript", "golang", "aws", "docker", "kubernetes"]
-organization: J&J Studios
+organization: Test
 year: 2018 - Always
 projectImg: 'pexels-working.jpg'
 ---

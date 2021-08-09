@@ -6,6 +6,7 @@ projectDescription: 'Pluaris enables its users to quickly analyze boatloads of d
 techUsed: ['python', 'node', 'typescript', 'graphql', 'golang', 'redis', 'mongo']
 organization: Nowigence Inc
 year: 2019 - Current
+projectImg: 'pluaris-dashboard.jpg'
 ---
 
 <script>

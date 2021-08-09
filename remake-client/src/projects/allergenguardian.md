@@ -6,6 +6,7 @@ projectDescription: 'Shop | Scan | Safe --- Tired of wandering the shopping aisl
 techUsed: ['next.js', 'node', 'typescript', 'mongodb', 'react', 'graphql', 'redis', 'fastify']
 organization: J&J Studios
 year: 2018 - Always
+projectImg: 'coming-soon-pixabay.jpg'
 ---
 
 <script>

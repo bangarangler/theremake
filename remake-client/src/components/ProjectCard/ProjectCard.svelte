@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { projectMetaData } from '$stores/projectMetaData';
+	import type { ProjectMetaDataType } from '$stores/projectMetaData';
+	import { paginate } from '$components/Testimonials/testimonialPagination';
 	import Wave from '$components/Wave/Wave.svelte';
+	import TinyFlipCard from '$components/ProjectCard/TinyFlipCard.svelte';
 	//import Wave from '$lib/Wave/Wave.svelte';
 	import ProjectCardHeading from '$components/ProjectCard/ProjectCardHeading/ProjectCardHeading.svelte';
 	import eyeball from '$images/undraw-surveillance.svg?w=200;&format=svg&srcset';
@@ -12,30 +15,31 @@
 	export let stopRotation = false;
 	$: if (innerWidth < 500) stopRotation = true;
 	$: if (innerWidth > 500) stopRotation = false;
+	$: projInfo = paginate($projectMetaData);
 </script>
 
 <svelte:window bind:innerWidth />
 
-{#each $projectMetaData as md}
+{#each projInfo.data.slice(0, 3) as md}
 	<div class="maxCutOff">
 		<Wave>
 			<div class="card wrapper">
 				<div class="titleSection">
 					<ProjectCardHeading
-						projectTitle={md.projectTitle}
-						projectRole={md.projectRole}
-						slug={md.slug}
+						projectTitle={md?.projectTitle}
+						projectRole={md?.projectRole}
+						slug={md?.slug}
 					/>
 				</div>
 				<aside class="card descriptionSection">
 					<h5 class="description__text">Description:</h5>
 					<p class="projectDescription__text">
-						{md.projectDescription}
+						{md?.projectDescription}
 					</p>
 				</aside>
 				<aside class="card techUsedSection">
 					<h5 class="description__text">Tech Used:</h5>
-					{#each md.techUsed as techUsed}
+					{#each md?.techUsed as techUsed}
 						<p class="projectDescription__text">
 							{techUsed}
 						</p>
@@ -62,6 +66,12 @@
 		</Wave>
 	</div>
 {/each}
+
+<div class="gridWrap">
+	{#each projInfo.data as md}
+		<TinyFlipCard projInfo={md} />
+	{/each}
+</div>
 
 <style>
 	.wrapper {
@@ -470,4 +480,11 @@
 	/* 	opacity: 0; */
 	/* 	transition: 0.3s ease opacity; */
 	/* } */
+	.gridWrap {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(1px, 1fr));
+		grid-row-gap: 30px;
+		margin: 0 auto 100px;
+		width: 45%;
+	}
 </style>
