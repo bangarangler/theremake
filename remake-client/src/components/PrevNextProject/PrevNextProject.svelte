@@ -19,6 +19,7 @@
 		}
 	}
 	$: getPrevNext($previousAndNextProject, activePage.slug);
+	$: console.log('projectMetaData', $projectMetaData);
 </script>
 
 <div class="prevNextContainer">
@@ -32,7 +33,6 @@
 		<p>prev</p></a
 	>
 	<div class="svgContainer">
-		<!--<img class="svg" src={joyride} alt="arrow svg art from undraw" />-->
 		<ImageLoader srcset={joyride} ty="image/svg" alt="arrow svg art from undraw" />
 	</div>
 	<a
@@ -57,7 +57,7 @@
 					? 'nextPage'
 					: md.slug === prevPage
 					? 'prevPage'
-					: ''}>{md.projectTitle}</a
+					: 'nope'}>{md.projectTitle}</a
 			>
 		{/each}
 	</nav>
@@ -132,8 +132,8 @@
 		text-decoration: none;
 	}
 	.disabled {
-		cursor: not-allowed;
 		color: var(--projH6DarkLight);
+		pointer-events: none;
 	}
 	.arrowIcons {
 		display: block;
@@ -187,5 +187,8 @@
 	}
 	.prevPage {
 		grid-area: prevProj;
+	}
+	.nope {
+		display: none;
 	}
 </style>

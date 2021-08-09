@@ -1,13 +1,17 @@
 <script>
 	console.log('hello');
+	/* import { onMount } from 'svelte'; */
 	import GiFastArrow from 'svelte-icons/gi/GiFastArrow.svelte';
+	import plu from '$images/pluaris-dashboard.jpg';
 	export let projInfo;
-	/* $: bgEl = document.get */
+	$: console.log('projectImg', projInfo.projectTitle);
+	/* onMount(() => { */
+	/* }); */
 </script>
 
 <div class="flipCard">
 	<div class="side front">
-		<div class="img">&nbsp;</div>
+		<div class="img" id="dynamicBG">&nbsp;</div>
 		<h4 class="heading"><span class="headingSpan">{projInfo.projectTitle}</span></h4>
 		<h4 class="heading"><span class="headingSpan">{projInfo.projectTitle}</span></h4>
 		<div class="details">

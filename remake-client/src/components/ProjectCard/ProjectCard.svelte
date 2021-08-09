@@ -484,7 +484,22 @@
 		display: grid;
 		grid-template-columns: repeat(3, minmax(1px, 1fr));
 		grid-row-gap: 30px;
-		margin: 0 auto 100px;
-		width: 45%;
+		margin: 0 auto 200px;
+		width: 95%;
+	}
+	@media (min-width: 985px) {
+		.gridWrap {
+			width: 85%;
+		}
+	}
+	@media (min-width: 985px) {
+		.gridWrap {
+			width: 65%;
+		}
+	}
+	@media (min-width: 1395px) {
+		.gridWrap {
+			width: 45%;
+		}
 	}
 </style>
