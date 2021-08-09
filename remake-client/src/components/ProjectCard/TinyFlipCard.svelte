@@ -98,6 +98,16 @@
 	.flipCard:hover .back {
 		transform: rotateY(0);
 	}
+	/* @media (hover: hover) and (pointer: fine) { */
+	/* 	.flipCard:hover .front { */
+	/* 		transform: rotateY(-180deg); */
+	/* 	} */
+	/* } */
+	/* @media (hover: hover) and (pointer: fine) { */
+	/* 	.flipCard:hover .back { */
+	/* 		transform: rotateY(0); */
+	/* 	} */
+	/* } */
 
 	.front .img {
 		background-image: linear-gradient(to right bottom, var(--hotpink), var(--dracPurp)),
