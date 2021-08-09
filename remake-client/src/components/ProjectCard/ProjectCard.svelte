@@ -68,7 +68,7 @@
 {/each}
 
 <div class="gridWrap">
-	{#each projInfo.data as md}
+	{#each projInfo.data.slice(3, projInfo.data.length) as md}
 		<TinyFlipCard projInfo={md} />
 	{/each}
 </div>
@@ -482,10 +482,16 @@
 	/* } */
 	.gridWrap {
 		display: grid;
-		grid-template-columns: repeat(3, minmax(1px, 1fr));
+		grid-template-columns: minmax(1px, 1fr);
 		grid-row-gap: 30px;
 		margin: 0 auto 200px;
-		width: 95%;
+		width: min-content;
+	}
+	@media (min-width: 730px) {
+		.gridWrap {
+			grid-template-columns: repeat(3, minmax(1px, 1fr));
+			width: 95%;
+		}
 	}
 	@media (min-width: 985px) {
 		.gridWrap {
