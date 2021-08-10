@@ -131,7 +131,7 @@
 		width: 60%;
 	}
 	.front .headingSpan {
-		padding: 3px 6px;
+		padding: 0 6px;
 		-webkit-box-decoration-break: clone;
 		box-decoration-break: clone;
 		background-image: linear-gradient(

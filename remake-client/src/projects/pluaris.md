@@ -138,11 +138,14 @@ it on <span class="aws">AWS</span>, <span class="googlecloud">Google Cloud</span
 <div class="card oneImage">
   <picture>
   <source media="(min-width:1200px)" srcset={pluarisDesktop}>
-    <!--<img srcset={pluarisDesktop} type="image/jpg" alt="Pluaris application view of the desktop">-->
     <ImageLoader srcset={pluarisDesktop} ty="image/jpg" alt="Pluaris application view of the desktop" />
   </picture>
 </div>
 <div class="caption"><p>Dashboard view of Pluaris!</p></div>
+
+<div class="linkWrap">
+<a class="draw-outline draw-outline--tandem" href="https://nowigence.com" target="_blank", rel="external">Pluaris Marketing Site</a>
+</div>
 
 <ProjectInfo {projectRole} {techUsed} {organization} {year}/>
 
@@ -432,4 +435,101 @@ font-family: var(--slantText);
 letter-spacing: .04em;
 }
 
+.linkWrap {
+  width: 100%;
+  margin: 50px auto;
+display: flex;
+justify-content: center;
+}
+.draw-outline {
+  display: inline-block;
+  padding: 16px 28px;
+  border: 2px var(--dracPurp) solid;
+  text-align: center;
+  text-decoration: none;
+  color: var(--dracPurp);
+  position: relative;
+  transition: border-color 0.35s ease-in-out;
+  z-index: 1;
+}
+.draw-outline:before, .draw-outline:after {
+  content: '';
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  box-sizing: content-box;
+  z-index: -1;
+  transition: transform 0.25s ease-in-out;
+  padding-left: 2px;
+}
+.draw-outline:before {
+  top: -2px;
+  left: -2px;
+  border-top: 2px transparent solid;
+  border-right: 2px transparent solid;
+}
+.draw-outline:after {
+  bottom: -2px;
+  right: -2px;
+  border-bottom: 2px transparent solid;
+  border-left: 2px transparent solid;
+}
+.draw-outline:hover {
+  color: var(--hotpink);
+  transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+  border-color: var(--hotpink);
+  animation: outline-reset 0.35s 1 forwards;
+}
+.draw-outline:hover:before {
+  animation: top-right-border 0.75s 1 0.35s forwards;
+}
+.draw-outline:hover:after {
+  animation: bottom-left-border 0.75s 1 1.1s forwards;
+}
+.draw-outline--tandem:hover:after {
+  animation: bottom-left-border 0.75s 1 0.35s forwards;
+}
+.draw-outline:active:before, .draw-outline:active:after {
+  transform: scale(1.05);
+}
+@keyframes outline-reset {
+  0% {
+    border-color: var(--hotpink);
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+@keyframes top-right-border {
+  0% {
+    border-color: var(--hotpink);
+    width: 0px;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    border-color: var(--hotpink);
+    width: 100%;
+    height: 100%;
+  }
+}
+@keyframes bottom-left-border {
+  0% {
+    border-color: var(--hotpink);
+    width: 0px;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    border-color: var(--hotpink);
+    width: 100%;
+    height: 100%;
+  }
+}
 </style>
