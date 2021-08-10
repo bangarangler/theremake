@@ -85,29 +85,29 @@ $: isInViewport(animations[2].domElement)
 
 <div class="explanationContainer">
 
-<h2>Whats the holdup?</h2>
+<h2>Whats the problem?</h2>
 
-_WORK ~ LIFE_ is the current hang. I work like a **crazy** person. 13 - 16 hour
-days are not uncommon and I've been like that since I can remember. _"Workaholic"_ would be a fair assessment. In the midst of very long workdays; Personal work gets slowed down.
+_Lambda School_ put out a 2.5 day **hackathon challenge** for teams of up to 5 people. I worked on this with two other engineers, <a href="https://jon-bernal.netlify.app" rel="external" target="_blank">Jonathan Bernal</a> and <a href="#">Shawn Antonucci</a>. The problem we decided to solve was the difficulty around signing up for a group project or hackathon. Previously there were issues with students accidentally erasing someone else's name from a group project since everything was done in a google sheet document.
 
-Reaching out to all my **developers...** you guys know how it goes ; ) In
-fairness life at a startup is nuts. Lost count of the hats that we all wear <span class="emoji">🎩</span>.
+We created _Lambda group organizer_ so a spreadsheet of projects **(csv)** could be loaded into the system each month for the group signups and the system would take care of pulling out group names, descriptions, project proposals, number of students per role, etc. The system would create a new named project session for students to sign up for by project role. Students would have a specific period in which they could sign up and then it would close. The administrator could then download the updated csv of all the data with student's names and roles associated with each project.
+
+The system itself has three roles that are allowed, students, teachers assistants and admin. The students could only sign up for a project. The teacher's assistants could help with moving students from one group to another or adjusting group requirements as needed. The admin could of course do anything.
+
+After we finished the hackathon we were asked to actually help them put the **project into action** for the school because they intended to use it for student group signups! Everyone from the group got hired to companies while working on getting it production ready, but we trained our replacements before we moved on. I hope _Lambda_ students are getting to enjoy working on it, it was a blast to make!
+
+_Side note_: <a href="https://jon-bernal.netlify.app" rel="external" target="_blank">Jonathan Bernal</a> and <a href="#">Shawn Antonucci</a> were amazing to work with. I couldn't recommend them as team members more strongly. In fact **Jon** and I work together currently at <a href="https://nowigence.com" target="_blank" rel="external">Nowigence Inc!</a>
 
 <h3 class:slideInLeft={animations[0].isVis} class="domEle0">Backend</h3>
 
-This is our personal project! We have, are and will continue to use the best technology
-for the job. We like to keep up to date and utilize new tech. If it's
-performant and can scale we'll give it a go and see if we like it!
+This one is super simple. We put it on _netlify_ and setup a simple **CI/CD** with github main branch. The database was using _Google Firebase_ for speed and ease of setup when it came to the hackathon, however it has since been ported to <span class="mongo">MongoDB</span> last we where involved while optimizing it for production use.
 
 <h3 class:slideInRight={animations[1].isVis} class="domEle1">Frontend</h3>
 
-**Jon** put in content here!
-
-_Viewer_ See note for **Jon** above ; )
+We used <span class="react">React</span>, <span class="javascript">Javascript</span>, <span class="css">CSS</span> and Semantic UI. We needed the speed of a UI Library to quickly put something together that looked decent but was still somewhat modifiable. If I were going to work on this for years I would strip Semantic UI from the project to be honest. It can make for some messy css when you have to overide styles in a lot of places. However for a hackathon we didn't want to waste to much time on styling.
 
 <h3 class:slideInLeft={animations[2].isVis} class="domEle2">Dev Ops</h3>
 
-_Note to self..._ This needs content as well!
+Not a whole lot to say here, pretty much everything was a managed service since we were going for speed. That wouldn't be the case if we were going to hang on to this for a long time for cost reasons.
 
 </div>
 
@@ -465,5 +465,21 @@ justify-content: center;
     width: 100%;
     height: 100%;
   }
+}
+.react {
+color: #61dbfb;
+}
+.mongo {
+color: #4DB33D;
+}
+.javascript {
+color: #fcdc00;
+}
+.css {
+color: #1a0dab;
+}
+a:hover {
+  color: var(--dracPurp);
+  border-bottom: 2px solid var(--dracPurp);
 }
 </style>
