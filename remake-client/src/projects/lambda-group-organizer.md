@@ -87,7 +87,7 @@ $: isInViewport(animations[2].domElement)
 
 <h2>Whats the problem?</h2>
 
-_Lambda School_ put out a 2.5 day **hackathon challenge** for teams of up to 5 people. I worked on this with two other engineers, <a href="https://jon-bernal.netlify.app" rel="external" target="_blank">Jonathan Bernal</a> and <a href="#">Shawn Antonucci</a>. The problem we decided to solve was the difficulty around signing up for a group project or hackathon. Previously there were issues with students accidentally erasing someone else's name from a group project since everything was done in a google sheet document.
+_Lambda School_ put out a 2.5 day **hackathon challenge** for teams of up to 5 people. I worked on this with two other engineers, <a href="https://jon-bernal.netlify.app" rel="external" target="_blank">Jonathan Bernal</a> and <a href="https://www.linkedin.com/in/shawn-antonucci/">Shawn Antonucci</a>. The problem we decided to solve was the difficulty around signing up for a group project or hackathon. Previously there were issues with students accidentally erasing someone else's name from a group project since everything was done in a google sheet document.
 
 We created _Lambda group organizer_ so a spreadsheet of projects **(csv)** could be loaded into the system each month for the group signups and the system would take care of pulling out group names, descriptions, project proposals, number of students per role, etc. The system would create a new named project session for students to sign up for by project role. Students would have a specific period in which they could sign up and then it would close. The administrator could then download the updated csv of all the data with student's names and roles associated with each project.
 
@@ -95,7 +95,7 @@ The system itself has three roles that are allowed, students, teachers assistant
 
 After we finished the hackathon we were asked to actually help them put the **project into action** for the school because they intended to use it for student group signups! Everyone from the group got hired to companies while working on getting it production ready, but we trained our replacements before we moved on. I hope _Lambda_ students are getting to enjoy working on it, it was a blast to make!
 
-_Side note_: <a href="https://jon-bernal.netlify.app" rel="external" target="_blank">Jonathan Bernal</a> and <a href="#">Shawn Antonucci</a> were amazing to work with. I couldn't recommend them as team members more strongly. In fact **Jon** and I work together currently at <a href="https://nowigence.com" target="_blank" rel="external">Nowigence Inc!</a>
+_Side note_: <a href="https://jon-bernal.netlify.app" rel="external" target="_blank">Jonathan Bernal</a> and <a href="https://linkedin.com/in/shawn-antonucci/">Shawn Antonucci</a> were amazing to work with. I couldn't recommend them as team members more strongly. In fact **Jon** and I work together currently at <a href="https://nowigence.com" target="_blank" rel="external">Nowigence Inc!</a>
 
 <h3 class:slideInLeft={animations[0].isVis} class="domEle0">Backend</h3>
 
@@ -343,12 +343,6 @@ strong {
 font-weight: bold;
 color: var(--darkAquaLightHotPink);
 }
-.emoji {
-    background: var(--lightGray);
-    border-radius: 12px;
-    padding: 2px;
-}
-
 .oneImage {
 margin: 25px auto 0 auto;
 }
