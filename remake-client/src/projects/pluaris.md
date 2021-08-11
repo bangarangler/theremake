@@ -144,7 +144,7 @@ it on <span class="aws">AWS</span>, <span class="googlecloud">Google Cloud</span
 <div class="caption"><p>Dashboard view of Pluaris!</p></div>
 
 <div class="linkWrap">
-<a class="draw-outline draw-outline--tandem" href="https://nowigence.com" target="_blank", rel="external">Pluaris Marketing Site</a>
+<a class="draw-outline draw-outline--tandem" href="https://nowigence.com" target="_blank" rel="external">Pluaris Marketing Site</a>
 </div>
 
 <ProjectInfo {projectRole} {techUsed} {organization} {year}/>
