@@ -9,9 +9,9 @@
 	import eyeball from '$images/undraw-surveillance.svg?w=200;&format=svg&srcset';
 	export let innerWidth = null;
 	let toLargeText = 'Screen is getting kinda large there...';
-	$: if (innerWidth >= 1650) toLargeText = 'No Seriously; How wide does this go?';
-	$: if (innerWidth < 1650) toLargeText = 'Screen is getting kinda large there...';
-	$: if (innerWidth >= 1700) toLargeText = "That's it. No more. good day ; )";
+	$: if (innerWidth >= 1800) toLargeText = 'No Seriously; How wide does this go?';
+	$: if (innerWidth < 1700) toLargeText = 'Screen is getting kinda large there...';
+	$: if (innerWidth >= 1900) toLargeText = "That's it. No more. good day ; )";
 	export let stopRotation = false;
 	$: if (innerWidth < 500) stopRotation = true;
 	$: if (innerWidth > 500) stopRotation = false;
@@ -117,7 +117,7 @@
 		grid-area: toLarge;
 		display: none;
 	}
-	@media (min-width: 1500px) {
+	@media (min-width: 1700px) {
 		.wrapper {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 			grid-template-rows: minmax(0px, 1fr) minmax(0px, 1fr) minmax(0px, 1fr);
@@ -125,8 +125,10 @@
 				'description description title'
 				'techUsed card toLarge'
 				'techUsed card toLarge';
+			border-radius: 12px;
+			margin-bottom: 150px;
 		}
-		@media (min-width: 1700px) {
+		@media (min-width: 1900px) {
 			.wrapper {
 				border-radius: 12px;
 				margin-bottom: 150px;
@@ -152,7 +154,7 @@
 			-webkit-text-fill-color: transparent;
 		}
 	}
-	@media (min-width: 1700px) {
+	@media (min-width: 1900px) {
 		.maxCutOff {
 			max-width: 1700px;
 			margin: 0 auto;

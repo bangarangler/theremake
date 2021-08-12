@@ -19,7 +19,7 @@
 		}
 	}
 	$: getPrevNext($previousAndNextProject, activePage.slug);
-	$: console.log('projectMetaData', $projectMetaData);
+	//$: console.log('projectMetaData', $projectMetaData);
 </script>
 
 <div class="prevNextContainer">
