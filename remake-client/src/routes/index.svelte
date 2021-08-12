@@ -70,9 +70,16 @@
 		section {
 			padding: var(--containerPadding);
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) 3px minmax(50vmin, 1fr);
+			/* grid-template-columns: minmax(0, 1fr) 3px minmax(50vmin, 1fr); */
+			grid-template-columns: minmax(0, 1fr) 3px minmax(1px, 1fr);
 			grid-template-areas: 'title line blob';
 			margin-bottom: 200px;
+		}
+	}
+	@media (min-width: 1700px) {
+		section {
+			max-width: 1700px;
+			margin: 0 auto 200px;
 		}
 	}
 	.titleWrapper {
@@ -93,7 +100,8 @@
 			grid-area: 'title';
 			place-self: center;
 			justify-self: center;
-			width: 60%;
+			/* width: 60%; */
+			width: 500px;
 		}
 	}
 
@@ -129,7 +137,7 @@
 			background-clip: border-box;
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
-			text-align: unset;
+			/* text-align: unset; */
 		}
 	}
 
@@ -222,6 +230,11 @@
 		opacity: 0.8;
 		padding: 8px;
 	}
+	@media (min-width: 400px) {
+		h2 {
+			font-size: var(--h3);
+		}
+	}
 	@media (min-width: 500px) {
 		h2 {
 			top: 21px;
@@ -236,10 +249,16 @@
 			width: min-content;
 		}
 	}
+
+	@media (min-width: 650px) {
+		h2 {
+			font-size: var(--h2);
+		}
+	}
 	@media (min-width: 900px) {
 		h2 {
-			top: 100px;
-			left: 140px;
+			top: 37px;
+			left: 80px;
 			font-size: var(--h1);
 			width: -moz-fit-content;
 			width: fit-content;
@@ -265,22 +284,44 @@
 	}
 
 	.blobWrapper {
-		width: 45vmin;
-		height: 45vmin;
+		/* width: 45vmin; */
+		/* height: 45vmin; */
+		width: 200px;
+		height: 200px;
 		grid-area: 'blob';
 		position: relative;
 		place-self: center;
 	}
+	@media (min-width: 400px) {
+		.blobWrapper {
+			width: 300px;
+			height: 300px;
+		}
+	}
+	@media (min-width: 500px) {
+		.blobWrapper {
+			width: 350px;
+			height: 350px;
+		}
+	}
+	@media (min-width: 650px) {
+		.blobWrapper {
+			width: 400px;
+			height: 400px;
+		}
+	}
 	@media (min-width: 900px) {
 		.blobWrapper {
-			width: 55vmin;
-			height: 55vmin;
+			height: 500px;
+			width: 500px;
 		}
 	}
 	@media (min-width: 1200px) {
 		.blobWrapper {
-			width: 50vmin;
-			height: 50vmin;
+			/* width: 50vmin; */
+			/* height: 50vmin; */
+			width: 500px;
+			height: 500px;
 			grid-area: 'blob';
 			position: relative;
 			place-self: end;
@@ -302,7 +343,8 @@
 		background-image: none;
 		background-image: linear-gradient(45deg, #a162e8 15%, var(--aqua) 80%);
 		border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-		box-shadow: -10vmin 10vmin 0 rgba(255, 255, 255, 0.07);
+		/* box-shadow: -10vmin 10vmin 0 rgba(255, 255, 255, 0.07); */
+		box-shadow: -30px 30px 0 rgba(255, 255, 255, 0.07);
 	}
 	@media (min-width: 1200px) {
 		.blob {
@@ -315,7 +357,7 @@
 			background-image: none;
 			background-image: linear-gradient(45deg, #a162e8 15%, var(--aqua) 80%);
 			border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-			box-shadow: -8vmin 8vmin 0 rgba(255, 255, 255, 0.07);
+			box-shadow: -45px 45px 0 rgba(255, 255, 255, 0.07);
 		}
 	}
 </style>
