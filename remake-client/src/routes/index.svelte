@@ -73,7 +73,7 @@
 			/* grid-template-columns: minmax(0, 1fr) 3px minmax(50vmin, 1fr); */
 			grid-template-columns: minmax(0, 1fr) 3px minmax(1px, 1fr);
 			grid-template-areas: 'title line blob';
-			margin-bottom: 200px;
+			margin-bottom: 125px;
 		}
 	}
 	@media (min-width: 1700px) {
@@ -206,7 +206,7 @@
 		height: 3px;
 		min-height: 3px;
 		background: var(--hotpink);
-		margin: 25px auto 50px auto;
+		margin: 25px auto 100px auto;
 	}
 
 	@media (min-width: 1200px) {
@@ -214,6 +214,7 @@
 			width: 3px;
 			height: 100%;
 			background: var(--hotpink);
+			margin: 25px auto 50px auto;
 		}
 	}
 
