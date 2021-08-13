@@ -36,37 +36,6 @@
 		-moz-perspective: 150rem;
 		position: relative;
 		height: var(--height);
-		margin-left: -90px;
-	}
-	@media (min-width: 630px) {
-		.flipCard {
-			margin-left: -85px;
-		}
-	}
-	@media (min-width: 730px) {
-		.flipCard {
-			margin-left: 25px;
-		}
-	}
-	@media (min-width: 820px) {
-		.flipCard {
-			margin-left: 55px;
-		}
-	}
-	@media (min-width: 900px) {
-		.flipCard {
-			margin-left: 55px;
-		}
-	}
-	@media (min-width: 985px) {
-		.flipCard {
-			margin-left: 45px;
-		}
-	}
-	@media (min-width: 1395px) {
-		.flipCard {
-			margin-left: 15px;
-		}
 	}
 
 	.flipCard .side {
@@ -75,7 +44,7 @@
 		transition: all 0.8s ease;
 		position: absolute;
 		top: 0;
-		left: 0;
+		right: -102px;
 		backface-visibility: hidden;
 		border-radius: 12px;
 		overflow: hidden;

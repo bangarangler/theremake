@@ -486,6 +486,7 @@
 		display: grid;
 		grid-template-columns: minmax(1px, 1fr);
 		grid-row-gap: 30px;
+		place-items: center;
 		margin: 0 auto 200px;
 		width: min-content;
 	}
