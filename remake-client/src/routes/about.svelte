@@ -7,6 +7,3 @@
 <Bio />
 <Testimonials />
 <ResumeButtons />
-
-<style>
-</style>
