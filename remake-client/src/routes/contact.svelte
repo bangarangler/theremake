@@ -1,10 +1,10 @@
 <script>
 	import Moon from '$components/Moon/Moon.svelte';
 	import ContactForm from '$components/ContactForm/ContactForm.svelte';
+	import ResumeButtons from '$components/ResumeButtons/ResumeButtons.svelte';
 	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { theme } from '$stores/themeStore';
-	import { browser } from '$app/env';
 	let visible = false;
 	onMount(() => {
 		visible = true;
@@ -49,26 +49,7 @@
 	<div class="formWrapper">
 		<ContactForm />
 	</div>
-	{#if browser}
-		<div class="resWrap">
-			<div class="resumeDownload">
-				<p class="prettyResText">Pretty Resume</p>
-				<button class="glow-on-hover" type="button"
-					><a href="/software-engineer-jon-palacio-pretty.pdf" rel="external" target="_blank"
-						>Download Pretty</a
-					></button
-				>
-			</div>
-			<div class="resumeDownload">
-				<p class="proResText">Pro Resume</p>
-				<button class="glow-on-hover" type="button"
-					><a href="/software-engineer-jon-palacio-pro.pdf" rel="external" target="_blank"
-						>Download Pro!</a
-					></button
-				>
-			</div>
-		</div>
-	{/if}
+	<ResumeButtons />
 </section>
 
 <style>
@@ -229,53 +210,6 @@
 		.formWrapper {
 			max-width: 1400px;
 		}
-	}
-	.resWrap {
-		display: grid;
-		grid-template-columns: minmax(1px, 1fr);
-		width: 95%;
-		margin: 0 auto 100px;
-	}
-	@media (min-width: 580px) {
-		.resWrap {
-			width: 80%;
-			grid-template-columns: repeat(2, minmax(1px, 1fr));
-		}
-	}
-	@media (min-width: 950px) {
-		.resWrap {
-			width: 50%;
-		}
-	}
-	@media (min-width: 1200px) {
-		.resWrap {
-			max-width: 800px;
-		}
-	}
-	.resumeDownload {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		margin-bottom: 35px;
-	}
-	@media (min-width: 580px) {
-		.resumeDownload {
-			margin-bottom: unset;
-		}
-	}
-	.resumeDownload p {
-		font-size: var(--h4);
-	}
-	.resumeDownload .prettyResText {
-		color: var(--darkAquaLightHotPink);
-		font-family: var(--slantText);
-		letter-spacing: 2px;
-	}
-	.resumeDownload .proResText {
-		color: var(--dracPurp);
-		font-family: var(--slantText);
-		letter-spacing: 2px;
 	}
 	.glow-on-hover a {
 		text-decoration: none;

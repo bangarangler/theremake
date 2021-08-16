@@ -50,6 +50,18 @@
 		overflow: hidden;
 		box-shadow: var(--level2);
 	}
+	@media (min-width: 420px) {
+		.flipCard .side {
+			width: 400px;
+			right: -200px;
+		}
+	}
+	@media (min-width: 730px) {
+		.flipCard .side {
+			width: 200px;
+			right: -102px;
+		}
+	}
 
 	.flipCard .front {
 		background: var(--cardBG);
