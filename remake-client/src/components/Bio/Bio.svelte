@@ -214,10 +214,21 @@ two screens and nice background."
 	.bioText {
 		width: 80%;
 		margin: 50px auto 100px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
 	}
 	@media (min-width: 500px) {
 		.bioText {
 			margin: 0px auto 100px;
+		}
+	}
+	@media (min-width: 700px) {
+		.bioText {
+			margin: 0px auto 100px;
+			text-align: justify;
 		}
 	}
 	@media (min-width: 1060px) {
