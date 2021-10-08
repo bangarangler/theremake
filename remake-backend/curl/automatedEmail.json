@@ -1,0 +1,6 @@
+{
+  "name": "automated email",
+  "email": "rando@hogwartz.com",
+  "subject": "Automated Email because Google is silly",
+  "message": "Google is being dumb and if I don't hit this endpoint.  It will freak out and mess with my settings"
+}
