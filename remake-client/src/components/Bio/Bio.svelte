@@ -7,11 +7,11 @@
 <div class="bioText">
 	<h1>What does Jon do?</h1>
 	<p>
-		Jon is from North Carolina where he works as a Software Engineer at Nowigence Inc. He has
-		significant experience with Web technologies, building and securing APIs and developing
-		performant and scalable backends, putting together frontends to give users a phenomenal user
-		experience and has recently fallen down the Gopher (GoLang) rabbit hole! In his spare time, Jon
-		enjoys Netflix, reading, and oddly enough... more coding!
+		Jon is from North Carolina where he works as a Software Engineer at Vault. He has significant
+		experience with Web technologies, building and securing APIs and developing performant and
+		scalable backends, putting together frontends to give users a phenomenal user experience and has
+		recently fallen down the Gopher (GoLang) rabbit hole! In his spare time, Jon enjoys Netflix,
+		reading, and oddly enough... more coding!
 	</p>
 	<p>
 		Jon's a proud father, husband, and Linux nerd! When not hard at work you will find him spending
