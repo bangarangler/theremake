@@ -103,7 +103,7 @@ This one is super simple. We put it on _netlify_ and setup a simple **CI/CD** wi
 
 <h3 class:slideInRight={animations[1].isVis} class="domEle1">Frontend</h3>
 
-We used <span class="react">React</span>, <span class="javascript">Javascript</span>, <span class="css">CSS</span> and Semantic UI. We needed the speed of a UI Library to quickly put something together that looked decent but was still somewhat modifiable. If I were going to work on this for years I would strip Semantic UI from the project to be honest. It can make for some messy css when you have to overide styles in a lot of places. However for a hackathon we didn't want to waste to much time on styling.
+We used <span class="react">React</span>, <span class="javascript">Javascript</span>, <span class="css">CSS</span> and Semantic UI. We needed the speed of a UI Library to quickly put something together that looked decent but was still somewhat modifiable. If I were going to work on this for years I would strip Semantic UI from the project to be honest. It can make for some messy css when you have to override styles in a lot of places. However for a hackathon we didn't want to waste to much time on styling.
 
 <h3 class:slideInLeft={animations[2].isVis} class="domEle2">Dev Ops</h3>
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { projectMetaData } from '$stores/projectMetaData';
-	import type { ProjectMetaDataType } from '$stores/projectMetaData';
+  //import type { ProjectMetaDataType } from '$stores/projectMetaData';
 	import { paginate } from '$components/Testimonials/testimonialPagination';
 	import Wave from '$components/Wave/Wave.svelte';
 	import TinyFlipCard from '$components/ProjectCard/TinyFlipCard.svelte';
