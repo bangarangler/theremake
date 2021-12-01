@@ -65,6 +65,6 @@ export const testimonials: Testimonial[] = [
 		title: 'Frontend Software Developer',
 		company: 'Lowes',
 		reference:
-			'Jon was my Engineering manager at Nowigence.  He continuously helped out and assisted with development.  From looking into documentation for a few third-party integrations; to discussing the pros and cons of utilizing certain data structures and analyzing preformance.  He was a joy to work with and was very beneficial in keeping the team on track and hitting our deadlines.  He always had great feedback on pull requests and genuinely wanted to help everyone improve and develop stronger and cleaner code.  I look forward to working with Jon again in the future.'
+			'I had a great time working with Jon at Nowigence. Jon is a great leader with great problem solving skills. I love his work ethics and he is always willing help and solve complex problems with great enthusiasm. He is very passionate about coding and is a great team mate. Not just that but he is great at managing people and is definitely a jack of all trades. I would have Jon on my team any day and would love to work with him in future if it happens.'
 	}
 ];
