@@ -95,7 +95,7 @@ The system itself has three roles that are allowed, students, teachers assistant
 
 After we finished the hackathon we were asked to actually help them put the **project into action** for the school because they intended to use it for student group signups! Everyone from the group got hired to companies while working on getting it production ready, but we trained our replacements before we moved on. I hope _Lambda_ students are getting to enjoy working on it, it was a blast to make!
 
-_Side note_: <a href="https://jon-bernal.netlify.app" rel="external" target="_blank">Jonathan Bernal</a> and <a href="https://linkedin.com/in/shawn-antonucci/">Shawn Antonucci</a> were amazing to work with. I couldn't recommend them as team members more strongly. In fact **Jon** and I work together currently at <a href="https://nowigence.com" target="_blank" rel="external">Nowigence Inc!</a>
+_Side note_: <a href="https://jon-bernal.netlify.app" rel="external" target="_blank">Jonathan Bernal</a> and <a href="https://linkedin.com/in/shawn-antonucci/">Shawn Antonucci</a> were amazing to work with. I couldn't recommend them as team members more strongly. In fact **Jon** and I worked together at <a href="https://nowigence.com" target="_blank" rel="external">Nowigence Inc</a> where we overhauled, and ran the development efforts for the company.
 
 <h3 class:slideInLeft={animations[0].isVis} class="domEle0">Backend</h3>
 

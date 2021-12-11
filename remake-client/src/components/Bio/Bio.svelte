@@ -218,6 +218,9 @@ two screens and nice background."
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		text-align: justify;
+	}
+	.bioText h1 {
 		text-align: center;
 	}
 	@media (min-width: 500px) {
